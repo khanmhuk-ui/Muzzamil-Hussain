@@ -5,31 +5,44 @@ index.html
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Muzzamil Hussain | Virtual Medical Assistant Portfolio</title>
+<title>Muzzamil Hussain | Virtual Medical Assistant</title>
 
-<meta name="description" content="Muzzamil Hussain — Registered Nurse, Virtual Medical Assistant and Healthcare Administrative Support Professional.">
+<meta name="description" content="Muzzamil Hussain — Registered Nurse and Virtual Medical Assistant providing healthcare administrative support, patient scheduling, insurance verification, prior authorization, telehealth coordination and EHR/EMR support.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   GLOBAL
-========================= */
+/* =====================================
+   VARIABLES
+===================================== */
 
 :root {
-    --primary: #173b4d;
-    --secondary: #2d6a73;
-    --accent: #c99a5b;
-    --cream: #f8f5ef;
-    --light: #ffffff;
-    --dark: #16242c;
-    --muted: #6f7c82;
-    --border: #e4e2dc;
+    --bg: #101719;
+    --bg-soft: #162124;
+    --card: #1a282b;
+    --card-light: #203134;
+
+    --text: #f4f0e8;
+    --muted: #a9b6b5;
+
+    --accent: #d8ad72;
+    --accent-light: #e6c58f;
+
+    --border: rgba(255,255,255,0.10);
+
+    --white: #ffffff;
+
+    --max: 1180px;
 }
+
+
+/* =====================================
+   RESET
+===================================== */
 
 * {
     margin: 0;
@@ -42,9 +55,9 @@ html {
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    color: var(--dark);
-    background: var(--light);
+    font-family: "DM Sans", sans-serif;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.7;
 }
 
@@ -55,75 +68,53 @@ h3 {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
     display: block;
 }
 
 .container {
-    width: min(1120px, 90%);
+    width: min(var(--max), 90%);
     margin: auto;
 }
 
 section {
-    padding: 100px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-title span {
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.section-title h2 {
-    color: var(--primary);
-    font-size: 44px;
-    margin-top: 10px;
-}
-
-.section-title p {
-    max-width: 650px;
-    margin: 15px auto 0;
-    color: var(--muted);
+    padding: 110px 0;
 }
 
 
-/* =========================
+/* =====================================
    NAVIGATION
-========================= */
+===================================== */
 
 header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255,255,255,0.96);
+
+    background: rgba(16,23,25,0.92);
+    backdrop-filter: blur(15px);
+
     border-bottom: 1px solid var(--border);
 }
 
 nav {
     height: 78px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
     font-family: "Playfair Display", serif;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: 700;
-    color: var(--primary);
 }
 
 .logo span {
@@ -132,14 +123,14 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 27px;
+    gap: 28px;
     list-style: none;
 }
 
 .nav-links a {
     font-size: 13px;
-    font-weight: 600;
-    color: var(--dark);
+    color: var(--muted);
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -153,224 +144,411 @@ nav {
 }
 
 
-/* =========================
+/* =====================================
    HERO
-========================= */
+===================================== */
 
 .hero {
     min-height: 100vh;
-    padding-top: 150px;
+
     display: flex;
     align-items: center;
-    background: var(--cream);
+
+    padding-top: 150px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(216,173,114,0.12),
+            transparent 35%
+        ),
+
+        var(--bg);
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+
+    grid-template-columns:
+        1.15fr
+        0.85fr;
+
+    gap: 80px;
+
     align-items: center;
-    gap: 70px;
 }
 
-.hero-tag {
+.hero-label {
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
 
-.hero h1 {
-    font-size: clamp(48px, 7vw, 78px);
-    color: var(--primary);
-    line-height: 1.08;
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
     margin-bottom: 25px;
 }
 
-.hero h1 span {
-    color: var(--secondary);
+.hero h1 {
+    font-size: clamp(50px, 7vw, 86px);
+
+    line-height: 1.05;
+
+    margin-bottom: 28px;
 }
 
-.hero p {
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero-description {
     color: var(--muted);
-    max-width: 650px;
+
     font-size: 17px;
+
+    max-width: 650px;
 }
 
 .hero-buttons {
-    margin-top: 32px;
     display: flex;
-    gap: 14px;
+
+    gap: 15px;
+
     flex-wrap: wrap;
+
+    margin-top: 35px;
 }
 
 .btn {
-    padding: 13px 24px;
-    border-radius: 4px;
+    display: inline-block;
+
+    padding: 14px 25px;
+
     font-size: 13px;
+
     font-weight: 700;
-    transition: .3s;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
 }
 
 .btn-primary {
-    background: var(--primary);
-    color: white;
+    background: var(--accent);
+
+    color: #111;
 }
 
 .btn-primary:hover {
-    background: var(--secondary);
+    background: var(--accent-light);
+
+    transform: translateY(-2px);
 }
 
 .btn-outline {
-    border: 1px solid var(--primary);
-    color: var(--primary);
+    border: 1px solid var(--border);
+
+    color: var(--text);
 }
 
 .btn-outline:hover {
-    background: var(--primary);
-    color: white;
+    border-color: var(--accent);
+
+    color: var(--accent);
 }
 
-.hero-photo {
-    min-height: 500px;
-    background: #e7e1d6;
+
+/* HERO IMAGE */
+
+.hero-image {
+    min-height: 540px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #243538,
+            #172325
+        );
+
+    border: 1px solid var(--border);
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
+    position: relative;
+}
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border: 1px solid rgba(216,173,114,0.35);
+}
+
+.placeholder {
+    position: relative;
+
     text-align: center;
+
     color: var(--muted);
+
+    padding: 40px;
 }
 
-.hero-photo div {
-    padding: 30px;
+.placeholder strong {
+    display: block;
+
+    color: var(--accent);
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
 }
 
 
-/* =========================
+/* =====================================
+   SECTION HEADERS
+===================================== */
+
+.section-header {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.section-header.center {
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+}
+
+.section-label {
+    color: var(--accent);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.section-header h2 {
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    margin-top: 12px;
+}
+
+.section-header p {
+    color: var(--muted);
+
+    margin-top: 18px;
+}
+
+
+/* =====================================
    ABOUT
-========================= */
+===================================== */
 
 .about {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
+
+    grid-template-columns:
+        0.8fr
+        1.2fr;
+
+    gap: 80px;
+
     align-items: center;
 }
 
 .about-image {
     height: 480px;
-    background: #e7e1d6;
-    display: grid;
-    place-items: center;
-    color: var(--muted);
-    text-align: center;
-}
 
-.about-content h2 {
-    color: var(--primary);
-    font-size: 43px;
-    margin-bottom: 20px;
+    background: #1c2b2e;
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 .about-content p {
     color: var(--muted);
-    margin-bottom: 17px;
+
+    margin-bottom: 18px;
+}
+
+.about-highlights {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.highlight {
+    padding: 20px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+}
+
+.highlight strong {
+    color: var(--accent);
+
+    display: block;
+
+    margin-bottom: 5px;
 }
 
 
-/* =========================
+/* =====================================
    TOOLBOX
-========================= */
+===================================== */
 
 .toolbox {
-    background: var(--cream);
+    background: var(--bg);
 }
 
-.toolbox-grid {
+.tools-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap: 15px;
 }
 
 .tool {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 25px;
+    padding: 27px 20px;
+
     text-align: center;
-    transition: .3s;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    transition: 0.3s;
 }
 
 .tool:hover {
     transform: translateY(-5px);
+
     border-color: var(--accent);
 }
 
 .tool h3 {
-    color: var(--primary);
     font-size: 18px;
 }
 
 
-/* =========================
+/* =====================================
    SERVICES
-========================= */
+===================================== */
 
 .services {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .service {
+    padding: 35px;
+
+    background: var(--card);
+
     border: 1px solid var(--border);
-    padding: 30px;
-    background: white;
+
+    transition: 0.3s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(216,173,114,0.5);
 }
 
 .service-number {
     color: var(--accent);
-    font-size: 13px;
-    font-weight: 800;
+
+    font-size: 12px;
+
+    font-weight: 700;
 }
 
 .service h3 {
-    color: var(--primary);
-    font-size: 22px;
-    margin: 10px 0;
+    font-size: 24px;
+
+    margin: 12px 0;
 }
 
 .service p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =====================================
    EXPERIENCE
-========================= */
+===================================== */
 
 .experience {
-    background: var(--cream);
+    background: var(--bg);
 }
 
 .timeline {
-    max-width: 850px;
+    max-width: 900px;
+
     margin: auto;
 }
 
 .timeline-item {
-    padding: 0 0 45px 35px;
-    border-left: 1px solid var(--accent);
     position: relative;
+
+    padding:
+        0
+        0
+        50px
+        40px;
+
+    border-left:
+        1px solid
+        rgba(216,173,114,0.4);
 }
 
 .timeline-item:last-child {
@@ -379,23 +557,27 @@ nav {
 
 .timeline-dot {
     position: absolute;
-    left: -5px;
-    top: 0;
-    width: 9px;
-    height: 9px;
-    background: var(--accent);
-    border-radius: 50%;
-}
 
-.timeline-item h3 {
-    color: var(--primary);
-    font-size: 25px;
+    left: -5px;
+
+    top: 0;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
 }
 
 .timeline-date {
     color: var(--accent);
+
     font-size: 12px;
+
     font-weight: 700;
+
     margin: 7px 0 10px;
 }
 
@@ -404,355 +586,487 @@ nav {
 }
 
 
-/* =========================
+/* =====================================
    CASE STUDIES
-========================= */
+===================================== */
 
 .case-studies {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .case-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
 }
 
 .case-card {
+    background: var(--card);
+
     border: 1px solid var(--border);
-    padding: 30px;
+
+    padding: 35px;
 }
 
 .case-card span {
     color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
+
+    font-size: 11px;
+
     text-transform: uppercase;
+
+    letter-spacing: 2px;
 }
 
 .case-card h3 {
-    color: var(--primary);
-    font-size: 23px;
-    margin: 13px 0;
+    font-size: 25px;
+
+    margin: 15px 0;
 }
 
 .case-card p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =====================================
    WORK SAMPLES
-========================= */
+===================================== */
 
 .work {
-    background: var(--cream);
+    background: var(--bg);
 }
 
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .work-card {
-    background: white;
+    background: var(--card);
+
     border: 1px solid var(--border);
+
+    overflow: hidden;
 }
 
 .work-image {
-    height: 230px;
-    background: #e5e0d7;
-    display: grid;
-    place-items: center;
+    height: 240px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #273a3c,
+            #1a282b
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
     text-align: center;
-    padding: 25px;
+
     color: var(--muted);
+
+    padding: 30px;
+}
+
+.work-image strong {
+    color: var(--accent);
+
+    display: block;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
 }
 
 .work-info {
-    padding: 22px;
+    padding: 25px;
 }
 
 .work-info h3 {
-    color: var(--primary);
     font-size: 21px;
 }
 
 .work-info p {
     color: var(--muted);
+
     font-size: 13px;
+
     margin-top: 7px;
 }
 
 
-/* =========================
+/* =====================================
    TESTIMONIALS
-========================= */
+===================================== */
 
 .testimonials {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .testimonial {
+    background: var(--card);
+
+    padding: 35px;
+
     border: 1px solid var(--border);
-    padding: 30px;
 }
 
 .testimonial p {
     color: var(--muted);
+
     font-style: italic;
 }
 
 .testimonial strong {
     display: block;
-    color: var(--primary);
+
     margin-top: 20px;
+
+    color: var(--accent);
 }
 
 
-/* =========================
+/* =====================================
    CERTIFICATIONS
-========================= */
+===================================== */
 
 .certifications {
-    background: var(--cream);
+    background: var(--bg);
 }
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .cert-card {
-    height: 260px;
-    border: 1px dashed #b9b3a9;
-    background: white;
-    display: grid;
-    place-items: center;
+    height: 280px;
+
+    background: var(--card);
+
+    border: 1px dashed
+        rgba(216,173,114,0.4);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
     text-align: center;
-    padding: 25px;
+
     color: var(--muted);
 }
 
+.cert-card strong {
+    display: block;
 
-/* =========================
+    color: var(--accent);
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================
    WORKFLOW
-========================= */
+===================================== */
 
 .workflow {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .workflow-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap: 20px;
 }
 
 .workflow-card {
     padding: 30px;
-    border-top: 2px solid var(--accent);
+
+    border-top:
+        2px solid
+        var(--accent);
+
+    background: var(--card);
 }
 
 .workflow-number {
-    color: var(--accent);
     font-size: 30px;
-    font-weight: 800;
+
+    color: var(--accent);
+
+    font-weight: 700;
 }
 
 .workflow-card h3 {
-    color: var(--primary);
     margin: 10px 0;
 }
 
 .workflow-card p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =====================================
    WHY CHOOSE ME
-========================= */
+===================================== */
 
 .why {
-    background: var(--primary);
-    color: white;
-}
-
-.why .section-title h2 {
-    color: white;
-}
-
-.why .section-title p {
-    color: rgba(255,255,255,.7);
+    background: #0b1113;
 }
 
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .why-card {
-    border: 1px solid rgba(255,255,255,.15);
     padding: 30px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.025);
 }
 
 .why-card h3 {
-    color: white;
     margin-bottom: 10px;
 }
 
 .why-card p {
-    color: rgba(255,255,255,.65);
+    color: var(--muted);
+
     font-size: 14px;
 }
 
 
-/* =========================
+/* =====================================
    CTA
-========================= */
+===================================== */
 
 .cta {
-    background: var(--cream);
+    background: var(--bg);
 }
 
 .cta-box {
-    background: var(--secondary);
-    padding: 70px;
+    padding: 80px 50px;
+
     text-align: center;
-    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #24383a,
+            #162426
+        );
+
+    border: 1px solid var(--border);
 }
 
 .cta-box h2 {
-    color: white;
-    font-size: 45px;
+    font-size: 50px;
 }
 
 .cta-box p {
     max-width: 650px;
-    margin: 15px auto 25px;
-    color: rgba(255,255,255,.75);
+
+    margin: 18px auto 30px;
+
+    color: var(--muted);
 }
 
 
-/* =========================
+/* =====================================
    CONTACT
-========================= */
+===================================== */
 
 .contact {
-    background: white;
+    background: var(--bg-soft);
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
 
-.contact-content h2 {
-    color: var(--primary);
-    font-size: 45px;
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 70px;
 }
 
 .contact-content p {
     color: var(--muted);
-    margin: 20px 0;
 }
 
 .contact-details {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
-.contact-details div {
-    padding: 13px 0;
-    border-bottom: 1px solid var(--border);
+.contact-detail {
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+.contact-detail span {
+    color: var(--accent);
+
+    font-size: 12px;
 }
 
 form {
-    background: var(--cream);
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
     padding: 35px;
 }
 
 .form-group {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 label {
     display: block;
+
     font-size: 12px;
-    font-weight: 700;
+
     margin-bottom: 6px;
+
+    color: var(--muted);
 }
 
 input,
 textarea,
 select {
     width: 100%;
-    padding: 13px;
-    border: 1px solid var(--border);
+
+    padding: 13px 15px;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    border:
+        1px solid
+        var(--border);
+
     font-family: inherit;
+
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
 }
 
 textarea {
     min-height: 130px;
+
+    resize: vertical;
 }
 
 
-/* =========================
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 footer {
-    background: var(--dark);
-    color: white;
-    padding: 50px 0 25px;
+    background: #090e10;
+
+    padding: 60px 0 25px;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr;
+
     gap: 50px;
-    margin-bottom: 35px;
+
+    padding-bottom: 40px;
 }
 
 footer h3 {
-    color: white;
     margin-bottom: 15px;
 }
 
 footer p,
 footer a {
-    color: rgba(255,255,255,.55);
+    color: var(--muted);
+
     font-size: 13px;
 }
 
 .footer-links {
     display: grid;
+
     gap: 8px;
 }
 
+.footer-links a:hover {
+    color: var(--accent);
+}
+
 .copyright {
-    border-top: 1px solid rgba(255,255,255,.1);
     padding-top: 20px;
-    color: rgba(255,255,255,.4);
+
+    border-top:
+        1px solid
+        var(--border);
+
+    color: #697575;
+
     font-size: 12px;
 }
 
 
-/* =========================
+/* =====================================
    MOBILE
-========================= */
+===================================== */
 
 @media(max-width:900px) {
 
@@ -762,41 +1076,59 @@ footer a {
         grid-template-columns: 1fr;
     }
 
-    .toolbox-grid,
+    .tools-grid,
     .services-grid,
     .case-grid,
     .work-grid,
     .testimonial-grid,
     .cert-grid,
     .why-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .workflow-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
     }
 
+    .hero-image {
+        min-height: 400px;
+    }
+
 }
+
 
 @media(max-width:650px) {
 
     section {
-        padding: 70px 0;
+        padding: 80px 0;
     }
 
     .nav-links {
         display: none;
+
         position: absolute;
+
         top: 78px;
+
         left: 0;
+
         right: 0;
-        background: white;
+
         padding: 25px;
+
+        background: var(--bg-soft);
+
         flex-direction: column;
+
+        border-bottom:
+            1px solid
+            var(--border);
     }
 
     .nav-links.active {
@@ -807,7 +1139,7 @@ footer a {
         display: block;
     }
 
-    .toolbox-grid,
+    .tools-grid,
     .services-grid,
     .case-grid,
     .work-grid,
@@ -819,19 +1151,23 @@ footer a {
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 50px;
     }
 
-    .section-title h2 {
-        font-size: 36px;
+    .section-header h2 {
+        font-size: 38px;
     }
 
     .cta-box {
-        padding: 45px 25px;
+        padding: 60px 25px;
     }
 
     .cta-box h2 {
-        font-size: 35px;
+        font-size: 38px;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
     }
 
 }
@@ -843,9 +1179,9 @@ footer a {
 <body>
 
 
-<!-- =========================
+<!-- =====================================
      NAVIGATION
-========================= -->
+===================================== -->
 
 <header>
 
@@ -855,19 +1191,53 @@ footer a {
 Muzzamil<span>.</span>
 </a>
 
-<div class="menu" onclick="toggleMenu()">
+<div
+class="menu"
+onclick="toggleMenu()"
+>
 ☰
 </div>
 
-<ul class="nav-links" id="navLinks">
+<ul
+class="nav-links"
+id="navLinks"
+>
 
-<li><a href="#about">About</a></li>
-<li><a href="#toolbox">Toolbox</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#work">Work</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#contact">Connect</a></li>
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+<li>
+<a href="#services">
+Services
+</a>
+</li>
+
+<li>
+<a href="#experience">
+Experience
+</a>
+</li>
+
+<li>
+<a href="#work">
+Work
+</a>
+</li>
+
+<li>
+<a href="#certifications">
+Certifications
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Connect
+</a>
+</li>
 
 </ul>
 
@@ -876,37 +1246,68 @@ Muzzamil<span>.</span>
 </header>
 
 
-<!-- =========================
+<!-- =====================================
      HERO
-========================= -->
+===================================== -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home"
+>
 
 <div class="container hero-grid">
 
+
 <div>
 
-<div class="hero-tag">
-Registered Nurse • Virtual Medical Assistant
+<div class="hero-label">
+
+Registered Nurse
+•
+Virtual Medical Assistant
+
 </div>
 
+
 <h1>
-Healthcare Support With
-<span>Purpose & Precision.</span>
+
+Healthcare Support
+
+With
+
+<span>
+Purpose.
+</span>
+
 </h1>
 
-<p>
-I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing professional healthcare administrative support, patient scheduling, insurance verification, prior authorization, telehealth coordination, patient communication, and EHR/EMR workflow assistance.
+
+<p class="hero-description">
+
+I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing reliable healthcare administrative and patient support services. I help healthcare practices manage scheduling, patient communication, insurance verification, prior authorization, telehealth coordination, medication refill follow-up, and EHR/EMR workflows.
+
 </p>
+
 
 <div class="hero-buttons">
 
-<a href="#contact" class="btn btn-primary">
+<a
+href="#contact"
+class="btn btn-primary"
+>
+
 Request Virtual Assistant Services
+
 </a>
 
-<a href="#services" class="btn btn-outline">
+
+<a
+href="#services"
+class="btn btn-outline"
+>
+
 Explore My Services
+
 </a>
 
 </div>
@@ -914,45 +1315,48 @@ Explore My Services
 </div>
 
 
-<div class="hero-photo">
+<div class="hero-image">
 
-<div>
+<div class="placeholder">
 
 <strong>
-PROFILE PHOTO PLACEHOLDER
+YOUR PROFESSIONAL PHOTO
 </strong>
 
-<br>
-
-Add your professional photo here.
+Add your professional photograph here.
 
 </div>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      ABOUT
-========================= -->
+===================================== -->
 
-<section class="about" id="about">
+<section
+class="about"
+id="about"
+>
 
 <div class="container about-grid">
 
+
 <div class="about-image">
 
-<div>
+<div class="placeholder">
+
 <strong>
-ABOUT IMAGE PLACEHOLDER
+ABOUT ME IMAGE
 </strong>
 
-<br><br>
+Professional image placeholder
 
-Your professional image can be added here.
 </div>
 
 </div>
@@ -960,9 +1364,12 @@ Your professional image can be added here.
 
 <div class="about-content">
 
-<div class="section-title" style="text-align:left;margin-bottom:20px;">
 
-<span>About Me</span>
+<div class="section-header">
+
+<div class="section-label">
+About Me
+</div>
 
 <h2>
 Healthcare Knowledge Meets Virtual Support
@@ -970,17 +1377,76 @@ Healthcare Knowledge Meets Virtual Support
 
 </div>
 
+
 <p>
+
 I bring a combination of nursing education, healthcare experience, patient-facing communication, and administrative support skills to virtual healthcare environments.
+
 </p>
 
+
 <p>
+
 My experience includes patient scheduling, new patient and follow-up appointments, telehealth visits, insurance verification and eligibility checks, prior authorization support, medication refill coordination, referral coordination, patient inquiries, and patient satisfaction support.
+
 </p>
 
+
 <p>
-I understand the importance of clear communication, organized workflows, timely follow-up, and respectful patient interaction in healthcare settings.
+
+My approach is centered on professional communication, organized workflows, timely follow-up, and respectful patient interaction.
+
 </p>
+
+
+<div class="about-highlights">
+
+
+<div class="highlight">
+
+<strong>
+Healthcare Background
+</strong>
+
+Healthcare and nursing foundation
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+Virtual Support
+</strong>
+
+Remote healthcare administrative assistance
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+Patient Focus
+</strong>
+
+Professional patient communication
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+EHR / EMR
+</strong>
+
+Experience with multiple healthcare platforms
+
+</div>
+
+
+</div>
 
 </div>
 
@@ -989,54 +1455,123 @@ I understand the importance of clear communication, organized workflows, timely 
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      TOOLBOX
-========================= -->
+===================================== -->
 
-<section class="toolbox" id="toolbox">
+<section
+class="toolbox"
+id="toolbox"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>My Toolbox</span>
+<div class="section-header center">
+
+<div class="section-label">
+My Toolbox
+</div>
 
 <h2>
 Healthcare Technology & Platforms
 </h2>
 
 <p>
-Platforms and tools I have worked with across healthcare and administrative workflows.
+
+Healthcare systems and tools I have worked with.
+
 </p>
 
 </div>
 
 
-<div class="toolbox-grid">
+<div class="tools-grid">
 
-<div class="tool"><h3>eClinicalWorks</h3></div>
 
-<div class="tool"><h3>DrChrono</h3></div>
+<div class="tool">
+<h3>
+eClinicalWorks
+</h3>
+</div>
 
-<div class="tool"><h3>Practice Fusion</h3></div>
 
-<div class="tool"><h3>DrNotes</h3></div>
+<div class="tool">
+<h3>
+DrChrono
+</h3>
+</div>
 
-<div class="tool"><h3>AthenaHealth</h3></div>
 
-<div class="tool"><h3>AltuMed</h3></div>
+<div class="tool">
+<h3>
+Practice Fusion
+</h3>
+</div>
 
-<div class="tool"><h3>Square</h3></div>
 
-<div class="tool"><h3>Insurance Portals</h3></div>
+<div class="tool">
+<h3>
+DrNotes
+</h3>
+</div>
 
-<div class="tool"><h3>RingCentral</h3></div>
 
-<div class="tool"><h3>Excel</h3></div>
+<div class="tool">
+<h3>
+AthenaHealth
+</h3>
+</div>
 
-<div class="tool"><h3>Google Sheets</h3></div>
 
-<div class="tool"><h3>Telehealth Workflows</h3></div>
+<div class="tool">
+<h3>
+AltuMed
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+Square
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+Insurance Portals
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+RingCentral
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+Microsoft Excel
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+Google Sheets
+</h3>
+</div>
+
+
+<div class="tool">
+<h3>
+Telehealth Platforms
+</h3>
+</div>
+
 
 </div>
 
@@ -1045,24 +1580,32 @@ Platforms and tools I have worked with across healthcare and administrative work
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      SERVICES
-========================= -->
+===================================== -->
 
-<section class="services" id="services">
+<section
+class="services"
+id="services"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>What I Do</span>
+<div class="section-header center">
+
+<div class="section-label">
+What I Do
+</div>
 
 <h2>
 Virtual Healthcare Support Services
 </h2>
 
 <p>
-Practical support designed around patient communication, healthcare administration, and practice workflow needs.
+
+Practical healthcare administrative and patient support for medical practices and healthcare teams.
+
 </p>
 
 </div>
@@ -1073,14 +1616,18 @@ Practical support designed around patient communication, healthcare administrati
 
 <div class="service">
 
-<span class="service-number">01</span>
+<div class="service-number">
+01
+</div>
 
 <h3>
 Patient Scheduling
 </h3>
 
 <p>
-New patient appointments, follow-up visits, rescheduling, cancellations, and appointment coordination.
+
+New patient appointments, follow-ups, rescheduling, cancellations, and appointment coordination.
+
 </p>
 
 </div>
@@ -1088,14 +1635,18 @@ New patient appointments, follow-up visits, rescheduling, cancellations, and app
 
 <div class="service">
 
-<span class="service-number">02</span>
+<div class="service-number">
+02
+</div>
 
 <h3>
 Telehealth Coordination
 </h3>
 
 <p>
-Support for virtual appointments, patient communication, and telehealth-related administrative workflows.
+
+Administrative support for virtual appointments and patient communication.
+
 </p>
 
 </div>
@@ -1103,14 +1654,18 @@ Support for virtual appointments, patient communication, and telehealth-related 
 
 <div class="service">
 
-<span class="service-number">03</span>
+<div class="service-number">
+03
+</div>
 
 <h3>
 Insurance Verification
 </h3>
 
 <p>
-Insurance eligibility and benefits verification and payer-related administrative workflows.
+
+Insurance eligibility and benefits verification support.
+
 </p>
 
 </div>
@@ -1118,14 +1673,18 @@ Insurance eligibility and benefits verification and payer-related administrative
 
 <div class="service">
 
-<span class="service-number">04</span>
+<div class="service-number">
+04
+</div>
 
 <h3>
 Prior Authorization
 </h3>
 
 <p>
-Support with prior authorization processes, documentation coordination, and follow-up.
+
+Support with authorization workflows, documentation coordination, and follow-up.
+
 </p>
 
 </div>
@@ -1133,14 +1692,18 @@ Support with prior authorization processes, documentation coordination, and foll
 
 <div class="service">
 
-<span class="service-number">05</span>
+<div class="service-number">
+05
+</div>
 
 <h3>
 Patient Support
 </h3>
 
 <p>
-Inbound and outbound communication, patient inquiries, follow-ups, and service coordination.
+
+Inbound and outbound communication, patient inquiries, and follow-up support.
+
 </p>
 
 </div>
@@ -1148,14 +1711,18 @@ Inbound and outbound communication, patient inquiries, follow-ups, and service c
 
 <div class="service">
 
-<span class="service-number">06</span>
+<div class="service-number">
+06
+</div>
 
 <h3>
 Medication Refill Coordination
 </h3>
 
 <p>
-Follow-up on medication refill requests and coordination with appropriate healthcare teams.
+
+Follow-up on medication refill requests and communication with appropriate healthcare teams.
+
 </p>
 
 </div>
@@ -1163,14 +1730,18 @@ Follow-up on medication refill requests and coordination with appropriate health
 
 <div class="service">
 
-<span class="service-number">07</span>
+<div class="service-number">
+07
+</div>
 
 <h3>
 Referral Coordination
 </h3>
 
 <p>
-Support with referral-related administrative tasks and communication.
+
+Administrative support for referrals and related communication.
+
 </p>
 
 </div>
@@ -1178,14 +1749,18 @@ Support with referral-related administrative tasks and communication.
 
 <div class="service">
 
-<span class="service-number">08</span>
+<div class="service-number">
+08
+</div>
 
 <h3>
 Patient Satisfaction
 </h3>
 
 <p>
-Professional patient interaction focused on clear communication, responsiveness, and trust.
+
+Professional communication focused on responsiveness and positive patient experience.
+
 </p>
 
 </div>
@@ -1193,14 +1768,18 @@ Professional patient interaction focused on clear communication, responsiveness,
 
 <div class="service">
 
-<span class="service-number">09</span>
+<div class="service-number">
+09
+</div>
 
 <h3>
 Healthcare Administrative Support
 </h3>
 
 <p>
-EHR/EMR workflows, documentation support, data entry, communication, and administrative coordination.
+
+EHR/EMR workflows, data entry, documentation support, and administrative coordination.
+
 </p>
 
 </div>
@@ -1213,24 +1792,32 @@ EHR/EMR workflows, documentation support, data entry, communication, and adminis
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      EXPERIENCE
-========================= -->
+===================================== -->
 
-<section class="experience" id="experience">
+<section
+class="experience"
+id="experience"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>Where I've Worked</span>
+<div class="section-header center">
+
+<div class="section-label">
+Experience
+</div>
 
 <h2>
-Professional Experience
+Where I've Worked
 </h2>
 
 <p>
+
 Healthcare, patient support, scheduling, and administrative experience.
+
 </p>
 
 </div>
@@ -1241,7 +1828,7 @@ Healthcare, patient support, scheduling, and administrative experience.
 
 <div class="timeline-item">
 
-<span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
 <h3>
 Virtual Medical Assistant
@@ -1252,7 +1839,9 @@ Healthcare & Telehealth Support
 </div>
 
 <p>
-Supported healthcare operations through patient scheduling, telehealth coordination, patient communication, medication refill follow-up, referrals, and administrative workflows.
+
+Supported healthcare operations through patient scheduling, telehealth coordination, patient communication, medication refill follow-up, referral coordination, and administrative workflows.
+
 </p>
 
 </div>
@@ -1260,7 +1849,7 @@ Supported healthcare operations through patient scheduling, telehealth coordinat
 
 <div class="timeline-item">
 
-<span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
 <h3>
 Patient Scheduler
@@ -1271,7 +1860,9 @@ Family Medicine • Neurology • Cardiology
 </div>
 
 <p>
-Managed appointment scheduling, new patient and follow-up visits, telehealth appointments, insurance verification, provider coordination, and patient communication.
+
+Managed new patient and follow-up appointments, telehealth scheduling, patient communication, insurance verification, and provider coordination.
+
 </p>
 
 </div>
@@ -1279,7 +1870,7 @@ Managed appointment scheduling, new patient and follow-up visits, telehealth app
 
 <div class="timeline-item">
 
-<span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
 <h3>
 Patient Support Specialist
@@ -1290,7 +1881,9 @@ Healthcare Administrative Support
 </div>
 
 <p>
-Handled patient communication, billing-related inquiries, insurance eligibility processes, and support for healthcare administrative workflows.
+
+Handled patient communication, billing-related inquiries, insurance eligibility processes, and healthcare administrative support.
+
 </p>
 
 </div>
@@ -1298,7 +1891,7 @@ Handled patient communication, billing-related inquiries, insurance eligibility 
 
 <div class="timeline-item">
 
-<span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
 <h3>
 Prior Authorization Support
@@ -1309,7 +1902,9 @@ Healthcare Administration
 </div>
 
 <p>
-Supported authorization-related workflows, documentation coordination, insurance communication, and follow-up activities.
+
+Supported authorization-related workflows, documentation coordination, insurance communication, and follow-up.
+
 </p>
 
 </div>
@@ -1317,7 +1912,7 @@ Supported authorization-related workflows, documentation coordination, insurance
 
 <div class="timeline-item">
 
-<span class="timeline-dot"></span>
+<div class="timeline-dot"></div>
 
 <h3>
 Registered Nurse
@@ -1328,7 +1923,9 @@ Nursing Background
 </div>
 
 <p>
+
 Nursing education and healthcare experience providing a clinical foundation for patient-centered communication and healthcare support.
+
 </p>
 
 </div>
@@ -1341,17 +1938,22 @@ Nursing education and healthcare experience providing a clinical foundation for 
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      CASE STUDIES
-========================= -->
+===================================== -->
 
-<section class="case-studies">
+<section
+class="case-studies"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>Case Studies</span>
+<div class="section-header center">
+
+<div class="section-label">
+Case Studies
+</div>
 
 <h2>
 Healthcare Workflow Experience
@@ -1365,14 +1967,18 @@ Healthcare Workflow Experience
 
 <div class="case-card">
 
-<span>Case Study 01</span>
+<span>
+Case Study 01
+</span>
 
 <h3>
 Patient Scheduling Workflow
 </h3>
 
 <p>
+
 Supported new patient and follow-up appointment scheduling, telehealth visits, provider coordination, and patient communication.
+
 </p>
 
 </div>
@@ -1380,14 +1986,18 @@ Supported new patient and follow-up appointment scheduling, telehealth visits, p
 
 <div class="case-card">
 
-<span>Case Study 02</span>
+<span>
+Case Study 02
+</span>
 
 <h3>
-Insurance & Authorization Workflow
+Insurance & Authorization
 </h3>
 
 <p>
+
 Supported insurance eligibility verification and prior authorization-related administrative processes.
+
 </p>
 
 </div>
@@ -1395,14 +2005,18 @@ Supported insurance eligibility verification and prior authorization-related adm
 
 <div class="case-card">
 
-<span>Case Study 03</span>
+<span>
+Case Study 03
+</span>
 
 <h3>
 Patient Support Workflow
 </h3>
 
 <p>
-Managed patient inquiries, follow-ups, medication refill coordination, referrals, and communication to support a smoother patient experience.
+
+Managed patient inquiries, follow-ups, medication refill coordination, referrals, and communication.
+
 </p>
 
 </div>
@@ -1415,24 +2029,32 @@ Managed patient inquiries, follow-ups, medication refill coordination, referrals
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      WORK SAMPLES
-========================= -->
+===================================== -->
 
-<section class="work" id="work">
+<section
+class="work"
+id="work"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>My Recent Work</span>
+<div class="section-header center">
+
+<div class="section-label">
+My Recent Work
+</div>
 
 <h2>
 EHR & EMR Work Samples
 </h2>
 
 <p>
-De-identified screenshots and professional work samples will be added here.
+
+De-identified screenshots and professional work samples will be displayed here.
+
 </p>
 
 </div>
@@ -1446,11 +2068,13 @@ De-identified screenshots and professional work samples will be added here.
 <div class="work-image">
 
 <div>
-<strong>DrChrono</strong>
-<br><br>
+
+<strong>
+DrChrono
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1475,11 +2099,13 @@ Scheduling and healthcare administrative workflow experience.
 <div class="work-image">
 
 <div>
-<strong>eClinicalWorks</strong>
-<br><br>
+
+<strong>
+eClinicalWorks
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1491,7 +2117,7 @@ eClinicalWorks Workflow
 </h3>
 
 <p>
-EHR workflow and healthcare administrative experience.
+EHR and healthcare administrative workflow experience.
 </p>
 
 </div>
@@ -1504,11 +2130,13 @@ EHR workflow and healthcare administrative experience.
 <div class="work-image">
 
 <div>
-<strong>Practice Fusion</strong>
-<br><br>
+
+<strong>
+Practice Fusion
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1520,7 +2148,7 @@ Practice Fusion Workflow
 </h3>
 
 <p>
-EHR-related workflow experience.
+EHR-related healthcare workflow experience.
 </p>
 
 </div>
@@ -1533,11 +2161,13 @@ EHR-related workflow experience.
 <div class="work-image">
 
 <div>
-<strong>DrNotes</strong>
-<br><br>
+
+<strong>
+DrNotes
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1562,11 +2192,13 @@ Healthcare documentation and administrative workflow.
 <div class="work-image">
 
 <div>
-<strong>AthenaHealth</strong>
-<br><br>
+
+<strong>
+AthenaHealth
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1578,7 +2210,7 @@ AthenaHealth Experience
 </h3>
 
 <p>
-Healthcare administrative and EHR-related workflow.
+Healthcare administrative and EHR workflow.
 </p>
 
 </div>
@@ -1591,11 +2223,13 @@ Healthcare administrative and EHR-related workflow.
 <div class="work-image">
 
 <div>
-<strong>AltuMed</strong>
-<br><br>
+
+<strong>
+AltuMed
+</strong>
+
 SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
+
 </div>
 
 </div>
@@ -1622,24 +2256,31 @@ Healthcare platform and administrative workflow.
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      TESTIMONIALS
-========================= -->
+===================================== -->
 
-<section class="testimonials">
+<section
+class="testimonials"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>What Clients Say</span>
+<div class="section-header center">
+
+<div class="section-label">
+Testimonials
+</div>
 
 <h2>
-Testimonials
+What Clients Say
 </h2>
 
 <p>
-Verified client testimonials will be added here.
+
+Verified testimonials can be added here.
+
 </p>
 
 </div>
@@ -1651,7 +2292,7 @@ Verified client testimonials will be added here.
 <div class="testimonial">
 
 <p>
-"Your verified client testimonial can be added here."
+"Verified client testimonial will be added here."
 </p>
 
 <strong>
@@ -1664,7 +2305,7 @@ Client Name
 <div class="testimonial">
 
 <p>
-"Your verified client testimonial can be added here."
+"Verified client testimonial will be added here."
 </p>
 
 <strong>
@@ -1677,7 +2318,7 @@ Client Name
 <div class="testimonial">
 
 <p>
-"Your verified client testimonial can be added here."
+"Verified client testimonial will be added here."
 </p>
 
 <strong>
@@ -1694,24 +2335,32 @@ Client Name
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      CERTIFICATIONS
-========================= -->
+===================================== -->
 
-<section class="certifications" id="certifications">
+<section
+class="certifications"
+id="certifications"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>Credentials</span>
+<div class="section-header center">
+
+<div class="section-label">
+Credentials
+</div>
 
 <h2>
 Professional Certifications
 </h2>
 
 <p>
-Your verified certificates and professional training credentials will be displayed here.
+
+Your certificates and professional training credentials will be displayed here.
+
 </p>
 
 </div>
@@ -1725,12 +2374,10 @@ Your verified certificates and professional training credentials will be display
 <div>
 
 <strong>
-CERTIFICATE IMAGE
+CERTIFICATE 01
 </strong>
 
-<br><br>
-
-Upload certificate here.
+Upload your certificate image here.
 
 </div>
 
@@ -1742,12 +2389,10 @@ Upload certificate here.
 <div>
 
 <strong>
-CERTIFICATE IMAGE
+CERTIFICATE 02
 </strong>
 
-<br><br>
-
-Upload certificate here.
+Upload your certificate image here.
 
 </div>
 
@@ -1759,12 +2404,10 @@ Upload certificate here.
 <div>
 
 <strong>
-CERTIFICATE IMAGE
+CERTIFICATE 03
 </strong>
 
-<br><br>
-
-Upload certificate here.
+Upload your certificate image here.
 
 </div>
 
@@ -1778,17 +2421,22 @@ Upload certificate here.
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      WORKFLOW
-========================= -->
+===================================== -->
 
-<section class="workflow">
+<section
+class="workflow"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>My Workflow</span>
+<div class="section-header center">
+
+<div class="section-label">
+My Workflow
+</div>
 
 <h2>
 How I Work
@@ -1811,7 +2459,9 @@ Understand
 </h3>
 
 <p>
-Understand your practice, workflow, patients, and specific administrative requirements.
+
+Understand your practice, workflow, patients, and administrative requirements.
+
 </p>
 
 </div>
@@ -1828,7 +2478,9 @@ Organize
 </h3>
 
 <p>
-Organize tasks, appointments, patient requests, documentation, and administrative priorities.
+
+Organize tasks, appointments, patient requests, and administrative priorities.
+
 </p>
 
 </div>
@@ -1845,7 +2497,9 @@ Coordinate
 </h3>
 
 <p>
+
 Coordinate with patients, providers, insurance teams, and healthcare staff.
+
 </p>
 
 </div>
@@ -1862,7 +2516,9 @@ Follow Through
 </h3>
 
 <p>
-Track outstanding tasks and complete appropriate follow-ups to keep workflows moving.
+
+Track outstanding tasks and complete appropriate follow-ups.
+
 </p>
 
 </div>
@@ -1875,25 +2531,26 @@ Track outstanding tasks and complete appropriate follow-ups to keep workflows mo
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      WHY CHOOSE ME
-========================= -->
+===================================== -->
 
-<section class="why">
+<section
+class="why"
+>
 
 <div class="container">
 
-<div class="section-title">
 
-<span>Why Choose Me</span>
+<div class="section-header center">
+
+<div class="section-label">
+Why Choose Me
+</div>
 
 <h2>
 Healthcare Support With a Patient-Centered Approach
 </h2>
-
-<p>
-A combination of healthcare knowledge, administrative experience, and professional communication.
-</p>
 
 </div>
 
@@ -1908,7 +2565,9 @@ Healthcare Background
 </h3>
 
 <p>
+
 Nursing education and healthcare experience provide a strong understanding of patient-centered environments.
+
 </p>
 
 </div>
@@ -1921,7 +2580,9 @@ EHR / EMR Experience
 </h3>
 
 <p>
+
 Experience working with multiple healthcare technology platforms and administrative workflows.
+
 </p>
 
 </div>
@@ -1934,7 +2595,9 @@ Patient Communication
 </h3>
 
 <p>
+
 Professional communication focused on clarity, respect, responsiveness, and patient support.
+
 </p>
 
 </div>
@@ -1947,7 +2610,9 @@ Organized Workflow
 </h3>
 
 <p>
+
 A structured approach to scheduling, insurance processes, authorization tasks, and follow-up.
+
 </p>
 
 </div>
@@ -1960,7 +2625,9 @@ Remote Support
 </h3>
 
 <p>
+
 Comfortable working with digital tools and remote healthcare administrative workflows.
+
 </p>
 
 </div>
@@ -1973,7 +2640,9 @@ Patient Satisfaction
 </h3>
 
 <p>
+
 Focused on helping patients feel heard, respected, supported, and properly guided.
+
 </p>
 
 </div>
@@ -1986,13 +2655,16 @@ Focused on helping patients feel heard, respected, supported, and properly guide
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      CTA
-========================= -->
+===================================== -->
 
-<section class="cta">
+<section
+class="cta"
+>
 
 <div class="container">
+
 
 <div class="cta-box">
 
@@ -2001,11 +2673,18 @@ Let's Simplify Your Healthcare Workflow
 </h2>
 
 <p>
+
 Looking for reliable Virtual Medical Assistant and healthcare administrative support? Let's discuss how I can support your practice.
+
 </p>
 
-<a href="#contact" class="btn btn-primary">
+<a
+href="#contact"
+class="btn btn-primary"
+>
+
 Request Virtual Assistant Services
+
 </a>
 
 </div>
@@ -2015,58 +2694,90 @@ Request Virtual Assistant Services
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      CONTACT
-========================= -->
+===================================== -->
 
-<section class="contact" id="contact">
+<section
+class="contact"
+id="contact"
+>
 
 <div class="container contact-grid">
 
 
-<div class="contact-content">
+<div>
 
-<div class="section-title" style="text-align:left;margin-bottom:10px;">
+<div class="section-header">
 
-<span>Connect</span>
+<div class="section-label">
+Connect
+</div>
 
 <h2>
 Let's Work Together
 </h2>
 
-</div>
-
 <p>
+
 If you are looking for professional Virtual Medical Assistant or healthcare administrative support, send me a message with your requirements.
+
 </p>
+
+</div>
 
 
 <div class="contact-details">
 
-<div>
-<strong>Email</strong>
+
+<div class="contact-detail">
+
+<span>
+EMAIL
+</span>
+
 <br>
+
 YOUR-EMAIL@example.com
+
 </div>
 
-<div>
-<strong>LinkedIn</strong>
+
+<div class="contact-detail">
+
+<span>
+LINKEDIN
+</span>
+
 <br>
+
 Add Your LinkedIn Profile
+
 </div>
 
-<div>
-<strong>Availability</strong>
+
+<div class="contact-detail">
+
+<span>
+AVAILABILITY
+</span>
+
 <br>
+
 Available for Virtual Healthcare Support Opportunities
+
+</div>
+
+
 </div>
 
 </div>
 
-</div>
 
+<form
+onsubmit="submitForm(event)"
+>
 
-<form onsubmit="submitForm(event)">
 
 <div class="form-group">
 
@@ -2106,17 +2817,29 @@ Service
 
 <select>
 
-<option>Virtual Medical Assistant</option>
+<option>
+Virtual Medical Assistant
+</option>
 
-<option>Patient Scheduling</option>
+<option>
+Patient Scheduling
+</option>
 
-<option>Prior Authorization</option>
+<option>
+Prior Authorization
+</option>
 
-<option>Insurance Verification</option>
+<option>
+Insurance Verification
+</option>
 
-<option>Patient Support</option>
+<option>
+Patient Support
+</option>
 
-<option>Telehealth Support</option>
+<option>
+Telehealth Support
+</option>
 
 </select>
 
@@ -2141,7 +2864,9 @@ required
 type="submit"
 class="btn btn-primary"
 >
+
 Send Request
+
 </button>
 
 </form>
@@ -2152,13 +2877,14 @@ Send Request
 </section>
 
 
-<!-- =========================
+<!-- =====================================
      FOOTER
-========================= -->
+===================================== -->
 
 <footer>
 
 <div class="container">
+
 
 <div class="footer-grid">
 
@@ -2170,7 +2896,9 @@ Muzzamil Hussain
 </h3>
 
 <p>
+
 Registered Nurse and Virtual Medical Assistant providing healthcare administrative, patient support, scheduling, and virtual assistance services.
+
 </p>
 
 </div>
@@ -2184,13 +2912,21 @@ Explore
 
 <div class="footer-links">
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
-<a href="#services">Services</a>
+<a href="#services">
+Services
+</a>
 
-<a href="#experience">Experience</a>
+<a href="#experience">
+Experience
+</a>
 
-<a href="#work">Work Samples</a>
+<a href="#work">
+Work Samples
+</a>
 
 </div>
 
@@ -2205,9 +2941,13 @@ Connect
 
 <div class="footer-links">
 
-<a href="#contact">Request Services</a>
+<a href="#contact">
+Request Services
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </div>
 
@@ -2222,6 +2962,7 @@ Connect
 © 2026 Muzzamil Hussain. All rights reserved.
 
 </div>
+
 
 </div>
 
@@ -2244,14 +2985,17 @@ document
 .querySelectorAll(".nav-links a")
 .forEach(function(link) {
 
-link.addEventListener("click", function() {
+link.addEventListener(
+"click",
+function() {
 
 document
 .getElementById("navLinks")
 .classList
 .remove("active");
 
-});
+}
+);
 
 });
 
@@ -2261,7 +3005,7 @@ function submitForm(event) {
 event.preventDefault();
 
 alert(
-"Thank you for your message. Please connect this form to your email service before publishing."
+"Thank you for your message. The contact form needs to be connected to an email service before it can send messages."
 );
 
 }
@@ -2271,4 +3015,3 @@ alert(
 
 </body>
 </html>
-
