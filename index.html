@@ -15,7 +15,6 @@ index.html
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
@@ -44,6 +43,8 @@ index.html
     --green: #62d69c;
     --orange: #ffad63;
     --pink: #f184b6;
+    --red: #ff7272;
+    --yellow: #ffd166;
 
     --border: rgba(255,255,255,0.12);
 
@@ -62,6 +63,7 @@ index.html
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -99,7 +101,7 @@ img {
 }
 
 /* =========================================================
-   SCROLL PROGRESS
+   PROGRESS BAR
 ========================================================= */
 
 .progress-bar {
@@ -107,8 +109,15 @@ img {
     top: 0;
     left: 0;
     width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal), var(--accent), var(--purple));
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--teal),
+        var(--blue),
+        var(--purple),
+        var(--pink),
+        var(--accent)
+    );
     z-index: 3000;
 }
 
@@ -122,16 +131,13 @@ header {
     left: 0;
     width: 100%;
     z-index: 2000;
-
-    background: rgba(7,17,20,0.82);
+    background: rgba(7,17,20,0.86);
     backdrop-filter: blur(18px);
-
     border-bottom: 1px solid var(--border);
 }
 
 nav {
     height: 78px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -149,7 +155,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 26px;
+    gap: 23px;
     list-style: none;
 }
 
@@ -176,12 +182,9 @@ nav {
 
 .hero {
     min-height: 100vh;
-
     display: flex;
     align-items: center;
-
     padding-top: 140px;
-
     position: relative;
     overflow: hidden;
 
@@ -191,15 +194,23 @@ nav {
         var(--bg);
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(85,198,192,0.06);
+    right: -220px;
+    top: 10%;
+    animation: slowRotate 25s linear infinite;
+}
+
 .hero-grid {
     display: grid;
-
     grid-template-columns: 1.05fr 0.95fr;
-
     gap: 70px;
-
     align-items: center;
-
     position: relative;
     z-index: 2;
 }
@@ -209,7 +220,6 @@ nav {
 }
 
 @keyframes heroText {
-
     from {
         opacity: 0;
         transform: translateY(35px);
@@ -219,32 +229,22 @@ nav {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 .hero-label {
     color: var(--accent);
-
     text-transform: uppercase;
-
     letter-spacing: 3px;
-
     font-size: 11px;
-
     font-weight: 700;
-
     margin-bottom: 25px;
 }
 
 .hero h1 {
     font-family: "Playfair Display", serif;
-
     font-size: clamp(48px, 6vw, 78px);
-
     line-height: 1.05;
-
     letter-spacing: -2px;
-
     margin-bottom: 28px;
 }
 
@@ -254,93 +254,68 @@ nav {
 
 .hero-description {
     color: var(--muted);
-
     font-size: 17px;
-
     max-width: 700px;
 }
 
 .hero-buttons {
     display: flex;
-
     gap: 14px;
-
     flex-wrap: wrap;
-
     margin-top: 35px;
 }
 
 .btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 9px;
-
     padding: 14px 24px;
-
     font-size: 13px;
-
     font-weight: 700;
-
-    border-radius: 5px;
-
+    border-radius: 6px;
     transition: 0.3s ease;
-
     cursor: pointer;
 }
 
 .btn-primary {
     background: var(--accent);
-
     color: #111;
-
     border: 1px solid var(--accent);
 }
 
 .btn-primary:hover {
     background: var(--accent-light);
-
     transform: translateY(-3px);
-
     box-shadow: 0 15px 35px rgba(215,173,115,0.20);
 }
 
 .btn-outline {
     border: 1px solid var(--border);
-
     color: var(--text);
 }
 
 .btn-outline:hover {
     border-color: var(--teal);
-
     color: var(--teal);
-
     transform: translateY(-3px);
 }
 
 /* =========================================================
    HERO PROFILE IMAGE
+   SEPARATE FROM ABOUT IMAGE
 ========================================================= */
 
 .hero-visual {
     position: relative;
-
-    min-height: 620px;
-
+    min-height: 650px;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     animation: heroImage 1.2s ease forwards;
 }
 
 @keyframes heroImage {
-
     from {
         opacity: 0;
         transform: translateX(40px);
@@ -350,101 +325,74 @@ nav {
         opacity: 1;
         transform: translateX(0);
     }
-
 }
-
-/* Main circular image */
 
 .profile-orbit {
     position: relative;
-
-    width: 430px;
-    height: 430px;
-
+    width: 480px;
+    height: 480px;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     animation: floating 6s ease-in-out infinite;
 }
 
 @keyframes floating {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-12px);
     }
-
 }
-
-/* Glowing circular background */
 
 .profile-orbit::before {
     content: "";
-
     position: absolute;
-
-    width: 430px;
-    height: 430px;
-
+    width: 440px;
+    height: 440px;
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(85,198,192,0.16),
-            rgba(215,173,115,0.08) 45%,
+            rgba(85,198,192,0.20),
+            rgba(215,173,115,0.09) 45%,
             transparent 70%
         );
 
-    filter: blur(8px);
-
+    filter: blur(10px);
     animation: glowPulse 4s ease-in-out infinite;
 }
 
 @keyframes glowPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(0.96);
         opacity: 0.7;
     }
 
     50% {
-        transform: scale(1.06);
+        transform: scale(1.07);
         opacity: 1;
     }
-
 }
-
-/* Outer orbit */
 
 .profile-orbit::after {
     content: "";
-
     position: absolute;
-
-    width: 500px;
-    height: 500px;
-
+    width: 535px;
+    height: 535px;
     border-radius: 50%;
 
     border: 1px solid rgba(215,173,115,0.28);
-
     border-top-color: var(--teal);
-
-    border-right-color: rgba(181,140,255,0.65);
+    border-right-color: rgba(181,140,255,0.75);
 
     animation: rotateOrbit 18s linear infinite;
 }
 
 @keyframes rotateOrbit {
-
     from {
         transform: rotate(0deg);
     }
@@ -452,97 +400,92 @@ nav {
     to {
         transform: rotate(360deg);
     }
-
 }
 
-/* Profile image */
+/* PROFILE IMAGE ONLY */
 
 .profile-image {
     position: relative;
-
     z-index: 5;
 
-    width: 390px;
-    height: 390px;
+    width: 420px;
+    height: 420px;
 
     object-fit: cover;
-
     border-radius: 50%;
 
-    border: 7px solid rgba(255,255,255,0.10);
+    border: 7px solid rgba(255,255,255,0.12);
 
     box-shadow:
         0 0 0 12px rgba(215,173,115,0.07),
-        0 0 0 24px rgba(85,198,192,0.045),
-        0 25px 70px rgba(0,0,0,0.45);
+        0 0 0 25px rgba(85,198,192,0.045),
+        0 30px 80px rgba(0,0,0,0.50);
 
-    animation: imageBreath 5s ease-in-out infinite;
-
+    animation:
+        imageBreath 5s ease-in-out infinite,
+        imageGlow 4s ease-in-out infinite;
 }
 
 @keyframes imageBreath {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.025);
     }
-
 }
 
-/* Orbiting decorative dots */
+@keyframes imageGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 0 12px rgba(215,173,115,0.07),
+            0 0 0 25px rgba(85,198,192,0.045),
+            0 30px 80px rgba(0,0,0,0.50);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 15px rgba(215,173,115,0.10),
+            0 0 0 30px rgba(85,198,192,0.07),
+            0 30px 90px rgba(85,198,192,0.16);
+    }
+}
 
 .orbit-dot {
     position: absolute;
-
-    width: 13px;
-    height: 13px;
-
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-
     z-index: 10;
-
-    box-shadow: 0 0 20px currentColor;
+    box-shadow: 0 0 25px currentColor;
 }
 
 .dot-one {
-    top: 45px;
+    top: 42px;
     right: 40px;
-
     background: var(--teal);
-
     color: var(--teal);
-
     animation: dotMove 6s linear infinite;
 }
 
 .dot-two {
-    bottom: 70px;
+    bottom: 65px;
     left: 35px;
-
     background: var(--accent);
-
     color: var(--accent);
-
     animation: dotMove 8s linear infinite reverse;
 }
 
 .dot-three {
-    top: 100px;
+    top: 95px;
     left: 35px;
-
     background: var(--purple);
-
     color: var(--purple);
-
     animation: dotMove 7s linear infinite;
 }
 
 @keyframes dotMove {
-
     0% {
         transform: translate(0,0);
     }
@@ -562,27 +505,19 @@ nav {
     100% {
         transform: translate(0,0);
     }
-
 }
-
-/* Floating professional badge */
 
 .hero-badge {
     position: absolute;
-
-    bottom: 70px;
-    left: 10px;
-
+    bottom: 55px;
+    left: 5px;
     z-index: 20;
 
     padding: 17px 21px;
 
     background: rgba(11,24,27,0.94);
-
     border: 1px solid var(--border);
-
     backdrop-filter: blur(15px);
-
     border-radius: 10px;
 
     box-shadow: 0 20px 45px rgba(0,0,0,0.28);
@@ -591,29 +526,23 @@ nav {
 }
 
 @keyframes badgeFloat {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-8px);
     }
-
 }
 
 .hero-badge strong {
     color: var(--accent);
-
     display: block;
-
     font-size: 13px;
 }
 
 .hero-badge span {
     color: var(--muted);
-
     font-size: 12px;
 }
 
@@ -623,54 +552,42 @@ nav {
 
 .section-header {
     max-width: 760px;
-
     margin-bottom: 60px;
 }
 
 .section-header.center {
     margin-left: auto;
     margin-right: auto;
-
     text-align: center;
 }
 
 .section-label {
     color: var(--accent);
-
     text-transform: uppercase;
-
     letter-spacing: 3px;
-
     font-size: 11px;
-
     font-weight: 700;
 }
 
 .section-header h2 {
     font-family: "Playfair Display", serif;
-
     font-size: clamp(36px, 5vw, 52px);
-
     line-height: 1.12;
-
     margin-top: 12px;
 }
 
 .section-header p {
     color: var(--muted);
-
     margin-top: 18px;
 }
 
 /* =========================================================
-   REVEAL
+   REVEAL ANIMATION
 ========================================================= */
 
 .reveal {
     opacity: 0;
-
     transform: translateY(35px);
-
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
@@ -678,12 +595,12 @@ nav {
 
 .reveal.active {
     opacity: 1;
-
     transform: translateY(0);
 }
 
 /* =========================================================
    ABOUT
+   LARGE SEPARATE IMAGE
 ========================================================= */
 
 .about {
@@ -692,40 +609,29 @@ nav {
 
 .about-grid {
     display: grid;
-
     grid-template-columns: 0.9fr 1.1fr;
-
     gap: 80px;
-
     align-items: center;
 }
 
-/* Keep About image separate from profile image */
-
 .about-image {
     position: relative;
-
-    min-height: 570px;
+    min-height: 620px;
 
     border-radius: 18px;
-
     overflow: hidden;
 
     border: 1px solid var(--border);
-
     background: var(--bg-3);
 
-    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.30);
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
-
-    min-height: 570px;
-
+    min-height: 620px;
     object-fit: cover;
-
     transition: transform 0.8s ease;
 }
 
@@ -735,57 +641,41 @@ nav {
 
 .about-image::after {
     content: "";
-
     position: absolute;
-
     inset: 18px;
-
     border: 1px solid rgba(215,173,115,0.30);
-
     border-radius: 12px;
-
     pointer-events: none;
 }
 
 .about-content p {
     color: var(--muted);
-
     margin-bottom: 18px;
 }
 
 .about-highlights {
     display: grid;
-
     grid-template-columns: repeat(2,1fr);
-
     gap: 15px;
-
     margin-top: 30px;
 }
 
 .highlight {
     padding: 22px;
-
     background: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     transition: 0.3s ease;
 }
 
 .highlight:hover {
     transform: translateY(-5px);
-
     border-color: rgba(85,198,192,0.45);
 }
 
 .highlight strong {
     color: var(--accent);
-
     display: block;
-
     margin-bottom: 5px;
 }
 
@@ -799,42 +689,32 @@ nav {
 
 .tools-grid {
     display: grid;
-
     grid-template-columns: repeat(4,1fr);
-
     gap: 15px;
 }
 
 .tool {
     padding: 25px 18px;
-
     text-align: center;
-
     background: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     transition: 0.3s ease;
 }
 
 .tool:hover {
     transform: translateY(-6px);
-
     border-color: var(--teal);
-
     background: var(--card-hover);
 }
 
 .tool h3 {
-    font-family: "DM Sans", sans-serif;
-
     font-size: 16px;
 }
 
 /* =========================================================
    SERVICES
+   COLORFUL ICONS
 ========================================================= */
 
 .services {
@@ -843,45 +723,35 @@ nav {
 
 .services-grid {
     display: grid;
-
     grid-template-columns: repeat(3,1fr);
-
     gap: 20px;
 }
 
 .service {
     padding: 32px;
-
     background: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 12px;
-
     transition: 0.35s ease;
-
     position: relative;
-
     overflow: hidden;
 }
 
 .service::before {
     content: "";
-
     position: absolute;
-
     width: 0;
-
     height: 3px;
-
     top: 0;
     left: 0;
 
     background: linear-gradient(
         90deg,
         var(--teal),
-        var(--accent),
-        var(--purple)
+        var(--blue),
+        var(--purple),
+        var(--pink),
+        var(--accent)
     );
 
     transition: 0.35s ease;
@@ -893,79 +763,127 @@ nav {
 
 .service:hover {
     transform: translateY(-7px);
-
     background: var(--card-hover);
-
     border-color: rgba(85,198,192,0.35);
 }
 
 .service-icon {
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    border-radius: 15px;
-
+    border-radius: 17px;
     margin-bottom: 20px;
 
-    font-size: 23px;
+    font-size: 24px;
+
+    transition: 0.4s ease;
 }
 
+.service:hover .service-icon {
+    transform: rotate(5deg) scale(1.08);
+}
+
+/* DISTINCT COLORFUL ICONS */
+
 .icon-teal {
-    color: var(--teal);
-    background: rgba(85,198,192,0.12);
+    color: #55e6d8;
+    background: linear-gradient(
+        135deg,
+        rgba(85,230,216,0.22),
+        rgba(85,198,192,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(85,198,192,0.10);
 }
 
 .icon-blue {
-    color: var(--blue);
-    background: rgba(99,169,255,0.12);
+    color: #69b7ff;
+    background: linear-gradient(
+        135deg,
+        rgba(99,169,255,0.22),
+        rgba(99,169,255,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(99,169,255,0.10);
 }
 
 .icon-purple {
-    color: var(--purple);
-    background: rgba(181,140,255,0.12);
+    color: #c29cff;
+    background: linear-gradient(
+        135deg,
+        rgba(181,140,255,0.24),
+        rgba(181,140,255,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(181,140,255,0.10);
 }
 
 .icon-green {
-    color: var(--green);
-    background: rgba(98,214,156,0.12);
+    color: #6ee7a5;
+    background: linear-gradient(
+        135deg,
+        rgba(98,214,156,0.24),
+        rgba(98,214,156,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(98,214,156,0.10);
 }
 
 .icon-orange {
-    color: var(--orange);
-    background: rgba(255,173,99,0.12);
+    color: #ffb66e;
+    background: linear-gradient(
+        135deg,
+        rgba(255,173,99,0.25),
+        rgba(255,173,99,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(255,173,99,0.10);
 }
 
 .icon-pink {
-    color: var(--pink);
-    background: rgba(241,132,182,0.12);
+    color: #ff8fc3;
+    background: linear-gradient(
+        135deg,
+        rgba(241,132,182,0.25),
+        rgba(241,132,182,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(241,132,182,0.10);
+}
+
+.icon-red {
+    color: #ff8585;
+    background: linear-gradient(
+        135deg,
+        rgba(255,114,114,0.25),
+        rgba(255,114,114,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(255,114,114,0.10);
+}
+
+.icon-yellow {
+    color: #ffd86b;
+    background: linear-gradient(
+        135deg,
+        rgba(255,209,102,0.25),
+        rgba(255,209,102,0.06)
+    );
+    box-shadow: 0 10px 30px rgba(255,209,102,0.10);
 }
 
 .service-number {
     color: var(--accent);
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 2px;
 }
 
 .service h3 {
     font-family: "Playfair Display", serif;
-
     font-size: 23px;
-
     margin: 10px 0;
 }
 
 .service p {
     color: var(--muted);
-
     font-size: 14px;
 }
 
@@ -979,15 +897,12 @@ nav {
 
 .timeline {
     max-width: 950px;
-
     margin: auto;
 }
 
 .timeline-item {
     position: relative;
-
     padding: 0 0 55px 45px;
-
     border-left: 1px solid rgba(85,198,192,0.35);
 }
 
@@ -997,9 +912,7 @@ nav {
 
 .timeline-dot {
     position: absolute;
-
     left: -6px;
-
     top: 0;
 
     width: 11px;
@@ -1014,27 +927,26 @@ nav {
         0 0 20px rgba(85,198,192,0.5);
 }
 
+.timeline-item h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+}
+
 .timeline-company {
     color: var(--accent);
-
     font-size: 13px;
-
     font-weight: 700;
-
     margin-top: 5px;
 }
 
 .timeline-date {
     color: var(--muted);
-
     font-size: 12px;
-
     margin: 7px 0 12px;
 }
 
 .timeline-item p {
     color: var(--muted);
-
     font-size: 14px;
 }
 
@@ -1048,52 +960,49 @@ nav {
 
 .work-grid {
     display: grid;
-
     grid-template-columns: repeat(3,1fr);
-
     gap: 20px;
 }
 
 .work-card {
     background: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 12px;
-
     overflow: hidden;
-
     transition: 0.3s ease;
 }
 
 .work-card:hover {
     transform: translateY(-7px);
-
     border-color: rgba(85,198,192,0.45);
 }
 
 .work-image {
     height: 240px;
-
     background: #122326;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     overflow: hidden;
-
     position: relative;
+}
+
+.work-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.25),
+        transparent
+    );
+    pointer-events: none;
 }
 
 .work-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: 0.5s ease;
 }
 
@@ -1107,15 +1016,12 @@ nav {
 
 .work-info h3 {
     font-family: "Playfair Display", serif;
-
     font-size: 21px;
 }
 
 .work-info p {
     color: var(--muted);
-
     font-size: 13px;
-
     margin-top: 7px;
 }
 
@@ -1129,44 +1035,33 @@ nav {
 
 .cert-grid {
     display: grid;
-
     grid-template-columns: repeat(3,1fr);
-
     gap: 20px;
 }
 
 .cert-card {
     background: var(--card);
-
     border: 1px solid var(--border);
-
     border-radius: 12px;
-
     overflow: hidden;
-
     transition: 0.3s ease;
 }
 
 .cert-card:hover {
     transform: translateY(-6px);
-
     border-color: var(--accent);
 }
 
 .cert-image {
     height: 300px;
-
     background: #142427;
-
     overflow: hidden;
 }
 
 .cert-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     transition: 0.5s ease;
 }
 
@@ -1180,15 +1075,12 @@ nav {
 
 .cert-info h3 {
     font-family: "Playfair Display", serif;
-
     font-size: 20px;
 }
 
 .cert-info p {
     color: var(--muted);
-
     font-size: 13px;
-
     margin-top: 5px;
 }
 
@@ -1208,51 +1100,38 @@ nav {
 
 .why-grid {
     display: grid;
-
     grid-template-columns: repeat(3,1fr);
-
     gap: 20px;
 }
 
 .why-card {
     padding: 32px;
-
     border: 1px solid var(--border);
-
     background: rgba(255,255,255,0.035);
-
     border-radius: 12px;
-
     transition: 0.3s ease;
 }
 
 .why-card:hover {
     transform: translateY(-7px);
-
     border-color: rgba(85,198,192,0.40);
-
     background: rgba(255,255,255,0.06);
 }
 
 .why-icon {
     font-size: 25px;
-
     color: var(--teal);
-
     margin-bottom: 18px;
 }
 
 .why-card h3 {
     font-family: "Playfair Display", serif;
-
     margin-bottom: 10px;
-
     font-size: 22px;
 }
 
 .why-card p {
     color: var(--muted);
-
     font-size: 14px;
 }
 
@@ -1266,35 +1145,26 @@ nav {
 
 .workflow-grid {
     display: grid;
-
     grid-template-columns: repeat(4,1fr);
-
     gap: 20px;
 }
 
 .workflow-card {
     padding: 30px;
-
     border-top: 2px solid var(--accent);
-
     background: var(--card);
-
     border-radius: 8px;
-
     transition: 0.3s ease;
 }
 
 .workflow-card:hover {
     transform: translateY(-5px);
-
     background: var(--card-hover);
 }
 
 .workflow-number {
     font-size: 30px;
-
     color: var(--accent);
-
     font-weight: 700;
 }
 
@@ -1304,7 +1174,6 @@ nav {
 
 .workflow-card p {
     color: var(--muted);
-
     font-size: 14px;
 }
 
@@ -1318,7 +1187,6 @@ nav {
 
 .cta-box {
     padding: 90px 50px;
-
     text-align: center;
 
     background:
@@ -1334,23 +1202,18 @@ nav {
         );
 
     border: 1px solid var(--border);
-
     border-radius: 15px;
 }
 
 .cta-box h2 {
     font-family: "Playfair Display", serif;
-
     font-size: clamp(38px,5vw,55px);
-
     line-height: 1.1;
 }
 
 .cta-box p {
     max-width: 650px;
-
     margin: 18px auto 30px;
-
     color: var(--muted);
 }
 
@@ -1364,9 +1227,7 @@ nav {
 
 .contact-grid {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 70px;
 }
 
@@ -1380,23 +1241,18 @@ nav {
 
 .contact-detail {
     padding: 18px 0;
-
     border-bottom: 1px solid var(--border);
 }
 
 .contact-detail span {
     color: var(--accent);
-
     font-size: 11px;
-
     letter-spacing: 2px;
-
     font-weight: 700;
 }
 
 .contact-detail a {
     color: var(--text);
-
     transition: 0.3s ease;
 }
 
@@ -1404,13 +1260,35 @@ nav {
     color: var(--teal);
 }
 
+.contact-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-button {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: 0.3s ease;
+}
+
+.social-button:hover {
+    transform: translateY(-4px);
+    color: var(--text);
+    border-color: var(--teal);
+    background: rgba(85,198,192,0.10);
+}
+
 form {
     background: var(--card);
-
     border: 1px solid var(--border);
-
     padding: 35px;
-
     border-radius: 12px;
 }
 
@@ -1420,11 +1298,8 @@ form {
 
 label {
     display: block;
-
     font-size: 12px;
-
     margin-bottom: 6px;
-
     color: var(--muted);
 }
 
@@ -1432,17 +1307,11 @@ input,
 textarea,
 select {
     width: 100%;
-
     padding: 13px 15px;
-
     background: var(--bg);
-
     color: var(--text);
-
     border: 1px solid var(--border);
-
     border-radius: 5px;
-
     outline: none;
 }
 
@@ -1450,13 +1319,11 @@ input:focus,
 textarea:focus,
 select:focus {
     border-color: var(--teal);
-
     box-shadow: 0 0 0 3px rgba(85,198,192,0.08);
 }
 
 textarea {
     min-height: 130px;
-
     resize: vertical;
 }
 
@@ -1466,17 +1333,13 @@ textarea {
 
 footer {
     background: #050c0e;
-
     padding: 60px 0 25px;
 }
 
 .footer-grid {
     display: grid;
-
     grid-template-columns: 1.5fr 1fr 1fr;
-
     gap: 50px;
-
     padding-bottom: 40px;
 }
 
@@ -1487,13 +1350,11 @@ footer h3 {
 footer p,
 footer a {
     color: var(--muted);
-
     font-size: 13px;
 }
 
 .footer-links {
     display: grid;
-
     gap: 8px;
 }
 
@@ -1503,11 +1364,8 @@ footer a {
 
 .copyright {
     padding-top: 20px;
-
     border-top: 1px solid var(--border);
-
     color: #697575;
-
     font-size: 12px;
 }
 
@@ -1517,7 +1375,6 @@ footer a {
 
 .back-top {
     position: fixed;
-
     right: 25px;
     bottom: 25px;
 
@@ -1525,17 +1382,14 @@ footer a {
     height: 45px;
 
     background: var(--accent);
-
     color: #111;
 
     border: none;
-
     border-radius: 50%;
 
     cursor: pointer;
 
     opacity: 0;
-
     visibility: hidden;
 
     transition: 0.3s;
@@ -1545,13 +1399,11 @@ footer a {
 
 .back-top.show {
     opacity: 1;
-
     visibility: visible;
 }
 
 .back-top:hover {
     background: var(--accent-light);
-
     transform: translateY(-3px);
 }
 
@@ -1568,7 +1420,7 @@ footer a {
     }
 
     .hero-visual {
-        min-height: 560px;
+        min-height: 600px;
     }
 
     .tools-grid,
@@ -1604,14 +1456,14 @@ footer a {
         order: 2;
     }
 
-    .about-image {
-        min-height: 500px;
-    }
-
+    .about-image,
     .about-image img {
-        min-height: 500px;
+        min-height: 550px;
     }
 
+    .profile-orbit {
+        transform: scale(0.90);
+    }
 }
 
 @media(max-width:650px) {
@@ -1626,9 +1478,7 @@ footer a {
         position: absolute;
 
         top: 78px;
-
         left: 0;
-
         right: 0;
 
         padding: 25px;
@@ -1666,27 +1516,28 @@ footer a {
     }
 
     .profile-orbit {
-        width: 300px;
-        height: 300px;
+        width: 330px;
+        height: 330px;
+        transform: scale(1);
     }
 
     .profile-orbit::before {
+        width: 310px;
+        height: 310px;
+    }
+
+    .profile-orbit::after {
+        width: 365px;
+        height: 365px;
+    }
+
+    .profile-image {
         width: 300px;
         height: 300px;
     }
 
-    .profile-orbit::after {
-        width: 350px;
-        height: 350px;
-    }
-
-    .profile-image {
-        width: 275px;
-        height: 275px;
-    }
-
     .hero-visual {
-        min-height: 450px;
+        min-height: 480px;
     }
 
     .hero-badge {
@@ -1713,6 +1564,9 @@ footer a {
         gap: 40px;
     }
 
+    .contact-socials {
+        justify-content: flex-start;
+    }
 }
 
 /* =========================================================
@@ -1732,7 +1586,6 @@ footer a {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
 }
 
 </style>
@@ -1754,24 +1607,18 @@ footer a {
 Muzzamil<span>.</span>
 </a>
 
-<div class="menu" onclick="toggleMenu()">
-☰
+<div class="menu" onclick="toggleMenu()" aria-label="Open navigation menu">
+<i class="fa-solid fa-bars"></i>
 </div>
 
 <ul class="nav-links" id="navLinks">
 
 <li><a href="#about">About</a></li>
-
 <li><a href="#services">Services</a></li>
-
 <li><a href="#experience">Experience</a></li>
-
 <li><a href="#work">Work Samples</a></li>
-
 <li><a href="#credentials">Credentials</a></li>
-
 <li><a href="#why">Why Me</a></li>
-
 <li><a href="#contact">Contact</a></li>
 
 </ul>
@@ -1813,7 +1660,7 @@ Purpose.
 
 <p class="hero-description">
 
-I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing reliable healthcare administrative and patient support services. I support healthcare practices with patient scheduling, patient communication, insurance verification, prior authorization workflows, telehealth coordination, medication refill follow-up, referral coordination, and EHR/EMR-related administrative tasks.
+I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing reliable healthcare administrative and patient support services. I support healthcare practices with patient scheduling, patient communication, insurance verification, prior authorization workflows, telehealth coordination, medication refill follow-up, referral coordination, inbox management, and EHR/EMR-related administrative tasks.
 
 </p>
 
@@ -1835,12 +1682,25 @@ Explore My Services
 
 </a>
 
-</div>
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-outline"
+>
+
+<i class="fa-brands fa-upwork"></i>
+
+View Upwork
+
+</a>
 
 </div>
 
+</div>
 
-<!-- PROFILE IMAGE STAYS HERE BESIDE HERO TEXT -->
+
+<!-- PROFILE IMAGE: SEPARATE FROM ABOUT IMAGE -->
 
 <div class="hero-visual">
 
@@ -1853,9 +1713,7 @@ class="profile-image"
 >
 
 <div class="orbit-dot dot-one"></div>
-
 <div class="orbit-dot dot-two"></div>
-
 <div class="orbit-dot dot-three"></div>
 
 </div>
@@ -1887,13 +1745,13 @@ Patient-centered virtual support
 
 <div class="container about-grid reveal">
 
-<!-- SEPARATE LARGE ABOUT IMAGE -->
+<!-- LARGE ABOUT IMAGE — SEPARATE FROM PROFILE IMAGE -->
 
 <div class="about-image">
 
 <img
 src="practicefusiondashboard.jpg"
-alt="Healthcare technology and EHR workflow demonstration"
+alt="Practice Fusion healthcare technology dashboard demonstration"
 >
 
 </div>
@@ -1914,13 +1772,13 @@ Healthcare Knowledge Meets Virtual Support
 
 <p>
 
-I am a BS Nursing (Generic) graduate with a nursing internship background and experience supporting healthcare operations in patient scheduling, telehealth coordination, prior authorization, insurance-related workflows, patient communication, and EHR/EMR-based administrative processes.
+I am a BS Nursing (Generic) graduate with a nursing internship background and professional experience supporting healthcare operations in patient scheduling, telehealth coordination, prior authorization, insurance-related workflows, patient communication, and EHR/EMR-based administrative processes.
 
 </p>
 
 <p>
 
-My professional experience includes working with healthcare practices involving psychiatry, cardiology, physical therapy, and general patient support workflows. I bring together clinical understanding, healthcare technology experience, organized administrative processes, and patient-centered communication.
+My experience includes supporting healthcare practices involving psychiatry, cardiology, physical therapy, and patient support workflows. I bring together clinical understanding, healthcare technology experience, organized administrative processes, and patient-centered communication.
 
 </p>
 
@@ -1933,43 +1791,23 @@ My approach is built around accuracy, professionalism, confidentiality, timely f
 <div class="about-highlights">
 
 <div class="highlight">
-
-<strong>
-Registered Nurse
-</strong>
-
+<strong>Registered Nurse</strong>
 Nursing education and clinical healthcare foundation
-
 </div>
 
 <div class="highlight">
-
-<strong>
-Virtual Medical Assistant
-</strong>
-
+<strong>Virtual Medical Assistant</strong>
 Remote healthcare administrative and patient support
-
 </div>
 
 <div class="highlight">
-
-<strong>
-EHR / EMR Experience
-</strong>
-
+<strong>EHR / EMR Experience</strong>
 Experience with multiple healthcare technology platforms
-
 </div>
 
 <div class="highlight">
-
-<strong>
-Patient-Centered
-</strong>
-
+<strong>Patient-Centered</strong>
 Professional communication and responsive support
-
 </div>
 
 </div>
@@ -2008,27 +1846,16 @@ Healthcare systems, administrative platforms, and digital tools I have worked wi
 <div class="tools-grid">
 
 <div class="tool"><h3>eClinicalWorks</h3></div>
-
 <div class="tool"><h3>DrChrono</h3></div>
-
 <div class="tool"><h3>Practice Fusion</h3></div>
-
 <div class="tool"><h3>DrNotes</h3></div>
-
 <div class="tool"><h3>AthenaHealth</h3></div>
-
 <div class="tool"><h3>AltuMed</h3></div>
-
 <div class="tool"><h3>Square</h3></div>
-
 <div class="tool"><h3>RingCentral</h3></div>
-
 <div class="tool"><h3>Microsoft Excel</h3></div>
-
 <div class="tool"><h3>Microsoft Word</h3></div>
-
 <div class="tool"><h3>Microsoft PowerPoint</h3></div>
-
 <div class="tool"><h3>Google Sheets</h3></div>
 
 </div>
@@ -2222,7 +2049,7 @@ Healthcare documentation, administrative data entry, patient records, scheduling
 
 <div class="service">
 
-<div class="service-icon icon-orange">
+<div class="service-icon icon-yellow">
 <i class="fa-solid fa-user-check"></i>
 </div>
 
@@ -2266,6 +2093,57 @@ Administrative support related to billing inquiries, payment workflows, and coor
 
 <p>
 Clear and professional communication with patients regarding appointments, inquiries, follow-ups, and healthcare administrative needs.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-icon icon-red">
+<i class="fa-solid fa-car"></i>
+</div>
+
+<div class="service-number">13</div>
+
+<h3>Patient Transportation Coordination</h3>
+
+<p>
+Administrative support for patient transportation concerns, ride-related communication, and coordination with appropriate teams.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-icon icon-orange">
+<i class="fa-solid fa-user-group"></i>
+</div>
+
+<div class="service-number">14</div>
+
+<h3>In-Person Visit Coordination</h3>
+
+<p>
+Support with coordinating in-person visits, appointment logistics, patient communication, and follow-up requirements.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="service-icon icon-blue">
+<i class="fa-solid fa-hospital-user"></i>
+</div>
+
+<div class="service-number">15</div>
+
+<h3>Healthcare Team Coordination</h3>
+
+<p>
+Communication and administrative coordination between patients, providers, clinics, insurance teams, and healthcare departments.
 </p>
 
 </div>
@@ -2430,7 +2308,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="practicefusioncalender.jpg" alt="Practice Fusion scheduling calendar workflow">
 </div>
@@ -2439,12 +2316,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Practice Fusion Calendar</h3>
 <p>Appointment scheduling and healthcare calendar workflow demonstration.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="ecw.jpg" alt="eClinicalWorks healthcare workflow">
 </div>
@@ -2453,12 +2328,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>eClinicalWorks</h3>
 <p>EHR workflow and healthcare administrative experience.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="drchronocalender.jpg" alt="DrChrono calendar workflow">
 </div>
@@ -2467,12 +2340,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>DrChrono Calendar</h3>
 <p>Scheduling and appointment coordination workflow experience.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="drchronoappt.jpg" alt="DrChrono appointment workflow">
 </div>
@@ -2481,26 +2352,22 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>DrChrono Appointments</h3>
 <p>Appointment management and healthcare administrative workflow.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
-<img src="athencare.jpg" alt="Athena healthcare platform">
+<img src="athencare.jpg" alt="AthenaHealth healthcare platform">
 </div>
 
 <div class="work-info">
 <h3>AthenaHealth</h3>
 <p>Healthcare platform and administrative workflow experience.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="practicefusiondashboard.jpg" alt="Practice Fusion dashboard">
 </div>
@@ -2509,12 +2376,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Practice Fusion Dashboard</h3>
 <p>EHR dashboard and healthcare workflow demonstration.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="practicefusionpayment.jpg" alt="Practice Fusion payment workflow">
 </div>
@@ -2523,12 +2388,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Payment Workflow</h3>
 <p>Healthcare payment and administrative workflow experience.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="practicefusiontimeline.jpg" alt="Practice Fusion patient timeline">
 </div>
@@ -2537,12 +2400,10 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Patient Timeline</h3>
 <p>Patient record and timeline workflow demonstration.</p>
 </div>
-
 </div>
 
 
 <div class="work-card">
-
 <div class="work-image">
 <img src="prmedicationrefill.jpg" alt="Medication refill workflow">
 </div>
@@ -2551,7 +2412,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Medication Refill Workflow</h3>
 <p>Administrative medication refill request and follow-up workflow.</p>
 </div>
-
 </div>
 
 </div>
@@ -2973,7 +2833,10 @@ Let's Simplify Your Healthcare Workflow
 Looking for a healthcare professional who understands both patient care and administrative workflows? Let's discuss how I can support your practice.
 </p>
 
-<a href="mailto:khanmhuk@gmail.com?subject=Virtual%20Healthcare%20Support%20Inquiry" class="btn btn-primary">
+<a
+href="mailto:khanmhuk@gmail.com?subject=Virtual%20Healthcare%20Support%20Inquiry"
+class="btn btn-primary"
+>
 
 <i class="fa-solid fa-envelope"></i>
 
@@ -3081,6 +2944,29 @@ rel="noopener noreferrer"
 <div class="contact-detail">
 
 <span>
+UPWORK
+</span>
+
+<br>
+
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<i class="fa-brands fa-upwork"></i>
+
+&nbsp; View My Upwork Profile
+
+</a>
+
+</div>
+
+
+<div class="contact-detail">
+
+<span>
 AVAILABILITY
 </span>
 
@@ -3092,6 +2978,47 @@ Available for Virtual Healthcare Support Opportunities
 
 </div>
 
+
+<div class="contact-socials">
+
+<a
+href="mailto:khanmhuk@gmail.com"
+class="social-button"
+aria-label="Email Muzzamil"
+>
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+
+<a
+href="https://www.linkedin.com/in/muzzamil-hussain-08ab4b211/"
+target="_blank"
+rel="noopener noreferrer"
+class="social-button"
+aria-label="LinkedIn Profile"
+>
+
+<i class="fa-brands fa-linkedin-in"></i>
+
+</a>
+
+
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+class="social-button"
+aria-label="Upwork Profile"
+>
+
+<i class="fa-brands fa-upwork"></i>
+
+</a>
+
+</div>
+
 </div>
 
 
@@ -3099,11 +3026,12 @@ Available for Virtual Healthcare Support Opportunities
 
 <div class="form-group">
 
-<label>
+<label for="name">
 Name
 </label>
 
 <input
+id="name"
 type="text"
 name="Name"
 placeholder="Your Name"
@@ -3115,11 +3043,12 @@ required
 
 <div class="form-group">
 
-<label>
+<label for="email">
 Email
 </label>
 
 <input
+id="email"
 type="email"
 name="Email"
 placeholder="Your Email"
@@ -3131,11 +3060,11 @@ required
 
 <div class="form-group">
 
-<label>
+<label for="service">
 Service
 </label>
 
-<select name="Service">
+<select id="service" name="Service">
 
 <option>Virtual Medical Assistant</option>
 
@@ -3153,6 +3082,10 @@ Service
 
 <option>EHR / EMR Support</option>
 
+<option>Referral Coordination</option>
+
+<option>Medication Refill Coordination</option>
+
 </select>
 
 </div>
@@ -3160,11 +3093,12 @@ Service
 
 <div class="form-group">
 
-<label>
+<label for="message">
 Message
 </label>
 
 <textarea
+id="message"
 name="Message"
 placeholder="Tell me about your requirements..."
 required
@@ -3224,14 +3158,11 @@ Explore
 <div class="footer-links">
 
 <a href="#about">About</a>
-
 <a href="#services">Services</a>
-
 <a href="#experience">Experience</a>
-
 <a href="#work">Work Samples</a>
-
 <a href="#credentials">Credentials</a>
+<a href="#why">Why Choose Me</a>
 
 </div>
 
@@ -3260,6 +3191,14 @@ target="_blank"
 rel="noopener noreferrer"
 >
 LinkedIn
+</a>
+
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+>
+Upwork
 </a>
 
 </div>
@@ -3291,7 +3230,7 @@ onclick="scrollToTop()"
 aria-label="Back to top"
 >
 
-↑
+<i class="fa-solid fa-arrow-up"></i>
 
 </button>
 
@@ -3302,57 +3241,63 @@ aria-label="Back to top"
 
 <script>
 
-/* MOBILE MENU */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 function toggleMenu() {
 
-document
-.getElementById("navLinks")
-.classList
-.toggle("active");
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("active");
 
 }
 
 
-/* CLOSE MOBILE MENU */
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICK
+========================================================= */
 
 document
 .querySelectorAll(".nav-links a")
 .forEach(function(link) {
 
-link.addEventListener("click", function() {
+    link.addEventListener("click", function() {
 
-document
-.getElementById("navLinks")
-.classList
-.remove("active");
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
+
+    });
 
 });
 
-});
 
-
-/* SCROLL REVEAL */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 const observer = new IntersectionObserver(
 
-function(entries) {
+    function(entries) {
 
-entries.forEach(function(entry) {
+        entries.forEach(function(entry) {
 
-if(entry.isIntersecting) {
+            if(entry.isIntersecting) {
 
-entry.target.classList.add("active");
+                entry.target.classList.add("active");
 
-}
+            }
 
-});
+        });
 
-},
+    },
 
-{
-threshold: 0.12
-}
+    {
+        threshold: 0.12
+    }
 
 );
 
@@ -3361,62 +3306,68 @@ document
 .querySelectorAll(".reveal")
 .forEach(function(element) {
 
-observer.observe(element);
+    observer.observe(element);
 
 });
 
 
-/* SCROLL PROGRESS */
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
 
 window.addEventListener("scroll", function() {
 
-const scrollTop =
-document.documentElement.scrollTop;
+    const scrollTop =
+    document.documentElement.scrollTop;
 
-const scrollHeight =
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
+    const scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
 
-const progress =
-(scrollTop / scrollHeight) * 100;
+    const progress =
+    scrollHeight > 0
+    ? (scrollTop / scrollHeight) * 100
+    : 0;
 
-document
-.getElementById("progressBar")
-.style
-.width = progress + "%";
+    document
+    .getElementById("progressBar")
+    .style
+    .width = progress + "%";
 
 });
 
 
-/* BACK TO TOP */
+/* =========================================================
+   BACK TO TOP
+========================================================= */
 
 window.addEventListener("scroll", function() {
 
-const button =
-document.getElementById("backTop");
+    const button =
+    document.getElementById("backTop");
 
-if(window.scrollY > 600) {
+    if(window.scrollY > 600) {
 
-button.classList.add("show");
+        button.classList.add("show");
 
-} else {
+    } else {
 
-button.classList.remove("show");
+        button.classList.remove("show");
 
-}
+    }
 
 });
 
 
 function scrollToTop() {
 
-window.scrollTo({
+    window.scrollTo({
 
-top: 0,
+        top: 0,
 
-behavior: "smooth"
+        behavior: "smooth"
 
-});
+    });
 
 }
 
