@@ -88,9 +88,7 @@ img {
     display: block;
 }
 
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
+/* SCROLL PROGRESS */
 
 .progress-bar {
     position: fixed;
@@ -102,9 +100,7 @@ img {
     z-index: 3000;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 header {
     position: fixed;
@@ -112,13 +108,16 @@ header {
     left: 0;
     width: 100%;
     z-index: 2000;
+
     background: rgba(7,17,20,0.82);
     backdrop-filter: blur(18px);
+
     border-bottom: 1px solid var(--border);
 }
 
 nav {
     height: 78px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -157,15 +156,16 @@ nav {
     font-size: 25px;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
+
     padding-top: 140px;
+
     position: relative;
     overflow: hidden;
 
@@ -177,9 +177,13 @@ nav {
 
 .hero-grid {
     display: grid;
+
     grid-template-columns: 1.05fr 0.95fr;
+
     gap: 70px;
+
     align-items: center;
+
     position: relative;
     z-index: 2;
 }
@@ -189,6 +193,7 @@ nav {
 }
 
 @keyframes heroText {
+
     from {
         opacity: 0;
         transform: translateY(35px);
@@ -198,22 +203,32 @@ nav {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .hero-label {
     color: var(--accent);
+
     text-transform: uppercase;
+
     letter-spacing: 3px;
+
     font-size: 11px;
+
     font-weight: 700;
+
     margin-bottom: 25px;
 }
 
 .hero h1 {
     font-family: "Playfair Display", serif;
+
     font-size: clamp(48px, 6vw, 78px);
+
     line-height: 1.05;
+
     letter-spacing: -2px;
+
     margin-bottom: 28px;
 }
 
@@ -223,67 +238,91 @@ nav {
 
 .hero-description {
     color: var(--muted);
+
     font-size: 17px;
+
     max-width: 700px;
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 14px;
+
     flex-wrap: wrap;
+
     margin-top: 35px;
 }
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 9px;
+
     padding: 14px 24px;
+
     font-size: 13px;
+
     font-weight: 700;
+
     border-radius: 5px;
+
     transition: 0.3s ease;
+
     cursor: pointer;
 }
 
 .btn-primary {
     background: var(--accent);
+
     color: #111;
+
     border: 1px solid var(--accent);
 }
 
 .btn-primary:hover {
     background: var(--accent-light);
+
     transform: translateY(-3px);
+
     box-shadow: 0 15px 35px rgba(215,173,115,0.20);
 }
 
 .btn-outline {
     border: 1px solid var(--border);
+
     color: var(--text);
 }
 
 .btn-outline:hover {
     border-color: var(--teal);
+
     color: var(--teal);
+
     transform: translateY(-3px);
 }
 
-/* =========================================================
-   HERO PROFILE IMAGE
-========================================================= */
+/* HERO PROFILE IMAGE */
 
 .hero-visual {
     position: relative;
+
     min-height: 620px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     animation: heroImage 1.2s ease forwards;
 }
 
 @keyframes heroImage {
+
     from {
         opacity: 0;
         transform: translateX(40px);
@@ -293,19 +332,25 @@ nav {
         opacity: 1;
         transform: translateX(0);
     }
+
 }
 
 .profile-orbit {
     position: relative;
+
     width: 430px;
     height: 430px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     animation: floating 6s ease-in-out infinite;
 }
 
 @keyframes floating {
+
     0%,
     100% {
         transform: translateY(0);
@@ -314,13 +359,17 @@ nav {
     50% {
         transform: translateY(-12px);
     }
+
 }
 
 .profile-orbit::before {
     content: "";
+
     position: absolute;
+
     width: 430px;
     height: 430px;
+
     border-radius: 50%;
 
     background:
@@ -332,10 +381,12 @@ nav {
         );
 
     filter: blur(8px);
+
     animation: glowPulse 4s ease-in-out infinite;
 }
 
 @keyframes glowPulse {
+
     0%,
     100% {
         transform: scale(0.96);
@@ -346,21 +397,30 @@ nav {
         transform: scale(1.06);
         opacity: 1;
     }
+
 }
 
 .profile-orbit::after {
     content: "";
+
     position: absolute;
+
     width: 500px;
     height: 500px;
+
     border-radius: 50%;
+
     border: 1px solid rgba(215,173,115,0.28);
+
     border-top-color: var(--teal);
+
     border-right-color: rgba(181,140,255,0.65);
+
     animation: rotateOrbit 18s linear infinite;
 }
 
 @keyframes rotateOrbit {
+
     from {
         transform: rotate(0deg);
     }
@@ -368,14 +428,19 @@ nav {
     to {
         transform: rotate(360deg);
     }
+
 }
 
 .profile-image {
     position: relative;
+
     z-index: 5;
+
     width: 390px;
     height: 390px;
+
     object-fit: cover;
+
     border-radius: 50%;
 
     border: 7px solid rgba(255,255,255,0.10);
@@ -386,9 +451,11 @@ nav {
         0 25px 70px rgba(0,0,0,0.45);
 
     animation: imageBreath 5s ease-in-out infinite;
+
 }
 
 @keyframes imageBreath {
+
     0%,
     100% {
         transform: scale(1);
@@ -397,42 +464,57 @@ nav {
     50% {
         transform: scale(1.025);
     }
+
 }
 
 .orbit-dot {
     position: absolute;
+
     width: 13px;
     height: 13px;
+
     border-radius: 50%;
+
     z-index: 10;
+
     box-shadow: 0 0 20px currentColor;
 }
 
 .dot-one {
     top: 45px;
     right: 40px;
+
     background: var(--teal);
+
     color: var(--teal);
+
     animation: dotMove 6s linear infinite;
 }
 
 .dot-two {
     bottom: 70px;
     left: 35px;
+
     background: var(--accent);
+
     color: var(--accent);
+
     animation: dotMove 8s linear infinite reverse;
 }
 
 .dot-three {
     top: 100px;
     left: 35px;
+
     background: var(--purple);
+
     color: var(--purple);
+
     animation: dotMove 7s linear infinite;
 }
 
 @keyframes dotMove {
+
     0% {
         transform: translate(0,0);
     }
@@ -452,19 +534,25 @@ nav {
     100% {
         transform: translate(0,0);
     }
+
 }
 
 .hero-badge {
     position: absolute;
+
     bottom: 70px;
     left: 10px;
+
     z-index: 20;
 
     padding: 17px 21px;
 
     background: rgba(11,24,27,0.94);
+
     border: 1px solid var(--border);
+
     backdrop-filter: blur(15px);
+
     border-radius: 10px;
 
     box-shadow: 0 20px 45px rgba(0,0,0,0.28);
@@ -473,6 +561,7 @@ nav {
 }
 
 @keyframes badgeFloat {
+
     0%,
     100% {
         transform: translateY(0);
@@ -481,60 +570,71 @@ nav {
     50% {
         transform: translateY(-8px);
     }
+
 }
 
 .hero-badge strong {
     color: var(--accent);
+
     display: block;
+
     font-size: 13px;
 }
 
 .hero-badge span {
     color: var(--muted);
+
     font-size: 12px;
 }
 
-/* =========================================================
-   SECTION HEADERS
-========================================================= */
+/* SECTION HEADERS */
 
 .section-header {
     max-width: 760px;
+
     margin-bottom: 60px;
 }
 
 .section-header.center {
     margin-left: auto;
     margin-right: auto;
+
     text-align: center;
 }
 
 .section-label {
     color: var(--accent);
+
     text-transform: uppercase;
+
     letter-spacing: 3px;
+
     font-size: 11px;
+
     font-weight: 700;
 }
 
 .section-header h2 {
     font-family: "Playfair Display", serif;
+
     font-size: clamp(36px, 5vw, 52px);
+
     line-height: 1.12;
+
     margin-top: 12px;
 }
 
 .section-header p {
     color: var(--muted);
+
     margin-top: 18px;
 }
 
-/* =========================================================
-   REVEAL
-========================================================= */
+/* REVEAL */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(35px);
 
     transition:
@@ -544,12 +644,11 @@ nav {
 
 .reveal.active {
     opacity: 1;
+
     transform: translateY(0);
 }
 
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ABOUT */
 
 .about {
     background: var(--bg-2);
@@ -557,28 +656,38 @@ nav {
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 0.9fr 1.1fr;
+
     gap: 80px;
+
     align-items: center;
 }
 
-/* ABOUT IMAGE — SEPARATE FROM HERO PROFILE IMAGE */
-
 .about-image {
     position: relative;
+
     min-height: 570px;
+
     border-radius: 18px;
+
     overflow: hidden;
+
     border: 1px solid var(--border);
+
     background: var(--bg-3);
+
     box-shadow: 0 25px 60px rgba(0,0,0,0.25);
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
+
     min-height: 570px;
+
     object-fit: cover;
+
     transition: transform 0.8s ease;
 }
 
@@ -588,47 +697,61 @@ nav {
 
 .about-image::after {
     content: "";
+
     position: absolute;
+
     inset: 18px;
+
     border: 1px solid rgba(215,173,115,0.30);
+
     border-radius: 12px;
+
     pointer-events: none;
 }
 
 .about-content p {
     color: var(--muted);
+
     margin-bottom: 18px;
 }
 
 .about-highlights {
     display: grid;
+
     grid-template-columns: repeat(2,1fr);
+
     gap: 15px;
+
     margin-top: 30px;
 }
 
 .highlight {
     padding: 22px;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 10px;
+
     transition: 0.3s ease;
 }
 
 .highlight:hover {
     transform: translateY(-5px);
+
     border-color: rgba(85,198,192,0.45);
 }
 
 .highlight strong {
     color: var(--accent);
+
     display: block;
+
     margin-bottom: 5px;
 }
 
-/* =========================================================
-   TOOLBOX
-========================================================= */
+/* TOOLBOX */
 
 .toolbox {
     background: var(--bg);
@@ -636,33 +759,41 @@ nav {
 
 .tools-grid {
     display: grid;
+
     grid-template-columns: repeat(4,1fr);
+
     gap: 15px;
 }
 
 .tool {
     padding: 25px 18px;
+
     text-align: center;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 10px;
+
     transition: 0.3s ease;
 }
 
 .tool:hover {
     transform: translateY(-6px);
+
     border-color: var(--teal);
+
     background: var(--card-hover);
 }
 
 .tool h3 {
     font-family: "DM Sans", sans-serif;
+
     font-size: 16px;
 }
 
-/* =========================================================
-   SERVICES
-========================================================= */
+/* SERVICES */
 
 .services {
     background: var(--bg-2);
@@ -670,25 +801,37 @@ nav {
 
 .services-grid {
     display: grid;
+
     grid-template-columns: repeat(3,1fr);
+
     gap: 20px;
 }
 
 .service {
     padding: 32px;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 12px;
+
     transition: 0.35s ease;
+
     position: relative;
+
     overflow: hidden;
 }
 
 .service::before {
     content: "";
+
     position: absolute;
+
     width: 0;
+
     height: 3px;
+
     top: 0;
     left: 0;
 
@@ -708,7 +851,9 @@ nav {
 
 .service:hover {
     transform: translateY(-7px);
+
     background: var(--card-hover);
+
     border-color: rgba(85,198,192,0.35);
 }
 
@@ -717,11 +862,14 @@ nav {
     height: 58px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 15px;
+
     margin-bottom: 20px;
+
     font-size: 23px;
 }
 
@@ -757,25 +905,29 @@ nav {
 
 .service-number {
     color: var(--accent);
+
     font-size: 11px;
+
     font-weight: 700;
+
     letter-spacing: 2px;
 }
 
 .service h3 {
     font-family: "Playfair Display", serif;
+
     font-size: 23px;
+
     margin: 10px 0;
 }
 
 .service p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
-/* =========================================================
-   EXPERIENCE
-========================================================= */
+/* EXPERIENCE */
 
 .experience {
     background: var(--bg);
@@ -783,12 +935,15 @@ nav {
 
 .timeline {
     max-width: 950px;
+
     margin: auto;
 }
 
 .timeline-item {
     position: relative;
+
     padding: 0 0 55px 45px;
+
     border-left: 1px solid rgba(85,198,192,0.35);
 }
 
@@ -798,11 +953,16 @@ nav {
 
 .timeline-dot {
     position: absolute;
+
     left: -6px;
+
     top: 0;
+
     width: 11px;
     height: 11px;
+
     border-radius: 50%;
+
     background: var(--teal);
 
     box-shadow:
@@ -812,25 +972,29 @@ nav {
 
 .timeline-company {
     color: var(--accent);
+
     font-size: 13px;
+
     font-weight: 700;
+
     margin-top: 5px;
 }
 
 .timeline-date {
     color: var(--muted);
+
     font-size: 12px;
+
     margin: 7px 0 12px;
 }
 
 .timeline-item p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
-/* =========================================================
-   WORK SAMPLES
-========================================================= */
+/* WORK SAMPLES */
 
 .work {
     background: var(--bg-2);
@@ -838,37 +1002,52 @@ nav {
 
 .work-grid {
     display: grid;
+
     grid-template-columns: repeat(3,1fr);
+
     gap: 20px;
 }
 
 .work-card {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 12px;
+
     overflow: hidden;
+
     transition: 0.3s ease;
 }
 
 .work-card:hover {
     transform: translateY(-7px);
+
     border-color: rgba(85,198,192,0.45);
 }
 
 .work-image {
     height: 240px;
+
     background: #122326;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     overflow: hidden;
+
     position: relative;
 }
 
 .work-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     transition: 0.5s ease;
 }
 
@@ -882,18 +1061,19 @@ nav {
 
 .work-info h3 {
     font-family: "Playfair Display", serif;
+
     font-size: 21px;
 }
 
 .work-info p {
     color: var(--muted);
+
     font-size: 13px;
+
     margin-top: 7px;
 }
 
-/* =========================================================
-   CREDENTIALS
-========================================================= */
+/* CREDENTIALS */
 
 .certifications {
     background: var(--bg);
@@ -901,33 +1081,44 @@ nav {
 
 .cert-grid {
     display: grid;
+
     grid-template-columns: repeat(3,1fr);
+
     gap: 20px;
 }
 
 .cert-card {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 12px;
+
     overflow: hidden;
+
     transition: 0.3s ease;
 }
 
 .cert-card:hover {
     transform: translateY(-6px);
+
     border-color: var(--accent);
 }
 
 .cert-image {
     height: 300px;
+
     background: #142427;
+
     overflow: hidden;
 }
 
 .cert-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     transition: 0.5s ease;
 }
 
@@ -941,18 +1132,19 @@ nav {
 
 .cert-info h3 {
     font-family: "Playfair Display", serif;
+
     font-size: 20px;
 }
 
 .cert-info p {
     color: var(--muted);
+
     font-size: 13px;
+
     margin-top: 5px;
 }
 
-/* =========================================================
-   WHY CHOOSE ME
-========================================================= */
+/* WHY CHOOSE ME */
 
 .why {
     background:
@@ -966,44 +1158,55 @@ nav {
 
 .why-grid {
     display: grid;
+
     grid-template-columns: repeat(3,1fr);
+
     gap: 20px;
 }
 
 .why-card {
     padding: 32px;
+
     border: 1px solid var(--border);
+
     background: rgba(255,255,255,0.035);
+
     border-radius: 12px;
+
     transition: 0.3s ease;
 }
 
 .why-card:hover {
     transform: translateY(-7px);
+
     border-color: rgba(85,198,192,0.40);
+
     background: rgba(255,255,255,0.06);
 }
 
 .why-icon {
     font-size: 25px;
+
     color: var(--teal);
+
     margin-bottom: 18px;
 }
 
 .why-card h3 {
     font-family: "Playfair Display", serif;
+
     margin-bottom: 10px;
+
     font-size: 22px;
 }
 
 .why-card p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
-/* =========================================================
-   WORKFLOW
-========================================================= */
+/* WORKFLOW */
 
 .workflow {
     background: var(--bg-2);
@@ -1011,26 +1214,35 @@ nav {
 
 .workflow-grid {
     display: grid;
+
     grid-template-columns: repeat(4,1fr);
+
     gap: 20px;
 }
 
 .workflow-card {
     padding: 30px;
+
     border-top: 2px solid var(--accent);
+
     background: var(--card);
+
     border-radius: 8px;
+
     transition: 0.3s ease;
 }
 
 .workflow-card:hover {
     transform: translateY(-5px);
+
     background: var(--card-hover);
 }
 
 .workflow-number {
     font-size: 30px;
+
     color: var(--accent);
+
     font-weight: 700;
 }
 
@@ -1040,12 +1252,11 @@ nav {
 
 .workflow-card p {
     color: var(--muted);
+
     font-size: 14px;
 }
 
-/* =========================================================
-   CTA
-========================================================= */
+/* CTA */
 
 .cta {
     background: var(--bg);
@@ -1053,6 +1264,7 @@ nav {
 
 .cta-box {
     padding: 90px 50px;
+
     text-align: center;
 
     background:
@@ -1068,24 +1280,27 @@ nav {
         );
 
     border: 1px solid var(--border);
+
     border-radius: 15px;
 }
 
 .cta-box h2 {
     font-family: "Playfair Display", serif;
+
     font-size: clamp(38px,5vw,55px);
+
     line-height: 1.1;
 }
 
 .cta-box p {
     max-width: 650px;
+
     margin: 18px auto 30px;
+
     color: var(--muted);
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* CONTACT */
 
 .contact {
     background: var(--bg-2);
@@ -1093,7 +1308,9 @@ nav {
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 70px;
 }
 
@@ -1107,18 +1324,23 @@ nav {
 
 .contact-detail {
     padding: 18px 0;
+
     border-bottom: 1px solid var(--border);
 }
 
 .contact-detail span {
     color: var(--accent);
+
     font-size: 11px;
+
     letter-spacing: 2px;
+
     font-weight: 700;
 }
 
 .contact-detail a {
     color: var(--text);
+
     transition: 0.3s ease;
 }
 
@@ -1128,8 +1350,11 @@ nav {
 
 form {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     padding: 35px;
+
     border-radius: 12px;
 }
 
@@ -1139,8 +1364,11 @@ form {
 
 label {
     display: block;
+
     font-size: 12px;
+
     margin-bottom: 6px;
+
     color: var(--muted);
 }
 
@@ -1148,11 +1376,17 @@ input,
 textarea,
 select {
     width: 100%;
+
     padding: 13px 15px;
+
     background: var(--bg);
+
     color: var(--text);
+
     border: 1px solid var(--border);
+
     border-radius: 5px;
+
     outline: none;
 }
 
@@ -1160,27 +1394,31 @@ input:focus,
 textarea:focus,
 select:focus {
     border-color: var(--teal);
+
     box-shadow: 0 0 0 3px rgba(85,198,192,0.08);
 }
 
 textarea {
     min-height: 130px;
+
     resize: vertical;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 footer {
     background: #050c0e;
+
     padding: 60px 0 25px;
 }
 
 .footer-grid {
     display: grid;
+
     grid-template-columns: 1.5fr 1fr 1fr;
+
     gap: 50px;
+
     padding-bottom: 40px;
 }
 
@@ -1191,11 +1429,13 @@ footer h3 {
 footer p,
 footer a {
     color: var(--muted);
+
     font-size: 13px;
 }
 
 .footer-links {
     display: grid;
+
     gap: 8px;
 }
 
@@ -1205,45 +1445,57 @@ footer a {
 
 .copyright {
     padding-top: 20px;
+
     border-top: 1px solid var(--border);
+
     color: #697575;
+
     font-size: 12px;
 }
 
-/* =========================================================
-   BACK TO TOP
-========================================================= */
+/* BACK TO TOP */
 
 .back-top {
     position: fixed;
+
     right: 25px;
     bottom: 25px;
+
     width: 45px;
     height: 45px;
+
     background: var(--accent);
+
     color: #111;
+
     border: none;
+
     border-radius: 50%;
+
     cursor: pointer;
+
     opacity: 0;
+
     visibility: hidden;
+
     transition: 0.3s;
+
     z-index: 900;
 }
 
 .back-top.show {
     opacity: 1;
+
     visibility: visible;
 }
 
 .back-top:hover {
     background: var(--accent-light);
+
     transform: translateY(-3px);
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:950px) {
 
@@ -1308,13 +1560,21 @@ footer a {
 
     .nav-links {
         display: none;
+
         position: absolute;
+
         top: 78px;
+
         left: 0;
+
         right: 0;
+
         padding: 25px;
+
         background: var(--bg-2);
+
         flex-direction: column;
+
         border-bottom: 1px solid var(--border);
     }
 
@@ -1416,10 +1676,6 @@ footer a {
 
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
 <header>
 
 <nav class="container">
@@ -1453,11 +1709,6 @@ Muzzamil<span>.</span>
 </nav>
 
 </header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
 
 <section class="hero" id="home">
 
@@ -1513,9 +1764,6 @@ Explore My Services
 
 </div>
 
-
-<!-- PROFILE IMAGE -->
-
 <div class="hero-visual">
 
 <div class="profile-orbit">
@@ -1552,16 +1800,9 @@ Patient-centered virtual support
 
 </section>
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
 <section class="about" id="about">
 
 <div class="container about-grid reveal">
-
-<!-- ABOUT IMAGE — CHANGED TO about.jpg -->
 
 <div class="about-image">
 
@@ -1654,11 +1895,6 @@ Professional communication and responsive support
 
 </section>
 
-
-<!-- =====================================================
-     TOOLBOX
-===================================================== -->
-
 <section class="toolbox">
 
 <div class="container reveal">
@@ -1711,11 +1947,6 @@ Healthcare systems, administrative platforms, and digital tools I have worked wi
 
 </section>
 
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
 <section class="services" id="services">
 
 <div class="container reveal">
@@ -1740,7 +1971,6 @@ Professional healthcare administrative and patient support designed to help prac
 
 <div class="services-grid">
 
-
 <div class="service">
 
 <div class="service-icon icon-teal">
@@ -1756,7 +1986,6 @@ New patient appointments, follow-ups, rescheduling, cancellations, provider coor
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1774,7 +2003,6 @@ Administrative support for virtual appointments, patient communication, appointm
 
 </div>
 
-
 <div class="service">
 
 <div class="service-icon icon-purple">
@@ -1790,7 +2018,6 @@ Insurance eligibility and benefits verification support with appropriate documen
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1808,7 +2035,6 @@ Support with authorization workflows, documentation coordination, insurance comm
 
 </div>
 
-
 <div class="service">
 
 <div class="service-icon icon-green">
@@ -1824,7 +2050,6 @@ Professional inbound and outbound communication, patient inquiries, follow-up, a
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1842,7 +2067,6 @@ Administrative follow-up on medication refill requests and communication with ap
 
 </div>
 
-
 <div class="service">
 
 <div class="service-icon icon-teal">
@@ -1858,7 +2082,6 @@ Administrative coordination of referrals, communication, documentation, and foll
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1876,7 +2099,6 @@ Organized management of healthcare inbox workflows, message routing, task follow
 
 </div>
 
-
 <div class="service">
 
 <div class="service-icon icon-purple">
@@ -1892,7 +2114,6 @@ Healthcare documentation, administrative data entry, patient records, scheduling
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1910,7 +2131,6 @@ Professional communication focused on responsiveness, empathy, clarity, and posi
 
 </div>
 
-
 <div class="service">
 
 <div class="service-icon icon-green">
@@ -1926,7 +2146,6 @@ Administrative support related to billing inquiries, payment workflows, and coor
 </p>
 
 </div>
-
 
 <div class="service">
 
@@ -1950,11 +2169,6 @@ Clear and professional communication with patients regarding appointments, inqui
 
 </section>
 
-
-<!-- =====================================================
-     EXPERIENCE
-===================================================== -->
-
 <section class="experience" id="experience">
 
 <div class="container reveal">
@@ -1976,7 +2190,6 @@ A combination of nursing, healthcare administration, patient scheduling, and cus
 </div>
 
 <div class="timeline">
-
 
 <div class="timeline-item">
 
@@ -2000,7 +2213,6 @@ Conduct comprehensive patient assessments, monitor vital signs and clinical stat
 
 </div>
 
-
 <div class="timeline-item">
 
 <div class="timeline-dot"></div>
@@ -2023,7 +2235,6 @@ Support a fast-paced remote psychiatry clinic environment by managing high-volum
 
 </div>
 
-
 <div class="timeline-item">
 
 <div class="timeline-dot"></div>
@@ -2045,7 +2256,6 @@ Acted as a communication bridge between patients, clinics, and healthcare admini
 </p>
 
 </div>
-
 
 <div class="timeline-item">
 
@@ -2075,11 +2285,6 @@ Provided professional customer support, handled customer inquiries, maintained s
 
 </section>
 
-
-<!-- =====================================================
-     WORK SAMPLES
-===================================================== -->
-
 <section class="work" id="work">
 
 <div class="container reveal">
@@ -2102,7 +2307,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 <div class="work-grid">
 
-
 <div class="work-card">
 
 <div class="work-image">
@@ -2115,7 +2319,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 </div>
 
 </div>
-
 
 <div class="work-card">
 
@@ -2130,7 +2333,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 </div>
 
-
 <div class="work-card">
 
 <div class="work-image">
@@ -2143,7 +2345,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 </div>
 
 </div>
-
 
 <div class="work-card">
 
@@ -2158,7 +2359,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 </div>
 
-
 <div class="work-card">
 
 <div class="work-image">
@@ -2171,7 +2371,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 </div>
 
 </div>
-
 
 <div class="work-card">
 
@@ -2186,7 +2385,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 </div>
 
-
 <div class="work-card">
 
 <div class="work-image">
@@ -2200,7 +2398,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 </div>
 
-
 <div class="work-card">
 
 <div class="work-image">
@@ -2213,7 +2410,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 </div>
 
 </div>
-
 
 <div class="work-card">
 
@@ -2233,11 +2429,6 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 </div>
 
 </section>
-
-
-<!-- =====================================================
-     CREDENTIALS
-===================================================== -->
 
 <section class="certifications" id="credentials">
 
@@ -2260,7 +2451,6 @@ Professional healthcare training and certifications supporting my healthcare and
 </div>
 
 <div class="cert-grid">
-
 
 <div class="cert-card">
 
@@ -2287,7 +2477,6 @@ Stanford University School of Medicine — Online Training
 
 </div>
 
-
 <div class="cert-card">
 
 <div class="cert-image">
@@ -2312,7 +2501,6 @@ Healthcare privacy, patient confidentiality, and protected health information aw
 </div>
 
 </div>
-
 
 <div class="cert-card">
 
@@ -2345,11 +2533,6 @@ Rescue 1122 Punjab Emergency Services — CPR, AED, emergency response, and basi
 
 </section>
 
-
-<!-- =====================================================
-     WHY CHOOSE ME
-===================================================== -->
-
 <section class="why" id="why">
 
 <div class="container reveal">
@@ -2372,7 +2555,6 @@ Healthcare practices need more than someone who can complete tasks. They need so
 
 <div class="why-grid">
 
-
 <div class="why-card">
 
 <div class="why-icon">
@@ -2388,7 +2570,6 @@ My nursing education and clinical background help me understand healthcare envir
 </p>
 
 </div>
-
 
 <div class="why-card">
 
@@ -2406,7 +2587,6 @@ I have experience working with multiple EHR/EMR and healthcare platforms, allowi
 
 </div>
 
-
 <div class="why-card">
 
 <div class="why-icon">
@@ -2422,7 +2602,6 @@ I understand that every patient interaction represents the practice. My approach
 </p>
 
 </div>
-
 
 <div class="why-card">
 
@@ -2440,7 +2619,6 @@ Scheduling, referrals, authorizations, refill requests, and patient messages oft
 
 </div>
 
-
 <div class="why-card">
 
 <div class="why-icon">
@@ -2456,7 +2634,6 @@ My healthcare experience and HIPAA-related training reinforce the importance of 
 </p>
 
 </div>
-
 
 <div class="why-card">
 
@@ -2474,7 +2651,6 @@ I help connect patients, providers, administrative teams, insurance processes, a
 
 </div>
 
-
 <div class="why-card">
 
 <div class="why-icon">
@@ -2491,7 +2667,6 @@ My experience with high-volume calls, scheduling, patient inquiries, and healthc
 
 </div>
 
-
 <div class="why-card">
 
 <div class="why-icon">
@@ -2507,7 +2682,6 @@ I am comfortable working with digital communication tools, remote healthcare wor
 </p>
 
 </div>
-
 
 <div class="why-card">
 
@@ -2531,11 +2705,6 @@ Behind every appointment, message, refill, referral, and insurance request is a 
 
 </section>
 
-
-<!-- =====================================================
-     WORKFLOW
-===================================================== -->
-
 <section class="workflow">
 
 <div class="container reveal">
@@ -2554,7 +2723,6 @@ How I Support Healthcare Teams
 
 <div class="workflow-grid">
 
-
 <div class="workflow-card">
 
 <div class="workflow-number">
@@ -2570,7 +2738,6 @@ Understand the practice, patients, workflow requirements, and priorities.
 </p>
 
 </div>
-
 
 <div class="workflow-card">
 
@@ -2588,7 +2755,6 @@ Organize appointments, messages, requests, administrative tasks, and priorities.
 
 </div>
 
-
 <div class="workflow-card">
 
 <div class="workflow-number">
@@ -2604,7 +2770,6 @@ Coordinate with patients, providers, insurance teams, and healthcare staff.
 </p>
 
 </div>
-
 
 <div class="workflow-card">
 
@@ -2627,11 +2792,6 @@ Track outstanding tasks and maintain appropriate follow-up until the workflow is
 </div>
 
 </section>
-
-
-<!-- =====================================================
-     CTA
-===================================================== -->
 
 <section class="cta">
 
@@ -2661,11 +2821,6 @@ Email Me
 
 </section>
 
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
 <section class="contact" id="contact">
 
 <div class="container contact-grid reveal">
@@ -2690,7 +2845,6 @@ If you are looking for professional Virtual Medical Assistant, patient schedulin
 
 <div class="contact-details">
 
-
 <div class="contact-detail">
 
 <span>
@@ -2709,7 +2863,6 @@ EMAIL
 
 </div>
 
-
 <div class="contact-detail">
 
 <span>
@@ -2727,7 +2880,6 @@ PHONE
 </a>
 
 </div>
-
 
 <div class="contact-detail">
 
@@ -2751,6 +2903,29 @@ rel="noopener noreferrer"
 
 </div>
 
+<!-- ONLY ADDITION: UPWORK -->
+
+<div class="contact-detail">
+
+<span>
+UPWORK
+</span>
+
+<br>
+
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+>
+
+<i class="fa-solid fa-briefcase"></i>
+
+&nbsp; View My Upwork Profile
+
+</a>
+
+</div>
 
 <div class="contact-detail">
 
@@ -2767,7 +2942,6 @@ Available for Virtual Healthcare Support Opportunities
 </div>
 
 </div>
-
 
 <form action="mailto:khanmhuk@gmail.com" method="post" enctype="text/plain">
 
@@ -2786,7 +2960,6 @@ required
 
 </div>
 
-
 <div class="form-group">
 
 <label>
@@ -2801,7 +2974,6 @@ required
 >
 
 </div>
-
 
 <div class="form-group">
 
@@ -2831,7 +3003,6 @@ Service
 
 </div>
 
-
 <div class="form-group">
 
 <label>
@@ -2845,7 +3016,6 @@ required
 ></textarea>
 
 </div>
-
 
 <button
 type="submit"
@@ -2864,17 +3034,11 @@ Send Email
 
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
 <div class="container">
 
 <div class="footer-grid">
-
 
 <div>
 
@@ -2887,7 +3051,6 @@ Registered Nurse and Virtual Medical Assistant providing healthcare administrati
 </p>
 
 </div>
-
 
 <div>
 
@@ -2910,7 +3073,6 @@ Explore
 </div>
 
 </div>
-
 
 <div>
 
@@ -2936,12 +3098,21 @@ rel="noopener noreferrer"
 LinkedIn
 </a>
 
-</div>
+<!-- ONLY ADDITION: UPWORK -->
+
+<a
+href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
+target="_blank"
+rel="noopener noreferrer"
+>
+Upwork
+</a>
 
 </div>
 
 </div>
 
+</div>
 
 <div class="copyright">
 
@@ -2953,11 +3124,6 @@ LinkedIn
 
 </footer>
 
-
-<!-- =====================================================
-     BACK TO TOP
-===================================================== -->
-
 <button
 class="back-top"
 id="backTop"
@@ -2968,11 +3134,6 @@ aria-label="Back to top"
 ↑
 
 </button>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script>
 
@@ -2986,7 +3147,6 @@ document
 .toggle("active");
 
 }
-
 
 /* CLOSE MOBILE MENU */
 
@@ -3004,7 +3164,6 @@ document
 });
 
 });
-
 
 /* SCROLL REVEAL */
 
@@ -3030,7 +3189,6 @@ threshold: 0.12
 
 );
 
-
 document
 .querySelectorAll(".reveal")
 .forEach(function(element) {
@@ -3038,7 +3196,6 @@ document
 observer.observe(element);
 
 });
-
 
 /* SCROLL PROGRESS */
 
@@ -3061,7 +3218,6 @@ document
 
 });
 
-
 /* BACK TO TOP */
 
 window.addEventListener("scroll", function() {
@@ -3080,7 +3236,6 @@ button.classList.remove("show");
 }
 
 });
-
 
 function scrollToTop() {
 
