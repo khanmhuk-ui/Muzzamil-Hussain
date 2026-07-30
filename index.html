@@ -1,5 +1,4 @@
 index.html 
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +17,6 @@ index.html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
 
 :root {
     --bg: #071114;
@@ -43,17 +38,11 @@ index.html
     --green: #62d69c;
     --orange: #ffad63;
     --pink: #f184b6;
-    --red: #ff7272;
-    --yellow: #ffd166;
 
     --border: rgba(255,255,255,0.12);
 
     --max: 1200px;
 }
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     margin: 0;
@@ -63,7 +52,6 @@ index.html
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
 }
 
 body {
@@ -101,7 +89,7 @@ img {
 }
 
 /* =========================================================
-   PROGRESS BAR
+   SCROLL PROGRESS
 ========================================================= */
 
 .progress-bar {
@@ -109,15 +97,8 @@ img {
     top: 0;
     left: 0;
     width: 0%;
-    height: 4px;
-    background: linear-gradient(
-        90deg,
-        var(--teal),
-        var(--blue),
-        var(--purple),
-        var(--pink),
-        var(--accent)
-    );
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--accent), var(--purple));
     z-index: 3000;
 }
 
@@ -131,7 +112,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 2000;
-    background: rgba(7,17,20,0.86);
+    background: rgba(7,17,20,0.82);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
 }
@@ -155,7 +136,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 23px;
+    gap: 26px;
     list-style: none;
 }
 
@@ -192,18 +173,6 @@ nav {
         radial-gradient(circle at 85% 20%, rgba(85,198,192,0.14), transparent 30%),
         radial-gradient(circle at 10% 85%, rgba(215,173,115,0.10), transparent 30%),
         var(--bg);
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 1px solid rgba(85,198,192,0.06);
-    right: -220px;
-    top: 10%;
-    animation: slowRotate 25s linear infinite;
 }
 
 .hero-grid {
@@ -273,7 +242,7 @@ nav {
     padding: 14px 24px;
     font-size: 13px;
     font-weight: 700;
-    border-radius: 6px;
+    border-radius: 5px;
     transition: 0.3s ease;
     cursor: pointer;
 }
@@ -303,12 +272,11 @@ nav {
 
 /* =========================================================
    HERO PROFILE IMAGE
-   SEPARATE FROM ABOUT IMAGE
 ========================================================= */
 
 .hero-visual {
     position: relative;
-    min-height: 650px;
+    min-height: 620px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,8 +297,8 @@ nav {
 
 .profile-orbit {
     position: relative;
-    width: 480px;
-    height: 480px;
+    width: 430px;
+    height: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -338,7 +306,8 @@ nav {
 }
 
 @keyframes floating {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -350,30 +319,31 @@ nav {
 .profile-orbit::before {
     content: "";
     position: absolute;
-    width: 440px;
-    height: 440px;
+    width: 430px;
+    height: 430px;
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(85,198,192,0.20),
-            rgba(215,173,115,0.09) 45%,
+            rgba(85,198,192,0.16),
+            rgba(215,173,115,0.08) 45%,
             transparent 70%
         );
 
-    filter: blur(10px);
+    filter: blur(8px);
     animation: glowPulse 4s ease-in-out infinite;
 }
 
 @keyframes glowPulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(0.96);
         opacity: 0.7;
     }
 
     50% {
-        transform: scale(1.07);
+        transform: scale(1.06);
         opacity: 1;
     }
 }
@@ -381,14 +351,12 @@ nav {
 .profile-orbit::after {
     content: "";
     position: absolute;
-    width: 535px;
-    height: 535px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-
     border: 1px solid rgba(215,173,115,0.28);
     border-top-color: var(--teal);
-    border-right-color: rgba(181,140,255,0.75);
-
+    border-right-color: rgba(181,140,255,0.65);
     animation: rotateOrbit 18s linear infinite;
 }
 
@@ -402,32 +370,27 @@ nav {
     }
 }
 
-/* PROFILE IMAGE ONLY */
-
 .profile-image {
     position: relative;
     z-index: 5;
-
-    width: 420px;
-    height: 420px;
-
+    width: 390px;
+    height: 390px;
     object-fit: cover;
     border-radius: 50%;
 
-    border: 7px solid rgba(255,255,255,0.12);
+    border: 7px solid rgba(255,255,255,0.10);
 
     box-shadow:
         0 0 0 12px rgba(215,173,115,0.07),
-        0 0 0 25px rgba(85,198,192,0.045),
-        0 30px 80px rgba(0,0,0,0.50);
+        0 0 0 24px rgba(85,198,192,0.045),
+        0 25px 70px rgba(0,0,0,0.45);
 
-    animation:
-        imageBreath 5s ease-in-out infinite,
-        imageGlow 4s ease-in-out infinite;
+    animation: imageBreath 5s ease-in-out infinite;
 }
 
 @keyframes imageBreath {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
@@ -436,33 +399,17 @@ nav {
     }
 }
 
-@keyframes imageGlow {
-    0%, 100% {
-        box-shadow:
-            0 0 0 12px rgba(215,173,115,0.07),
-            0 0 0 25px rgba(85,198,192,0.045),
-            0 30px 80px rgba(0,0,0,0.50);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 15px rgba(215,173,115,0.10),
-            0 0 0 30px rgba(85,198,192,0.07),
-            0 30px 90px rgba(85,198,192,0.16);
-    }
-}
-
 .orbit-dot {
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     z-index: 10;
-    box-shadow: 0 0 25px currentColor;
+    box-shadow: 0 0 20px currentColor;
 }
 
 .dot-one {
-    top: 42px;
+    top: 45px;
     right: 40px;
     background: var(--teal);
     color: var(--teal);
@@ -470,7 +417,7 @@ nav {
 }
 
 .dot-two {
-    bottom: 65px;
+    bottom: 70px;
     left: 35px;
     background: var(--accent);
     color: var(--accent);
@@ -478,7 +425,7 @@ nav {
 }
 
 .dot-three {
-    top: 95px;
+    top: 100px;
     left: 35px;
     background: var(--purple);
     color: var(--purple);
@@ -509,8 +456,8 @@ nav {
 
 .hero-badge {
     position: absolute;
-    bottom: 55px;
-    left: 5px;
+    bottom: 70px;
+    left: 10px;
     z-index: 20;
 
     padding: 17px 21px;
@@ -526,7 +473,8 @@ nav {
 }
 
 @keyframes badgeFloat {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -582,12 +530,13 @@ nav {
 }
 
 /* =========================================================
-   REVEAL ANIMATION
+   REVEAL
 ========================================================= */
 
 .reveal {
     opacity: 0;
     transform: translateY(35px);
+
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
@@ -600,7 +549,6 @@ nav {
 
 /* =========================================================
    ABOUT
-   LARGE SEPARATE IMAGE
 ========================================================= */
 
 .about {
@@ -614,23 +562,22 @@ nav {
     align-items: center;
 }
 
+/* ABOUT IMAGE — SEPARATE FROM HERO PROFILE IMAGE */
+
 .about-image {
     position: relative;
-    min-height: 620px;
-
+    min-height: 570px;
     border-radius: 18px;
     overflow: hidden;
-
     border: 1px solid var(--border);
     background: var(--bg-3);
-
-    box-shadow: 0 25px 60px rgba(0,0,0,0.30);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
-    min-height: 620px;
+    min-height: 570px;
     object-fit: cover;
     transition: transform 0.8s ease;
 }
@@ -709,12 +656,12 @@ nav {
 }
 
 .tool h3 {
+    font-family: "DM Sans", sans-serif;
     font-size: 16px;
 }
 
 /* =========================================================
    SERVICES
-   COLORFUL ICONS
 ========================================================= */
 
 .services {
@@ -748,10 +695,8 @@ nav {
     background: linear-gradient(
         90deg,
         var(--teal),
-        var(--blue),
-        var(--purple),
-        var(--pink),
-        var(--accent)
+        var(--accent),
+        var(--purple)
     );
 
     transition: 0.35s ease;
@@ -768,105 +713,46 @@ nav {
 }
 
 .service-icon {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 17px;
+    border-radius: 15px;
     margin-bottom: 20px;
-
-    font-size: 24px;
-
-    transition: 0.4s ease;
+    font-size: 23px;
 }
-
-.service:hover .service-icon {
-    transform: rotate(5deg) scale(1.08);
-}
-
-/* DISTINCT COLORFUL ICONS */
 
 .icon-teal {
-    color: #55e6d8;
-    background: linear-gradient(
-        135deg,
-        rgba(85,230,216,0.22),
-        rgba(85,198,192,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(85,198,192,0.10);
+    color: var(--teal);
+    background: rgba(85,198,192,0.12);
 }
 
 .icon-blue {
-    color: #69b7ff;
-    background: linear-gradient(
-        135deg,
-        rgba(99,169,255,0.22),
-        rgba(99,169,255,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(99,169,255,0.10);
+    color: var(--blue);
+    background: rgba(99,169,255,0.12);
 }
 
 .icon-purple {
-    color: #c29cff;
-    background: linear-gradient(
-        135deg,
-        rgba(181,140,255,0.24),
-        rgba(181,140,255,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(181,140,255,0.10);
+    color: var(--purple);
+    background: rgba(181,140,255,0.12);
 }
 
 .icon-green {
-    color: #6ee7a5;
-    background: linear-gradient(
-        135deg,
-        rgba(98,214,156,0.24),
-        rgba(98,214,156,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(98,214,156,0.10);
+    color: var(--green);
+    background: rgba(98,214,156,0.12);
 }
 
 .icon-orange {
-    color: #ffb66e;
-    background: linear-gradient(
-        135deg,
-        rgba(255,173,99,0.25),
-        rgba(255,173,99,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(255,173,99,0.10);
+    color: var(--orange);
+    background: rgba(255,173,99,0.12);
 }
 
 .icon-pink {
-    color: #ff8fc3;
-    background: linear-gradient(
-        135deg,
-        rgba(241,132,182,0.25),
-        rgba(241,132,182,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(241,132,182,0.10);
-}
-
-.icon-red {
-    color: #ff8585;
-    background: linear-gradient(
-        135deg,
-        rgba(255,114,114,0.25),
-        rgba(255,114,114,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(255,114,114,0.10);
-}
-
-.icon-yellow {
-    color: #ffd86b;
-    background: linear-gradient(
-        135deg,
-        rgba(255,209,102,0.25),
-        rgba(255,209,102,0.06)
-    );
-    box-shadow: 0 10px 30px rgba(255,209,102,0.10);
+    color: var(--pink);
+    background: rgba(241,132,182,0.12);
 }
 
 .service-number {
@@ -914,22 +800,14 @@ nav {
     position: absolute;
     left: -6px;
     top: 0;
-
     width: 11px;
     height: 11px;
-
     border-radius: 50%;
-
     background: var(--teal);
 
     box-shadow:
         0 0 0 5px rgba(85,198,192,0.08),
         0 0 20px rgba(85,198,192,0.5);
-}
-
-.timeline-item h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 25px;
 }
 
 .timeline-company {
@@ -985,18 +863,6 @@ nav {
     justify-content: center;
     overflow: hidden;
     position: relative;
-}
-
-.work-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.25),
-        transparent
-    );
-    pointer-events: none;
 }
 
 .work-image img {
@@ -1260,31 +1126,6 @@ nav {
     color: var(--teal);
 }
 
-.contact-socials {
-    display: flex;
-    gap: 12px;
-    margin-top: 25px;
-}
-
-.social-button {
-    width: 46px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    transition: 0.3s ease;
-}
-
-.social-button:hover {
-    transform: translateY(-4px);
-    color: var(--text);
-    border-color: var(--teal);
-    background: rgba(85,198,192,0.10);
-}
-
 form {
     background: var(--card);
     border: 1px solid var(--border);
@@ -1377,23 +1218,16 @@ footer a {
     position: fixed;
     right: 25px;
     bottom: 25px;
-
     width: 45px;
     height: 45px;
-
     background: var(--accent);
     color: #111;
-
     border: none;
     border-radius: 50%;
-
     cursor: pointer;
-
     opacity: 0;
     visibility: hidden;
-
     transition: 0.3s;
-
     z-index: 900;
 }
 
@@ -1420,7 +1254,7 @@ footer a {
     }
 
     .hero-visual {
-        min-height: 600px;
+        min-height: 560px;
     }
 
     .tools-grid,
@@ -1456,14 +1290,14 @@ footer a {
         order: 2;
     }
 
-    .about-image,
-    .about-image img {
-        min-height: 550px;
+    .about-image {
+        min-height: 500px;
     }
 
-    .profile-orbit {
-        transform: scale(0.90);
+    .about-image img {
+        min-height: 500px;
     }
+
 }
 
 @media(max-width:650px) {
@@ -1474,19 +1308,13 @@ footer a {
 
     .nav-links {
         display: none;
-
         position: absolute;
-
         top: 78px;
         left: 0;
         right: 0;
-
         padding: 25px;
-
         background: var(--bg-2);
-
         flex-direction: column;
-
         border-bottom: 1px solid var(--border);
     }
 
@@ -1516,28 +1344,27 @@ footer a {
     }
 
     .profile-orbit {
-        width: 330px;
-        height: 330px;
-        transform: scale(1);
-    }
-
-    .profile-orbit::before {
-        width: 310px;
-        height: 310px;
-    }
-
-    .profile-orbit::after {
-        width: 365px;
-        height: 365px;
-    }
-
-    .profile-image {
         width: 300px;
         height: 300px;
     }
 
+    .profile-orbit::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .profile-orbit::after {
+        width: 350px;
+        height: 350px;
+    }
+
+    .profile-image {
+        width: 275px;
+        height: 275px;
+    }
+
     .hero-visual {
-        min-height: 480px;
+        min-height: 450px;
     }
 
     .hero-badge {
@@ -1564,14 +1391,7 @@ footer a {
         gap: 40px;
     }
 
-    .contact-socials {
-        justify-content: flex-start;
-    }
 }
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media(prefers-reduced-motion: reduce) {
 
@@ -1586,6 +1406,7 @@ footer a {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+
 }
 
 </style>
@@ -1607,18 +1428,24 @@ footer a {
 Muzzamil<span>.</span>
 </a>
 
-<div class="menu" onclick="toggleMenu()" aria-label="Open navigation menu">
-<i class="fa-solid fa-bars"></i>
+<div class="menu" onclick="toggleMenu()">
+☰
 </div>
 
 <ul class="nav-links" id="navLinks">
 
 <li><a href="#about">About</a></li>
+
 <li><a href="#services">Services</a></li>
+
 <li><a href="#experience">Experience</a></li>
+
 <li><a href="#work">Work Samples</a></li>
+
 <li><a href="#credentials">Credentials</a></li>
+
 <li><a href="#why">Why Me</a></li>
+
 <li><a href="#contact">Contact</a></li>
 
 </ul>
@@ -1660,7 +1487,7 @@ Purpose.
 
 <p class="hero-description">
 
-I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing reliable healthcare administrative and patient support services. I support healthcare practices with patient scheduling, patient communication, insurance verification, prior authorization workflows, telehealth coordination, medication refill follow-up, referral coordination, inbox management, and EHR/EMR-related administrative tasks.
+I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing reliable healthcare administrative and patient support services. I support healthcare practices with patient scheduling, patient communication, insurance verification, prior authorization workflows, telehealth coordination, medication refill follow-up, referral coordination, and EHR/EMR-related administrative tasks.
 
 </p>
 
@@ -1682,25 +1509,12 @@ Explore My Services
 
 </a>
 
-<a
-href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
-target="_blank"
-rel="noopener noreferrer"
-class="btn btn-outline"
->
-
-<i class="fa-brands fa-upwork"></i>
-
-View Upwork
-
-</a>
-
 </div>
 
 </div>
 
 
-<!-- PROFILE IMAGE: SEPARATE FROM ABOUT IMAGE -->
+<!-- PROFILE IMAGE -->
 
 <div class="hero-visual">
 
@@ -1713,7 +1527,9 @@ class="profile-image"
 >
 
 <div class="orbit-dot dot-one"></div>
+
 <div class="orbit-dot dot-two"></div>
+
 <div class="orbit-dot dot-three"></div>
 
 </div>
@@ -1745,13 +1561,13 @@ Patient-centered virtual support
 
 <div class="container about-grid reveal">
 
-<!-- LARGE ABOUT IMAGE — SEPARATE FROM PROFILE IMAGE -->
+<!-- ABOUT IMAGE — CHANGED TO about.jpg -->
 
 <div class="about-image">
 
 <img
-src="practicefusiondashboard.jpg"
-alt="Practice Fusion healthcare technology dashboard demonstration"
+src="about.jpg"
+alt="Muzzamil Hussain - Registered Nurse and Virtual Medical Assistant"
 >
 
 </div>
@@ -1772,13 +1588,13 @@ Healthcare Knowledge Meets Virtual Support
 
 <p>
 
-I am a BS Nursing (Generic) graduate with a nursing internship background and professional experience supporting healthcare operations in patient scheduling, telehealth coordination, prior authorization, insurance-related workflows, patient communication, and EHR/EMR-based administrative processes.
+I am a BS Nursing (Generic) graduate with a nursing internship background and experience supporting healthcare operations in patient scheduling, telehealth coordination, prior authorization, insurance-related workflows, patient communication, and EHR/EMR-based administrative processes.
 
 </p>
 
 <p>
 
-My experience includes supporting healthcare practices involving psychiatry, cardiology, physical therapy, and patient support workflows. I bring together clinical understanding, healthcare technology experience, organized administrative processes, and patient-centered communication.
+My professional experience includes working with healthcare practices involving psychiatry, cardiology, physical therapy, and general patient support workflows. I bring together clinical understanding, healthcare technology experience, organized administrative processes, and patient-centered communication.
 
 </p>
 
@@ -1791,23 +1607,43 @@ My approach is built around accuracy, professionalism, confidentiality, timely f
 <div class="about-highlights">
 
 <div class="highlight">
-<strong>Registered Nurse</strong>
+
+<strong>
+Registered Nurse
+</strong>
+
 Nursing education and clinical healthcare foundation
+
 </div>
 
 <div class="highlight">
-<strong>Virtual Medical Assistant</strong>
+
+<strong>
+Virtual Medical Assistant
+</strong>
+
 Remote healthcare administrative and patient support
+
 </div>
 
 <div class="highlight">
-<strong>EHR / EMR Experience</strong>
+
+<strong>
+EHR / EMR Experience
+</strong>
+
 Experience with multiple healthcare technology platforms
+
 </div>
 
 <div class="highlight">
-<strong>Patient-Centered</strong>
+
+<strong>
+Patient-Centered
+</strong>
+
 Professional communication and responsive support
+
 </div>
 
 </div>
@@ -1846,16 +1682,27 @@ Healthcare systems, administrative platforms, and digital tools I have worked wi
 <div class="tools-grid">
 
 <div class="tool"><h3>eClinicalWorks</h3></div>
+
 <div class="tool"><h3>DrChrono</h3></div>
+
 <div class="tool"><h3>Practice Fusion</h3></div>
+
 <div class="tool"><h3>DrNotes</h3></div>
+
 <div class="tool"><h3>AthenaHealth</h3></div>
+
 <div class="tool"><h3>AltuMed</h3></div>
+
 <div class="tool"><h3>Square</h3></div>
+
 <div class="tool"><h3>RingCentral</h3></div>
+
 <div class="tool"><h3>Microsoft Excel</h3></div>
+
 <div class="tool"><h3>Microsoft Word</h3></div>
+
 <div class="tool"><h3>Microsoft PowerPoint</h3></div>
+
 <div class="tool"><h3>Google Sheets</h3></div>
 
 </div>
@@ -2049,7 +1896,7 @@ Healthcare documentation, administrative data entry, patient records, scheduling
 
 <div class="service">
 
-<div class="service-icon icon-yellow">
+<div class="service-icon icon-orange">
 <i class="fa-solid fa-user-check"></i>
 </div>
 
@@ -2093,57 +1940,6 @@ Administrative support related to billing inquiries, payment workflows, and coor
 
 <p>
 Clear and professional communication with patients regarding appointments, inquiries, follow-ups, and healthcare administrative needs.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-icon icon-red">
-<i class="fa-solid fa-car"></i>
-</div>
-
-<div class="service-number">13</div>
-
-<h3>Patient Transportation Coordination</h3>
-
-<p>
-Administrative support for patient transportation concerns, ride-related communication, and coordination with appropriate teams.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-icon icon-orange">
-<i class="fa-solid fa-user-group"></i>
-</div>
-
-<div class="service-number">14</div>
-
-<h3>In-Person Visit Coordination</h3>
-
-<p>
-Support with coordinating in-person visits, appointment logistics, patient communication, and follow-up requirements.
-</p>
-
-</div>
-
-
-<div class="service">
-
-<div class="service-icon icon-blue">
-<i class="fa-solid fa-hospital-user"></i>
-</div>
-
-<div class="service-number">15</div>
-
-<h3>Healthcare Team Coordination</h3>
-
-<p>
-Communication and administrative coordination between patients, providers, clinics, insurance teams, and healthcare departments.
 </p>
 
 </div>
@@ -2308,6 +2104,7 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="practicefusioncalender.jpg" alt="Practice Fusion scheduling calendar workflow">
 </div>
@@ -2316,10 +2113,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Practice Fusion Calendar</h3>
 <p>Appointment scheduling and healthcare calendar workflow demonstration.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="ecw.jpg" alt="eClinicalWorks healthcare workflow">
 </div>
@@ -2328,10 +2127,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>eClinicalWorks</h3>
 <p>EHR workflow and healthcare administrative experience.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="drchronocalender.jpg" alt="DrChrono calendar workflow">
 </div>
@@ -2340,10 +2141,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>DrChrono Calendar</h3>
 <p>Scheduling and appointment coordination workflow experience.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="drchronoappt.jpg" alt="DrChrono appointment workflow">
 </div>
@@ -2352,22 +2155,26 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>DrChrono Appointments</h3>
 <p>Appointment management and healthcare administrative workflow.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
-<img src="athencare.jpg" alt="AthenaHealth healthcare platform">
+<img src="athencare.jpg" alt="Athena healthcare platform">
 </div>
 
 <div class="work-info">
 <h3>AthenaHealth</h3>
 <p>Healthcare platform and administrative workflow experience.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="practicefusiondashboard.jpg" alt="Practice Fusion dashboard">
 </div>
@@ -2376,10 +2183,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Practice Fusion Dashboard</h3>
 <p>EHR dashboard and healthcare workflow demonstration.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="practicefusionpayment.jpg" alt="Practice Fusion payment workflow">
 </div>
@@ -2388,10 +2197,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Payment Workflow</h3>
 <p>Healthcare payment and administrative workflow experience.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="practicefusiontimeline.jpg" alt="Practice Fusion patient timeline">
 </div>
@@ -2400,10 +2211,12 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Patient Timeline</h3>
 <p>Patient record and timeline workflow demonstration.</p>
 </div>
+
 </div>
 
 
 <div class="work-card">
+
 <div class="work-image">
 <img src="prmedicationrefill.jpg" alt="Medication refill workflow">
 </div>
@@ -2412,6 +2225,7 @@ Selected de-identified healthcare workflow demonstrations and professional platf
 <h3>Medication Refill Workflow</h3>
 <p>Administrative medication refill request and follow-up workflow.</p>
 </div>
+
 </div>
 
 </div>
@@ -2833,10 +2647,7 @@ Let's Simplify Your Healthcare Workflow
 Looking for a healthcare professional who understands both patient care and administrative workflows? Let's discuss how I can support your practice.
 </p>
 
-<a
-href="mailto:khanmhuk@gmail.com?subject=Virtual%20Healthcare%20Support%20Inquiry"
-class="btn btn-primary"
->
+<a href="mailto:khanmhuk@gmail.com?subject=Virtual%20Healthcare%20Support%20Inquiry" class="btn btn-primary">
 
 <i class="fa-solid fa-envelope"></i>
 
@@ -2944,29 +2755,6 @@ rel="noopener noreferrer"
 <div class="contact-detail">
 
 <span>
-UPWORK
-</span>
-
-<br>
-
-<a
-href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
-target="_blank"
-rel="noopener noreferrer"
->
-
-<i class="fa-brands fa-upwork"></i>
-
-&nbsp; View My Upwork Profile
-
-</a>
-
-</div>
-
-
-<div class="contact-detail">
-
-<span>
 AVAILABILITY
 </span>
 
@@ -2978,47 +2766,6 @@ Available for Virtual Healthcare Support Opportunities
 
 </div>
 
-
-<div class="contact-socials">
-
-<a
-href="mailto:khanmhuk@gmail.com"
-class="social-button"
-aria-label="Email Muzzamil"
->
-
-<i class="fa-solid fa-envelope"></i>
-
-</a>
-
-
-<a
-href="https://www.linkedin.com/in/muzzamil-hussain-08ab4b211/"
-target="_blank"
-rel="noopener noreferrer"
-class="social-button"
-aria-label="LinkedIn Profile"
->
-
-<i class="fa-brands fa-linkedin-in"></i>
-
-</a>
-
-
-<a
-href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
-target="_blank"
-rel="noopener noreferrer"
-class="social-button"
-aria-label="Upwork Profile"
->
-
-<i class="fa-brands fa-upwork"></i>
-
-</a>
-
-</div>
-
 </div>
 
 
@@ -3026,12 +2773,11 @@ aria-label="Upwork Profile"
 
 <div class="form-group">
 
-<label for="name">
+<label>
 Name
 </label>
 
 <input
-id="name"
 type="text"
 name="Name"
 placeholder="Your Name"
@@ -3043,12 +2789,11 @@ required
 
 <div class="form-group">
 
-<label for="email">
+<label>
 Email
 </label>
 
 <input
-id="email"
 type="email"
 name="Email"
 placeholder="Your Email"
@@ -3060,11 +2805,11 @@ required
 
 <div class="form-group">
 
-<label for="service">
+<label>
 Service
 </label>
 
-<select id="service" name="Service">
+<select name="Service">
 
 <option>Virtual Medical Assistant</option>
 
@@ -3082,10 +2827,6 @@ Service
 
 <option>EHR / EMR Support</option>
 
-<option>Referral Coordination</option>
-
-<option>Medication Refill Coordination</option>
-
 </select>
 
 </div>
@@ -3093,12 +2834,11 @@ Service
 
 <div class="form-group">
 
-<label for="message">
+<label>
 Message
 </label>
 
 <textarea
-id="message"
 name="Message"
 placeholder="Tell me about your requirements..."
 required
@@ -3158,11 +2898,14 @@ Explore
 <div class="footer-links">
 
 <a href="#about">About</a>
+
 <a href="#services">Services</a>
+
 <a href="#experience">Experience</a>
+
 <a href="#work">Work Samples</a>
+
 <a href="#credentials">Credentials</a>
-<a href="#why">Why Choose Me</a>
 
 </div>
 
@@ -3191,14 +2934,6 @@ target="_blank"
 rel="noopener noreferrer"
 >
 LinkedIn
-</a>
-
-<a
-href="https://www.upwork.com/freelancers/~0121dc3da2658f2ae9"
-target="_blank"
-rel="noopener noreferrer"
->
-Upwork
 </a>
 
 </div>
@@ -3230,7 +2965,7 @@ onclick="scrollToTop()"
 aria-label="Back to top"
 >
 
-<i class="fa-solid fa-arrow-up"></i>
+↑
 
 </button>
 
@@ -3241,63 +2976,57 @@ aria-label="Back to top"
 
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
 function toggleMenu() {
 
-    document
-    .getElementById("navLinks")
-    .classList
-    .toggle("active");
+document
+.getElementById("navLinks")
+.classList
+.toggle("active");
 
 }
 
 
-/* =========================================================
-   CLOSE MOBILE MENU AFTER CLICK
-========================================================= */
+/* CLOSE MOBILE MENU */
 
 document
 .querySelectorAll(".nav-links a")
 .forEach(function(link) {
 
-    link.addEventListener("click", function() {
+link.addEventListener("click", function() {
 
-        document
-        .getElementById("navLinks")
-        .classList
-        .remove("active");
+document
+.getElementById("navLinks")
+.classList
+.remove("active");
 
-    });
+});
 
 });
 
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+/* SCROLL REVEAL */
 
 const observer = new IntersectionObserver(
 
-    function(entries) {
+function(entries) {
 
-        entries.forEach(function(entry) {
+entries.forEach(function(entry) {
 
-            if(entry.isIntersecting) {
+if(entry.isIntersecting) {
 
-                entry.target.classList.add("active");
+entry.target.classList.add("active");
 
-            }
+}
 
-        });
+});
 
-    },
+},
 
-    {
-        threshold: 0.12
-    }
+{
+threshold: 0.12
+}
 
 );
 
@@ -3306,68 +3035,62 @@ document
 .querySelectorAll(".reveal")
 .forEach(function(element) {
 
-    observer.observe(element);
+observer.observe(element);
 
 });
 
 
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
+/* SCROLL PROGRESS */
 
 window.addEventListener("scroll", function() {
 
-    const scrollTop =
-    document.documentElement.scrollTop;
+const scrollTop =
+document.documentElement.scrollTop;
 
-    const scrollHeight =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
+const scrollHeight =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
 
-    const progress =
-    scrollHeight > 0
-    ? (scrollTop / scrollHeight) * 100
-    : 0;
+const progress =
+(scrollTop / scrollHeight) * 100;
 
-    document
-    .getElementById("progressBar")
-    .style
-    .width = progress + "%";
+document
+.getElementById("progressBar")
+.style
+.width = progress + "%";
 
 });
 
 
-/* =========================================================
-   BACK TO TOP
-========================================================= */
+/* BACK TO TOP */
 
 window.addEventListener("scroll", function() {
 
-    const button =
-    document.getElementById("backTop");
+const button =
+document.getElementById("backTop");
 
-    if(window.scrollY > 600) {
+if(window.scrollY > 600) {
 
-        button.classList.add("show");
+button.classList.add("show");
 
-    } else {
+} else {
 
-        button.classList.remove("show");
+button.classList.remove("show");
 
-    }
+}
 
 });
 
 
 function scrollToTop() {
 
-    window.scrollTo({
+window.scrollTo({
 
-        top: 0,
+top: 0,
 
-        behavior: "smooth"
+behavior: "smooth"
 
-    });
+});
 
 }
 
@@ -3375,4 +3098,3 @@ function scrollToTop() {
 
 </body>
 </html>
-```
