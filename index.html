@@ -1,2273 +1,2336 @@
 index.html 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Muzzamil Hussain | Virtual Medical Assistant Portfolio</title>
+    <title>Muzzamil Hussain · Medical Virtual Assistant</title>
 
-<meta name="description" content="Muzzamil Hussain — Registered Nurse, Virtual Medical Assistant and Healthcare Administrative Support Professional.">
+    <meta name="description"
+        content="Muzzamil Hussain · Medical Virtual Assistant with healthcare, nursing, patient scheduling, EHR/EMR, insurance verification, prior authorization, telehealth, and patient support experience." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="Muzzamil Hussain · Medical Virtual Assistant" />
+    <meta property="og:description"
+        content="Medical Virtual Assistant with healthcare, nursing, patient scheduling, EHR/EMR, insurance verification, prior authorization, telehealth, and patient support experience." />
+    <meta property="og:type" content="website" />
 
-<style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-/* =========================
-   GLOBAL
-========================= */
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-:root {
-    --primary: #173b4d;
-    --secondary: #2d6a73;
-    --accent: #c99a5b;
-    --cream: #f8f5ef;
-    --light: #ffffff;
-    --dark: #16242c;
-    --muted: #6f7c82;
-    --border: #e4e2dc;
-}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+        rel="stylesheet" />
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    color: var(--dark);
-    background: var(--light);
-    line-height: 1.7;
-}
-
-h1,
-h2,
-h3 {
-    font-family: "Playfair Display", serif;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-img {
-    width: 100%;
-    display: block;
-}
-
-.container {
-    width: min(1120px, 90%);
-    margin: auto;
-}
-
-section {
-    padding: 100px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-title span {
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.section-title h2 {
-    color: var(--primary);
-    font-size: 44px;
-    margin-top: 10px;
-}
-
-.section-title p {
-    max-width: 650px;
-    margin: 15px auto 0;
-    color: var(--muted);
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255,255,255,0.96);
-    border-bottom: 1px solid var(--border);
-}
-
-nav {
-    height: 78px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: "Playfair Display", serif;
-    font-size: 25px;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.logo span {
-    color: var(--accent);
-}
-
-.nav-links {
-    display: flex;
-    gap: 27px;
-    list-style: none;
-}
-
-.nav-links a {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--dark);
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-.menu {
-    display: none;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-    padding-top: 150px;
-    display: flex;
-    align-items: center;
-    background: var(--cream);
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: center;
-    gap: 70px;
-}
-
-.hero-tag {
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(48px, 7vw, 78px);
-    color: var(--primary);
-    line-height: 1.08;
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    color: var(--secondary);
-}
-
-.hero p {
-    color: var(--muted);
-    max-width: 650px;
-    font-size: 17px;
-}
-
-.hero-buttons {
-    margin-top: 32px;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 13px 24px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--secondary);
-}
-
-.btn-outline {
-    border: 1px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-outline:hover {
-    background: var(--primary);
-    color: white;
-}
-
-.hero-photo {
-    min-height: 500px;
-    background: #e7e1d6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--muted);
-}
-
-.hero-photo div {
-    padding: 30px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    background: white;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.about-image {
-    height: 480px;
-    background: #e7e1d6;
-    display: grid;
-    place-items: center;
-    color: var(--muted);
-    text-align: center;
-}
-
-.about-content h2 {
-    color: var(--primary);
-    font-size: 43px;
-    margin-bottom: 20px;
-}
-
-.about-content p {
-    color: var(--muted);
-    margin-bottom: 17px;
-}
-
-
-/* =========================
-   TOOLBOX
-========================= */
-
-.toolbox {
-    background: var(--cream);
-}
-
-.toolbox-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.tool {
-    background: white;
-    border: 1px solid var(--border);
-    padding: 25px;
-    text-align: center;
-    transition: .3s;
-}
-
-.tool:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-}
-
-.tool h3 {
-    color: var(--primary);
-    font-size: 18px;
-}
-
-
-/* =========================
-   SERVICES
-========================= */
-
-.services {
-    background: white;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.service {
-    border: 1px solid var(--border);
-    padding: 30px;
-    background: white;
-}
-
-.service-number {
-    color: var(--accent);
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.service h3 {
-    color: var(--primary);
-    font-size: 22px;
-    margin: 10px 0;
-}
-
-.service p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-
-/* =========================
-   EXPERIENCE
-========================= */
-
-.experience {
-    background: var(--cream);
-}
-
-.timeline {
-    max-width: 850px;
-    margin: auto;
-}
-
-.timeline-item {
-    padding: 0 0 45px 35px;
-    border-left: 1px solid var(--accent);
-    position: relative;
-}
-
-.timeline-item:last-child {
-    border-left: none;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -5px;
-    top: 0;
-    width: 9px;
-    height: 9px;
-    background: var(--accent);
-    border-radius: 50%;
-}
-
-.timeline-item h3 {
-    color: var(--primary);
-    font-size: 25px;
-}
-
-.timeline-date {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
-    margin: 7px 0 10px;
-}
-
-.timeline-item p {
-    color: var(--muted);
-}
-
-
-/* =========================
-   CASE STUDIES
-========================= */
-
-.case-studies {
-    background: white;
-}
-
-.case-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.case-card {
-    border: 1px solid var(--border);
-    padding: 30px;
-}
-
-.case-card span {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.case-card h3 {
-    color: var(--primary);
-    font-size: 23px;
-    margin: 13px 0;
-}
-
-.case-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-
-/* =========================
-   WORK SAMPLES
-========================= */
-
-.work {
-    background: var(--cream);
-}
-
-.work-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.work-card {
-    background: white;
-    border: 1px solid var(--border);
-}
-
-.work-image {
-    height: 230px;
-    background: #e5e0d7;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 25px;
-    color: var(--muted);
-}
-
-.work-info {
-    padding: 22px;
-}
-
-.work-info h3 {
-    color: var(--primary);
-    font-size: 21px;
-}
-
-.work-info p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 7px;
-}
-
-
-/* =========================
-   TESTIMONIALS
-========================= */
-
-.testimonials {
-    background: white;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.testimonial {
-    border: 1px solid var(--border);
-    padding: 30px;
-}
-
-.testimonial p {
-    color: var(--muted);
-    font-style: italic;
-}
-
-.testimonial strong {
-    display: block;
-    color: var(--primary);
-    margin-top: 20px;
-}
-
-
-/* =========================
-   CERTIFICATIONS
-========================= */
-
-.certifications {
-    background: var(--cream);
-}
-
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.cert-card {
-    height: 260px;
-    border: 1px dashed #b9b3a9;
-    background: white;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 25px;
-    color: var(--muted);
-}
-
-
-/* =========================
-   WORKFLOW
-========================= */
-
-.workflow {
-    background: white;
-}
-
-.workflow-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.workflow-card {
-    padding: 30px;
-    border-top: 2px solid var(--accent);
-}
-
-.workflow-number {
-    color: var(--accent);
-    font-size: 30px;
-    font-weight: 800;
-}
-
-.workflow-card h3 {
-    color: var(--primary);
-    margin: 10px 0;
-}
-
-.workflow-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-
-/* =========================
-   WHY CHOOSE ME
-========================= */
-
-.why {
-    background: var(--primary);
-    color: white;
-}
-
-.why .section-title h2 {
-    color: white;
-}
-
-.why .section-title p {
-    color: rgba(255,255,255,.7);
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.why-card {
-    border: 1px solid rgba(255,255,255,.15);
-    padding: 30px;
-}
-
-.why-card h3 {
-    color: white;
-    margin-bottom: 10px;
-}
-
-.why-card p {
-    color: rgba(255,255,255,.65);
-    font-size: 14px;
-}
-
-
-/* =========================
-   CTA
-========================= */
-
-.cta {
-    background: var(--cream);
-}
-
-.cta-box {
-    background: var(--secondary);
-    padding: 70px;
-    text-align: center;
-    color: white;
-}
-
-.cta-box h2 {
-    color: white;
-    font-size: 45px;
-}
-
-.cta-box p {
-    max-width: 650px;
-    margin: 15px auto 25px;
-    color: rgba(255,255,255,.75);
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: white;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-.contact-content h2 {
-    color: var(--primary);
-    font-size: 45px;
-}
-
-.contact-content p {
-    color: var(--muted);
-    margin: 20px 0;
-}
-
-.contact-details {
-    margin-top: 25px;
-}
-
-.contact-details div {
-    padding: 13px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-form {
-    background: var(--cream);
-    padding: 35px;
-}
-
-.form-group {
-    margin-bottom: 17px;
-}
-
-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 6px;
-}
-
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid var(--border);
-    font-family: inherit;
-}
-
-textarea {
-    min-height: 130px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 50px 0 25px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 50px;
-    margin-bottom: 35px;
-}
-
-footer h3 {
-    color: white;
-    margin-bottom: 15px;
-}
-
-footer p,
-footer a {
-    color: rgba(255,255,255,.55);
-    font-size: 13px;
-}
-
-.footer-links {
-    display: grid;
-    gap: 8px;
-}
-
-.copyright {
-    border-top: 1px solid rgba(255,255,255,.1);
-    padding-top: 20px;
-    color: rgba(255,255,255,.4);
-    font-size: 12px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px) {
-
-    .hero-grid,
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .toolbox-grid,
-    .services-grid,
-    .case-grid,
-    .work-grid,
-    .testimonial-grid,
-    .cert-grid,
-    .why-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .workflow-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media(max-width:650px) {
-
-    section {
-        padding: 70px 0;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 25px;
-        flex-direction: column;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu {
-        display: block;
-    }
-
-    .toolbox-grid,
-    .services-grid,
-    .case-grid,
-    .work-grid,
-    .testimonial-grid,
-    .cert-grid,
-    .workflow-grid,
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-    }
-
-    .section-title h2 {
-        font-size: 36px;
-    }
-
-    .cta-box {
-        padding: 45px 25px;
-    }
-
-    .cta-box h2 {
-        font-size: 35px;
-    }
-
-}
-
-</style>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 
 <body>
 
+    <!-- ===== PROGRESS BAR ===== -->
+    <div class="progress-bar" id="progressBar"></div>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+    <!-- ===== NOISE OVERLAY ===== -->
+    <div class="noise-overlay"></div>
 
-<header>
+    <!-- ===== GLOW TRAIL ===== -->
+    <div class="glow-trail" id="glowTrail"></div>
 
-<nav class="container">
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="custom-cursor" id="customCursor"></div>
 
-<a href="#home" class="logo">
-Muzzamil<span>.</span>
-</a>
+    <!-- ===== GEOMETRIC SHAPES ===== -->
+    <div class="geometric-shapes" id="geometricShapes"></div>
 
-<div class="menu" onclick="toggleMenu()">
-☰
-</div>
 
-<ul class="nav-links" id="navLinks">
+    <!-- ========================================================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================================================= -->
 
-<li><a href="#about">About</a></li>
-<li><a href="#toolbox">Toolbox</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#work">Work</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#contact">Connect</a></li>
+    <nav class="navbar" id="navbar">
 
-</ul>
+        <div class="container nav-inner">
 
-</nav>
+            <a href="#hero" class="logo">
+                Muzzamil<span>.</span>
+            </a>
 
-</header>
+            <ul class="nav-links" id="navLinks">
 
+                <li>
+                    <a href="#about">About</a>
+                </li>
 
-<!-- =========================
-     HERO
-========================= -->
+                <li>
+                    <a href="#services">Services</a>
+                </li>
 
-<section class="hero" id="home">
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
 
-<div class="container hero-grid">
+                <li>
+                    <a href="#tools">EHR & Tools</a>
+                </li>
 
-<div>
+                <li>
+                    <a href="#work">Work</a>
+                </li>
 
-<div class="hero-tag">
-Registered Nurse • Virtual Medical Assistant
-</div>
+                <li>
+                    <a href="#work-samples">Samples</a>
+                </li>
 
-<h1>
-Healthcare Support With
-<span>Purpose & Precision.</span>
-</h1>
+                <li>
+                    <a href="#certifications">Certifications</a>
+                </li>
 
-<p>
-I am Muzzamil Hussain, a Registered Nurse and Virtual Medical Assistant providing professional healthcare administrative support, patient scheduling, insurance verification, prior authorization, telehealth coordination, patient communication, and EHR/EMR workflow assistance.
-</p>
+                <li>
+                    <a href="#contact">Connect</a>
+                </li>
 
-<div class="hero-buttons">
+            </ul>
 
-<a href="#contact" class="btn btn-primary">
-Request Virtual Assistant Services
-</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-<a href="#services" class="btn btn-outline">
-Explore My Services
-</a>
+        </div>
 
-</div>
+    </nav>
 
-</div>
 
+    <!-- ========================================================= -->
+    <!-- HERO SECTION -->
+    <!-- ========================================================= -->
 
-<div class="hero-photo">
+    <section class="hero" id="hero">
 
-<div>
+        <div class="particles-container" id="particlesContainer"></div>
 
-<strong>
-PROFILE PHOTO PLACEHOLDER
-</strong>
+        <div class="hero-glow"></div>
 
-<br>
+        <div class="container hero-container hero-reverse">
 
-Add your professional photo here.
+            <!-- HERO CONTENT -->
 
-</div>
+            <div class="hero-content-right">
 
-</div>
+                <div class="hero-badge">
+                    ✦ Medical Virtual Assistant
+                </div>
 
-</div>
+                <h1 class="hero-title">
 
-</section>
+                    Helping Healthcare Teams
 
+                    <br />
 
-<!-- =========================
-     ABOUT
-========================= -->
+                    <span class="typewriter-wrapper">
 
-<section class="about" id="about">
+                        <span id="typewriterText"></span>
 
-<div class="container about-grid">
+                        <span class="cursor-blink">|</span>
 
-<div class="about-image">
+                    </span>
 
-<div>
-<strong>
-ABOUT IMAGE PLACEHOLDER
-</strong>
+                </h1>
 
-<br><br>
+                <p class="hero-subtitle">
 
-Your professional image can be added here.
-</div>
+                    Healthcare & Nursing Background · Virtual Medical Assistant ·
+                    Patient Scheduling · EHR/EMR · Telehealth · Insurance Verification ·
+                    Prior Authorization · Patient Support
 
-</div>
+                </p>
 
 
-<div class="about-content">
+                <!-- TRUST BADGES -->
 
-<div class="section-title" style="text-align:left;margin-bottom:20px;">
+                <div class="hero-trust-badges">
 
-<span>About Me</span>
+                    <span>
+                        <i class="fas fa-calendar-check"></i>
+                        Patient Scheduling
+                    </span>
 
-<h2>
-Healthcare Knowledge Meets Virtual Support
-</h2>
+                    <span>
+                        <i class="fas fa-comments"></i>
+                        Patient Communication
+                    </span>
 
-</div>
+                    <span>
+                        <i class="fas fa-file-medical"></i>
+                        EHR / EMR
+                    </span>
 
-<p>
-I bring a combination of nursing education, healthcare experience, patient-facing communication, and administrative support skills to virtual healthcare environments.
-</p>
+                    <span>
+                        <i class="fas fa-shield-alt"></i>
+                        HIPAA-Aware Support
+                    </span>
 
-<p>
-My experience includes patient scheduling, new patient and follow-up appointments, telehealth visits, insurance verification and eligibility checks, prior authorization support, medication refill coordination, referral coordination, patient inquiries, and patient satisfaction support.
-</p>
+                </div>
 
-<p>
-I understand the importance of clear communication, organized workflows, timely follow-up, and respectful patient interaction in healthcare settings.
-</p>
 
-</div>
+                <!-- HERO BUTTONS -->
 
-</div>
+                <div class="hero-actions">
 
-</section>
+                    <a href="#contact"
+                        class="btn btn-primary btn-ripple">
 
+                        Request Virtual Assistant Services
 
-<!-- =========================
-     TOOLBOX
-========================= -->
+                    </a>
 
-<section class="toolbox" id="toolbox">
+                    <a href="#services"
+                        class="btn btn-outline">
 
-<div class="container">
+                        View Services
 
-<div class="section-title">
+                    </a>
 
-<span>My Toolbox</span>
+                </div>
 
-<h2>
-Healthcare Technology & Platforms
-</h2>
+            </div>
 
-<p>
-Platforms and tools I have worked with across healthcare and administrative workflows.
-</p>
 
-</div>
+            <!-- HERO IMAGE -->
 
+            <div class="hero-image-right">
 
-<div class="toolbox-grid">
+                <div class="hero-image-new-frame tilt-card">
 
-<div class="tool"><h3>eClinicalWorks</h3></div>
+                    <div class="hero-image-new-inner">
 
-<div class="tool"><h3>DrChrono</h3></div>
+                        <!-- PLACEHOLDER FOR YOUR PHOTO -->
 
-<div class="tool"><h3>Practice Fusion</h3></div>
+                        <img src="./assets/muzzamil-profile.jpg"
+                            alt="Muzzamil Hussain - Medical Virtual Assistant"
+                            onerror="this.style.display='none';" />
 
-<div class="tool"><h3>DrNotes</h3></div>
+                        <div class="hero-image-placeholder">
 
-<div class="tool"><h3>AthenaHealth</h3></div>
+                            <i class="fas fa-user"></i>
 
-<div class="tool"><h3>AltuMed</h3></div>
+                            <span>
+                                Profile Photo
+                                <br />
+                                Coming Soon
+                            </span>
 
-<div class="tool"><h3>Square</h3></div>
+                        </div>
 
-<div class="tool"><h3>Insurance Portals</h3></div>
+                        <div class="hero-image-new-overlay"></div>
 
-<div class="tool"><h3>RingCentral</h3></div>
+                    </div>
 
-<div class="tool"><h3>Excel</h3></div>
+                    <div class="hero-image-new-ring"></div>
 
-<div class="tool"><h3>Google Sheets</h3></div>
+                    <div class="hero-image-new-dots"></div>
 
-<div class="tool"><h3>Telehealth Workflows</h3></div>
+                    <div class="hero-image-new-badge">
 
-</div>
+                        ✦ Medical VA
 
-</div>
+                    </div>
 
-</section>
+                </div>
 
 
-<!-- =========================
-     SERVICES
-========================= -->
+                <!-- STATS -->
 
-<section class="services" id="services">
+                <div class="hero-stats-bar">
 
-<div class="container">
+                    <div class="stat-item">
 
-<div class="section-title">
+                        <strong>
+                            Healthcare
+                        </strong>
 
-<span>What I Do</span>
+                        <span>
+                            Experience
+                        </span>
 
-<h2>
-Virtual Healthcare Support Services
-</h2>
+                    </div>
 
-<p>
-Practical support designed around patient communication, healthcare administration, and practice workflow needs.
-</p>
+                    <div class="stat-divider"></div>
 
-</div>
+                    <div class="stat-item">
 
+                        <strong>
+                            EHR/EMR
+                        </strong>
 
-<div class="services-grid">
+                        <span>
+                            Experience
+                        </span>
 
+                    </div>
 
-<div class="service">
+                    <div class="stat-divider"></div>
 
-<span class="service-number">01</span>
+                    <div class="stat-item">
 
-<h3>
-Patient Scheduling
-</h3>
+                        <strong>
+                            HIPAA
+                        </strong>
 
-<p>
-New patient appointments, follow-up visits, rescheduling, cancellations, and appointment coordination.
-</p>
+                        <span>
+                            Awareness
+                        </span>
 
-</div>
+                    </div>
 
+                </div>
 
-<div class="service">
+            </div>
 
-<span class="service-number">02</span>
+        </div>
 
-<h3>
-Telehealth Coordination
-</h3>
+    </section>
 
-<p>
-Support for virtual appointments, patient communication, and telehealth-related administrative workflows.
-</p>
 
-</div>
+    <!-- ========================================================= -->
+    <!-- ABOUT -->
+    <!-- ========================================================= -->
 
+    <section class="about" id="about">
 
-<div class="service">
+        <div class="container">
 
-<span class="service-number">03</span>
+            <div class="about-wrapper">
 
-<h3>
-Insurance Verification
-</h3>
 
-<p>
-Insurance eligibility and benefits verification and payer-related administrative workflows.
-</p>
+                <div class="about-text-side">
 
-</div>
+                    <span class="section-tag">
+                        About Me
+                    </span>
 
+                    <h2 class="section-title">
 
-<div class="service">
+                        Healthcare Experience Meets
 
-<span class="service-number">04</span>
+                        <span>
+                            Virtual Support
+                        </span>
 
-<h3>
-Prior Authorization
-</h3>
+                    </h2>
 
-<p>
-Support with prior authorization processes, documentation coordination, and follow-up.
-</p>
 
-</div>
+                    <p>
 
+                        I am a healthcare professional with a nursing background and
+                        experience supporting healthcare operations, patients, and
+                        clinical administrative workflows.
 
-<div class="service">
+                    </p>
 
-<span class="service-number">05</span>
 
-<h3>
-Patient Support
-</h3>
+                    <p>
 
-<p>
-Inbound and outbound communication, patient inquiries, follow-ups, and service coordination.
-</p>
+                        My experience includes working with patients and healthcare
+                        teams while supporting administrative processes such as
+                        appointment scheduling, patient communication, insurance
+                        verification, prior authorization, and follow-up coordination.
 
-</div>
+                    </p>
 
 
-<div class="service">
+                    <p>
 
-<span class="service-number">06</span>
+                        As a Medical Virtual Assistant, I help healthcare providers,
+                        clinics, and medical teams manage administrative responsibilities
+                        so they can focus more on patient care.
 
-<h3>
-Medication Refill Coordination
-</h3>
+                    </p>
 
-<p>
-Follow-up on medication refill requests and coordination with appropriate healthcare teams.
-</p>
 
-</div>
+                    <p>
 
+                        I have experience working with healthcare technology and
+                        EHR/EMR platforms, including
+                        <strong>
+                            eClinicalWorks (eCW), DrChrono, DrNotes,
+                            Practice Fusion, AthenaHealth, and AltuMed.
+                        </strong>
 
-<div class="service">
+                    </p>
 
-<span class="service-number">07</span>
 
-<h3>
-Referral Coordination
-</h3>
+                    <p>
 
-<p>
-Support with referral-related administrative tasks and communication.
-</p>
+                        My approach combines healthcare knowledge,
+                        patient-centered communication, attention to detail,
+                        and reliable administrative support.
 
-</div>
+                    </p>
 
 
-<div class="service">
+                    <p class="about-highlight">
 
-<span class="service-number">08</span>
+                        If your healthcare practice needs dependable support with
+                        scheduling, patient communication, EHR/EMR workflows,
+                        insurance verification, prior authorization, or other
+                        administrative tasks, let's connect.
 
-<h3>
-Patient Satisfaction
-</h3>
+                    </p>
 
-<p>
-Professional patient interaction focused on clear communication, responsiveness, and trust.
-</p>
 
-</div>
+                    <div class="about-buttons">
 
+                        <a href="#contact"
+                            class="btn btn-primary btn-ripple">
 
-<div class="service">
+                            Request My Services
 
-<span class="service-number">09</span>
+                        </a>
 
-<h3>
-Healthcare Administrative Support
-</h3>
 
-<p>
-EHR/EMR workflows, documentation support, data entry, communication, and administrative coordination.
-</p>
+                        <!-- ADD YOUR RESUME FILE HERE -->
 
-</div>
+                        <a href="./assets/Muzzamil_Hussain_Resume.pdf"
+                            download
+                            class="btn btn-download btn-ripple">
 
+                            <i class="fas fa-download"></i>
 
-</div>
+                            Download Resume
 
-</div>
+                        </a>
 
-</section>
+                    </div>
 
+                </div>
 
-<!-- =========================
-     EXPERIENCE
-========================= -->
 
-<section class="experience" id="experience">
+                <!-- ABOUT HIGHLIGHTS -->
 
-<div class="container">
+                <div class="about-highlights-cards">
 
-<div class="section-title">
 
-<span>Where I've Worked</span>
+                    <div class="highlight-card">
 
-<h2>
-Professional Experience
-</h2>
+                        <i class="fas fa-user-nurse"></i>
 
-<p>
-Healthcare, patient support, scheduling, and administrative experience.
-</p>
+                        <h4>
+                            Healthcare Background
+                        </h4>
 
-</div>
+                        <p>
 
+                            Nursing and healthcare experience with an understanding
+                            of patient care, clinical environments, and healthcare workflows.
 
-<div class="timeline">
+                        </p>
 
+                    </div>
 
-<div class="timeline-item">
 
-<span class="timeline-dot"></span>
+                    <div class="highlight-card">
 
-<h3>
-Virtual Medical Assistant
-</h3>
+                        <i class="fas fa-laptop-medical"></i>
 
-<div class="timeline-date">
-Healthcare & Telehealth Support
-</div>
+                        <h4>
+                            Medical Virtual Assistance
+                        </h4>
 
-<p>
-Supported healthcare operations through patient scheduling, telehealth coordination, patient communication, medication refill follow-up, referrals, and administrative workflows.
-</p>
+                        <p>
 
-</div>
+                            Support with scheduling, patient communication,
+                            administrative workflows, and healthcare operations.
 
+                        </p>
 
-<div class="timeline-item">
+                    </div>
 
-<span class="timeline-dot"></span>
 
-<h3>
-Patient Scheduler
-</h3>
+                    <div class="highlight-card">
 
-<div class="timeline-date">
-Family Medicine • Neurology • Cardiology
-</div>
+                        <i class="fas fa-database"></i>
 
-<p>
-Managed appointment scheduling, new patient and follow-up visits, telehealth appointments, insurance verification, provider coordination, and patient communication.
-</p>
+                        <h4>
+                            EHR & EMR Experience
+                        </h4>
 
-</div>
+                        <p>
 
+                            Experience working with multiple healthcare systems
+                            and electronic medical record platforms.
 
-<div class="timeline-item">
+                        </p>
 
-<span class="timeline-dot"></span>
+                    </div>
 
-<h3>
-Patient Support Specialist
-</h3>
+                </div>
 
-<div class="timeline-date">
-Healthcare Administrative Support
-</div>
+            </div>
 
-<p>
-Handled patient communication, billing-related inquiries, insurance eligibility processes, and support for healthcare administrative workflows.
-</p>
+        </div>
 
-</div>
+    </section>
 
 
-<div class="timeline-item">
+    <!-- ========================================================= -->
+    <!-- EHR / EMR TOOLS -->
+    <!-- ========================================================= -->
 
-<span class="timeline-dot"></span>
+    <section class="tools-section" id="tools">
 
-<h3>
-Prior Authorization Support
-</h3>
+        <div class="container">
 
-<div class="timeline-date">
-Healthcare Administration
-</div>
+            <span class="section-tag">
+                My Healthcare Technology Experience
+            </span>
 
-<p>
-Supported authorization-related workflows, documentation coordination, insurance communication, and follow-up activities.
-</p>
+            <h2 class="section-title">
 
-</div>
+                EHR, EMR &
 
+                <span>
+                    Healthcare Tools
+                </span>
 
-<div class="timeline-item">
+            </h2>
 
-<span class="timeline-dot"></span>
 
-<h3>
-Registered Nurse
-</h3>
+            <p class="section-sub">
 
-<div class="timeline-date">
-Nursing Background
-</div>
+                Platforms and systems I have experience working with
+                in healthcare and administrative workflows.
 
-<p>
-Nursing education and healthcare experience providing a clinical foundation for patient-centered communication and healthcare support.
-</p>
+            </p>
 
-</div>
 
+            <div class="tools-grid">
 
-</div>
 
-</div>
+                <div class="tool-card">
 
-</section>
+                    <i class="fas fa-hospital"></i>
 
+                    <span>
+                        eClinicalWorks (eCW)
+                    </span>
 
-<!-- =========================
-     CASE STUDIES
-========================= -->
+                </div>
 
-<section class="case-studies">
 
-<div class="container">
+                <div class="tool-card">
 
-<div class="section-title">
+                    <i class="fas fa-notes-medical"></i>
 
-<span>Case Studies</span>
+                    <span>
+                        DrChrono
+                    </span>
 
-<h2>
-Healthcare Workflow Experience
-</h2>
+                </div>
 
-</div>
 
+                <div class="tool-card">
 
-<div class="case-grid">
+                    <i class="fas fa-file-medical"></i>
 
+                    <span>
+                        DrNotes
+                    </span>
 
-<div class="case-card">
+                </div>
 
-<span>Case Study 01</span>
 
-<h3>
-Patient Scheduling Workflow
-</h3>
+                <div class="tool-card">
 
-<p>
-Supported new patient and follow-up appointment scheduling, telehealth visits, provider coordination, and patient communication.
-</p>
+                    <i class="fas fa-database"></i>
 
-</div>
+                    <span>
+                        Practice Fusion
+                    </span>
 
+                </div>
 
-<div class="case-card">
 
-<span>Case Study 02</span>
+                <div class="tool-card">
 
-<h3>
-Insurance & Authorization Workflow
-</h3>
+                    <i class="fas fa-clinic-medical"></i>
 
-<p>
-Supported insurance eligibility verification and prior authorization-related administrative processes.
-</p>
+                    <span>
+                        AthenaHealth
+                    </span>
 
-</div>
+                </div>
 
 
-<div class="case-card">
+                <div class="tool-card">
 
-<span>Case Study 03</span>
+                    <i class="fas fa-laptop-medical"></i>
 
-<h3>
-Patient Support Workflow
-</h3>
+                    <span>
+                        AltuMed
+                    </span>
 
-<p>
-Managed patient inquiries, follow-ups, medication refill coordination, referrals, and communication to support a smoother patient experience.
-</p>
+                </div>
 
-</div>
 
+                <div class="tool-card">
 
-</div>
+                    <i class="fas fa-credit-card"></i>
 
-</div>
+                    <span>
+                        Square
+                    </span>
 
-</section>
+                </div>
 
 
-<!-- =========================
-     WORK SAMPLES
-========================= -->
+                <div class="tool-card">
 
-<section class="work" id="work">
+                    <i class="fas fa-phone"></i>
 
-<div class="container">
+                    <span>
+                        RingCentral
+                    </span>
 
-<div class="section-title">
+                </div>
 
-<span>My Recent Work</span>
 
-<h2>
-EHR & EMR Work Samples
-</h2>
+                <div class="tool-card">
 
-<p>
-De-identified screenshots and professional work samples will be added here.
-</p>
+                    <i class="fas fa-file-invoice-dollar"></i>
 
-</div>
+                    <span>
+                        Insurance Portals
+                    </span>
 
+                </div>
 
-<div class="work-grid">
 
+                <div class="tool-card">
 
-<div class="work-card">
+                    <i class="fas fa-table"></i>
 
-<div class="work-image">
+                    <span>
+                        Excel / Google Sheets
+                    </span>
 
-<div>
-<strong>DrChrono</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
+                </div>
 
-</div>
 
-<div class="work-info">
+                <div class="tool-card">
 
-<h3>
-DrChrono Workflow
-</h3>
+                    <i class="fas fa-video"></i>
 
-<p>
-Scheduling and healthcare administrative workflow experience.
-</p>
+                    <span>
+                        Telehealth Platforms
+                    </span>
 
-</div>
+                </div>
 
-</div>
 
+                <div class="tool-card">
 
-<div class="work-card">
+                    <i class="fas fa-calendar-alt"></i>
 
-<div class="work-image">
+                    <span>
+                        Scheduling Systems
+                    </span>
 
-<div>
-<strong>eClinicalWorks</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
+                </div>
 
-</div>
+            </div>
 
-<div class="work-info">
+        </div>
 
-<h3>
-eClinicalWorks Workflow
-</h3>
+    </section>
 
-<p>
-EHR workflow and healthcare administrative experience.
-</p>
 
-</div>
+    <!-- ========================================================= -->
+    <!-- SERVICES -->
+    <!-- ========================================================= -->
 
-</div>
+    <section class="services" id="services">
 
+        <div class="container">
 
-<div class="work-card">
+            <div class="services-header">
 
-<div class="work-image">
+                <span class="section-tag">
+                    What I Do
+                </span>
 
-<div>
-<strong>Practice Fusion</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
+                <h2 class="section-title">
 
-</div>
+                    Medical Virtual Assistant
 
-<div class="work-info">
+                    <span>
+                        Services
+                    </span>
 
-<h3>
-Practice Fusion Workflow
-</h3>
+                </h2>
 
-<p>
-EHR-related workflow experience.
-</p>
+                <p class="section-sub">
 
-</div>
+                    Reliable administrative and operational support
+                    for healthcare providers, clinics, and medical teams.
 
-</div>
+                </p>
 
+            </div>
 
-<div class="work-card">
 
-<div class="work-image">
+            <div class="services-grid-new">
 
-<div>
-<strong>DrNotes</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
 
-</div>
+                <div class="service-new">
 
-<div class="work-info">
+                    <div class="service-new-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
 
-<h3>
-DrNotes Experience
-</h3>
+                    <h3>
+                        Patient Scheduling
+                    </h3>
 
-<p>
-Healthcare documentation and administrative workflow.
-</p>
+                    <p>
 
-</div>
+                        New patient appointments, follow-ups,
+                        telehealth visits, rescheduling,
+                        cancellations, and appointment coordination.
 
-</div>
+                    </p>
 
+                    <span class="service-new-number">
+                        01
+                    </span>
 
-<div class="work-card">
+                </div>
 
-<div class="work-image">
 
-<div>
-<strong>AthenaHealth</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
+                <div class="service-new">
 
-</div>
+                    <div class="service-new-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
 
-<div class="work-info">
+                    <h3>
+                        Telehealth Coordination
+                    </h3>
 
-<h3>
-AthenaHealth Experience
-</h3>
+                    <p>
 
-<p>
-Healthcare administrative and EHR-related workflow.
-</p>
+                        Support with telehealth visit scheduling,
+                        patient communication, and virtual visit coordination.
 
-</div>
+                    </p>
 
-</div>
+                    <span class="service-new-number">
+                        02
+                    </span>
 
+                </div>
 
-<div class="work-card">
 
-<div class="work-image">
+                <div class="service-new">
 
-<div>
-<strong>AltuMed</strong>
-<br><br>
-SCREENSHOT PLACEHOLDER
-<br>
-Add de-identified image here
-</div>
+                    <div class="service-new-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
 
-</div>
+                    <h3>
+                        EHR & EMR Support
+                    </h3>
 
-<div class="work-info">
+                    <p>
 
-<h3>
-AltuMed Experience
-</h3>
+                        Administrative support within electronic health
+                        record and electronic medical record workflows.
 
-<p>
-Healthcare platform and administrative workflow.
-</p>
+                    </p>
 
-</div>
+                    <span class="service-new-number">
+                        03
+                    </span>
 
-</div>
+                </div>
 
 
-</div>
+                <div class="service-new">
 
-</div>
+                    <div class="service-new-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
 
-</section>
+                    <h3>
+                        Medication Refill Coordination
+                    </h3>
 
+                    <p>
 
-<!-- =========================
-     TESTIMONIALS
-========================= -->
+                        Receive and route refill requests,
+                        coordinate follow-ups, and communicate
+                        with patients according to practice workflows.
 
-<section class="testimonials">
+                    </p>
 
-<div class="container">
+                    <span class="service-new-number">
+                        04
+                    </span>
 
-<div class="section-title">
+                </div>
 
-<span>What Clients Say</span>
 
-<h2>
-Testimonials
-</h2>
+                <div class="service-new">
 
-<p>
-Verified client testimonials will be added here.
-</p>
+                    <div class="service-new-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
 
-</div>
+                    <h3>
+                        Insurance Verification
+                    </h3>
 
+                    <p>
 
-<div class="testimonial-grid">
+                        Insurance eligibility and benefits verification
+                        to support smooth patient intake and scheduling.
 
+                    </p>
 
-<div class="testimonial">
+                    <span class="service-new-number">
+                        05
+                    </span>
 
-<p>
-"Your verified client testimonial can be added here."
-</p>
+                </div>
 
-<strong>
-Client Name
-</strong>
 
-</div>
+                <div class="service-new">
 
+                    <div class="service-new-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
 
-<div class="testimonial">
+                    <h3>
+                        Prior Authorization Support
+                    </h3>
 
-<p>
-"Your verified client testimonial can be added here."
-</p>
+                    <p>
 
-<strong>
-Client Name
-</strong>
+                        Administrative support for prior authorization
+                        workflows, documentation, follow-ups,
+                        and status tracking.
 
-</div>
+                    </p>
 
+                    <span class="service-new-number">
+                        06
+                    </span>
 
-<div class="testimonial">
+                </div>
 
-<p>
-"Your verified client testimonial can be added here."
-</p>
 
-<strong>
-Client Name
-</strong>
+                <div class="service-new">
 
-</div>
+                    <div class="service-new-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
 
+                    <h3>
+                        Patient Communication
+                    </h3>
 
-</div>
+                    <p>
 
-</div>
+                        Professional communication with patients,
+                        follow-ups, inquiries, and appointment-related support.
 
-</section>
+                    </p>
 
+                    <span class="service-new-number">
+                        07
+                    </span>
 
-<!-- =========================
-     CERTIFICATIONS
-========================= -->
+                </div>
 
-<section class="certifications" id="certifications">
 
-<div class="container">
+                <div class="service-new">
 
-<div class="section-title">
+                    <div class="service-new-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
 
-<span>Credentials</span>
+                    <h3>
+                        Referral Coordination
+                    </h3>
 
-<h2>
-Professional Certifications
-</h2>
+                    <p>
 
-<p>
-Your verified certificates and professional training credentials will be displayed here.
-</p>
+                        Support referral workflows, documentation,
+                        coordination, and follow-up communication.
 
-</div>
+                    </p>
 
+                    <span class="service-new-number">
+                        08
+                    </span>
 
-<div class="cert-grid">
+                </div>
 
 
-<div class="cert-card">
+                <div class="service-new">
 
-<div>
+                    <div class="service-new-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
 
-<strong>
-CERTIFICATE IMAGE
-</strong>
+                    <h3>
+                        Payment Posting Support
+                    </h3>
 
-<br><br>
+                    <p>
 
-Upload certificate here.
+                        Administrative support with payment posting
+                        and related practice management workflows.
 
-</div>
+                    </p>
 
-</div>
+                    <span class="service-new-number">
+                        09
+                    </span>
 
+                </div>
 
-<div class="cert-card">
 
-<div>
+                <div class="service-new">
 
-<strong>
-CERTIFICATE IMAGE
-</strong>
+                    <div class="service-new-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
 
-<br><br>
+                    <h3>
+                        Patient Transportation Coordination
+                    </h3>
 
-Upload certificate here.
+                    <p>
 
-</div>
+                        Assist with patient ride-related issues
+                        and coordinate communication when transportation
+                        affects appointments.
 
-</div>
+                    </p>
 
+                    <span class="service-new-number">
+                        10
+                    </span>
 
-<div class="cert-card">
+                </div>
 
-<div>
 
-<strong>
-CERTIFICATE IMAGE
-</strong>
+                <div class="service-new">
 
-<br><br>
+                    <div class="service-new-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
 
-Upload certificate here.
+                    <h3>
+                        Patient Satisfaction Support
+                    </h3>
 
-</div>
+                    <p>
 
-</div>
+                        Patient-centered communication and administrative
+                        support focused on a positive healthcare experience.
 
+                    </p>
 
-</div>
+                    <span class="service-new-number">
+                        11
+                    </span>
 
-</div>
+                </div>
 
-</section>
 
+                <div class="service-new">
 
-<!-- =========================
-     WORKFLOW
-========================= -->
+                    <div class="service-new-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
 
-<section class="workflow">
+                    <h3>
+                        Healthcare Administrative Support
+                    </h3>
 
-<div class="container">
+                    <p>
 
-<div class="section-title">
+                        Reliable support for day-to-day administrative
+                        tasks that help healthcare teams stay organized.
 
-<span>My Workflow</span>
+                    </p>
 
-<h2>
-How I Work
-</h2>
+                    <span class="service-new-number">
+                        12
+                    </span>
 
-</div>
+                </div>
 
+            </div>
 
-<div class="workflow-grid">
+        </div>
 
+    </section>
 
-<div class="workflow-card">
 
-<div class="workflow-number">
-01
-</div>
+    <!-- ========================================================= -->
+    <!-- EXPERIENCE -->
+    <!-- ========================================================= -->
 
-<h3>
-Understand
-</h3>
+    <section class="experience" id="experience">
 
-<p>
-Understand your practice, workflow, patients, and specific administrative requirements.
-</p>
+        <div class="container">
 
-</div>
+            <div class="experience-header">
 
+                <span class="section-tag">
+                    Experience
+                </span>
 
-<div class="workflow-card">
+                <h2 class="section-title">
 
-<div class="workflow-number">
-02
-</div>
+                    Where I've
 
-<h3>
-Organize
-</h3>
+                    <span>
+                        Worked
+                    </span>
 
-<p>
-Organize tasks, appointments, patient requests, documentation, and administrative priorities.
-</p>
+                </h2>
 
-</div>
+            </div>
 
 
-<div class="workflow-card">
+            <div class="experience-grid-new">
 
-<div class="workflow-number">
-03
-</div>
 
-<h3>
-Coordinate
-</h3>
+                <div class="exp-new">
 
-<p>
-Coordinate with patients, providers, insurance teams, and healthcare staff.
-</p>
+                    <div class="exp-new-marker"></div>
 
-</div>
+                    <div class="exp-new-content">
 
+                        <div class="exp-new-header">
 
-<div class="workflow-card">
+                            <h3>
+                                Medical Virtual Assistant
+                            </h3>
 
-<div class="workflow-number">
-04
-</div>
+                            <span class="exp-new-company">
+                                Healthcare / Medical Practice
+                            </span>
 
-<h3>
-Follow Through
-</h3>
+                            <span class="exp-new-date">
+                                Current / Recent Experience
+                            </span>
 
-<p>
-Track outstanding tasks and complete appropriate follow-ups to keep workflows moving.
-</p>
+                        </div>
 
-</div>
+                        <p>
 
+                            Supported healthcare workflows including
+                            patient scheduling, telehealth coordination,
+                            patient communication, medication refill requests,
+                            insurance verification, and administrative support.
 
-</div>
+                        </p>
 
-</div>
+                        <div class="exp-new-skills">
 
-</section>
+                            <span>
+                                Patient Scheduling
+                            </span>
 
+                            <span>
+                                EHR / EMR
+                            </span>
 
-<!-- =========================
-     WHY CHOOSE ME
-========================= -->
+                            <span>
+                                Patient Support
+                            </span>
 
-<section class="why">
+                            <span>
+                                Telehealth
+                            </span>
 
-<div class="container">
+                        </div>
 
-<div class="section-title">
+                    </div>
 
-<span>Why Choose Me</span>
+                </div>
 
-<h2>
-Healthcare Support With a Patient-Centered Approach
-</h2>
 
-<p>
-A combination of healthcare knowledge, administrative experience, and professional communication.
-</p>
+                <div class="exp-new">
 
-</div>
+                    <div class="exp-new-marker"></div>
 
+                    <div class="exp-new-content">
 
-<div class="why-grid">
+                        <div class="exp-new-header">
 
+                            <h3>
+                                Patient Scheduler
+                            </h3>
 
-<div class="why-card">
+                            <span class="exp-new-company">
+                                US Healthcare Practice
+                            </span>
 
-<h3>
-Healthcare Background
-</h3>
+                            <span class="exp-new-date">
+                                Healthcare Administrative Experience
+                            </span>
 
-<p>
-Nursing education and healthcare experience provide a strong understanding of patient-centered environments.
-</p>
+                        </div>
 
-</div>
+                        <p>
 
+                            Managed patient appointment scheduling,
+                            new patient and follow-up appointments,
+                            telehealth visits, patient communication,
+                            insurance verification, and coordination
+                            between patients and healthcare providers.
 
-<div class="why-card">
+                        </p>
 
-<h3>
-EHR / EMR Experience
-</h3>
+                        <div class="exp-new-skills">
 
-<p>
-Experience working with multiple healthcare technology platforms and administrative workflows.
-</p>
+                            <span>
+                                Scheduling
+                            </span>
 
-</div>
+                            <span>
+                                Insurance Verification
+                            </span>
 
+                            <span>
+                                Patient Communication
+                            </span>
 
-<div class="why-card">
+                            <span>
+                                EHR / EMR
+                            </span>
 
-<h3>
-Patient Communication
-</h3>
+                        </div>
 
-<p>
-Professional communication focused on clarity, respect, responsiveness, and patient support.
-</p>
+                    </div>
 
-</div>
+                </div>
 
 
-<div class="why-card">
+                <div class="exp-new">
 
-<h3>
-Organized Workflow
-</h3>
+                    <div class="exp-new-marker"></div>
 
-<p>
-A structured approach to scheduling, insurance processes, authorization tasks, and follow-up.
-</p>
+                    <div class="exp-new-content">
 
-</div>
+                        <div class="exp-new-header">
 
+                            <h3>
+                                Patient Support Specialist
+                            </h3>
 
-<div class="why-card">
+                            <span class="exp-new-company">
+                                Healthcare Support
+                            </span>
 
-<h3>
-Remote Support
-</h3>
+                            <span class="exp-new-date">
+                                Previous Experience
+                            </span>
 
-<p>
-Comfortable working with digital tools and remote healthcare administrative workflows.
-</p>
+                        </div>
 
-</div>
+                        <p>
 
+                            Supported patients through inbound and outbound
+                            communication, billing-related inquiries,
+                            insurance eligibility, and administrative
+                            issue resolution.
 
-<div class="why-card">
+                        </p>
 
-<h3>
-Patient Satisfaction
-</h3>
+                        <div class="exp-new-skills">
 
-<p>
-Focused on helping patients feel heard, respected, supported, and properly guided.
-</p>
+                            <span>
+                                Patient Support
+                            </span>
 
-</div>
+                            <span>
+                                Insurance
+                            </span>
 
+                            <span>
+                                Billing Support
+                            </span>
 
-</div>
+                            <span>
+                                Communication
+                            </span>
 
-</div>
+                        </div>
 
-</section>
+                    </div>
 
+                </div>
 
-<!-- =========================
-     CTA
-========================= -->
 
-<section class="cta">
+                <div class="exp-new">
 
-<div class="container">
+                    <div class="exp-new-marker"></div>
 
-<div class="cta-box">
+                    <div class="exp-new-content">
 
-<h2>
-Let's Simplify Your Healthcare Workflow
-</h2>
+                        <div class="exp-new-header">
 
-<p>
-Looking for reliable Virtual Medical Assistant and healthcare administrative support? Let's discuss how I can support your practice.
-</p>
+                            <h3>
+                                Nursing & Healthcare Experience
+                            </h3>
 
-<a href="#contact" class="btn btn-primary">
-Request Virtual Assistant Services
-</a>
+                            <span class="exp-new-company">
+                                Clinical Healthcare Background
+                            </span>
 
-</div>
+                            <span class="exp-new-date">
+                                Nursing Education & Clinical Experience
+                            </span>
 
-</div>
+                        </div>
 
-</section>
+                        <p>
 
+                            Nursing education and clinical experience with
+                            exposure to patient care, healthcare communication,
+                            clinical workflows, and hospital policies.
 
-<!-- =========================
-     CONTACT
-========================= -->
+                        </p>
 
-<section class="contact" id="contact">
+                        <div class="exp-new-skills">
 
-<div class="container contact-grid">
+                            <span>
+                                Nursing
+                            </span>
 
+                            <span>
+                                Patient Care
+                            </span>
 
-<div class="contact-content">
+                            <span>
+                                Clinical Workflows
+                            </span>
 
-<div class="section-title" style="text-align:left;margin-bottom:10px;">
+                            <span>
+                                Healthcare Policies
+                            </span>
 
-<span>Connect</span>
+                        </div>
 
-<h2>
-Let's Work Together
-</h2>
+                    </div>
 
-</div>
+                </div>
 
-<p>
-If you are looking for professional Virtual Medical Assistant or healthcare administrative support, send me a message with your requirements.
-</p>
+            </div>
 
+        </div>
 
-<div class="contact-details">
+    </section>
 
-<div>
-<strong>Email</strong>
-<br>
-YOUR-EMAIL@example.com
-</div>
 
-<div>
-<strong>LinkedIn</strong>
-<br>
-Add Your LinkedIn Profile
-</div>
+    <!-- ========================================================= -->
+    <!-- WORK / CASE STUDIES -->
+    <!-- ========================================================= -->
 
-<div>
-<strong>Availability</strong>
-<br>
-Available for Virtual Healthcare Support Opportunities
-</div>
+    <section class="work" id="work">
 
-</div>
+        <div class="container">
 
-</div>
+            <div class="work-header">
 
+                <span class="section-tag">
+                    Professional Work
+                </span>
 
-<form onsubmit="submitForm(event)">
+                <h2 class="section-title">
 
-<div class="form-group">
+                    Healthcare Support.
 
-<label>
-Name
-</label>
+                    <span>
+                        Organized. Delivered.
+                    </span>
 
-<input
-type="text"
-placeholder="Your Name"
-required
->
+                </h2>
 
-</div>
+                <p class="section-sub">
 
+                    Selected examples of healthcare administrative
+                    and virtual assistant workflows.
 
-<div class="form-group">
+                </p>
 
-<label>
-Email
-</label>
+            </div>
 
-<input
-type="email"
-placeholder="Your Email"
-required
->
 
-</div>
+            <div class="work-grid-new">
 
 
-<div class="form-group">
+                <div class="work-new">
 
-<label>
-Service
-</label>
+                    <div class="work-new-icon">
 
-<select>
+                        <i class="fas fa-calendar-check"></i>
 
-<option>Virtual Medical Assistant</option>
+                    </div>
 
-<option>Patient Scheduling</option>
+                    <h3>
+                        Patient Scheduling Workflow
+                    </h3>
 
-<option>Prior Authorization</option>
+                    <p>
 
-<option>Insurance Verification</option>
+                        Appointment scheduling, follow-ups,
+                        telehealth visits, and patient coordination.
 
-<option>Patient Support</option>
+                    </p>
 
-<option>Telehealth Support</option>
+                    <span class="work-new-cta">
+                        View Work Sample →
+                    </span>
 
-</select>
+                </div>
 
-</div>
 
+                <div class="work-new">
 
-<div class="form-group">
+                    <div class="work-new-icon">
 
-<label>
-Message
-</label>
+                        <i class="fas fa-file-medical"></i>
 
-<textarea
-placeholder="Tell me about your requirements..."
-required
-></textarea>
+                    </div>
 
-</div>
+                    <h3>
+                        EHR / EMR Workflow
+                    </h3>
 
+                    <p>
 
-<button
-type="submit"
-class="btn btn-primary"
->
-Send Request
-</button>
+                        Experience working with healthcare documentation
+                        and electronic medical record systems.
 
-</form>
+                    </p>
 
+                    <span class="work-new-cta">
+                        View Work Sample →
+                    </span>
 
-</div>
+                </div>
 
-</section>
 
+                <div class="work-new">
 
-<!-- =========================
-     FOOTER
-========================= -->
+                    <div class="work-new-icon">
 
-<footer>
+                        <i class="fas fa-shield-alt"></i>
 
-<div class="container">
+                    </div>
 
-<div class="footer-grid">
+                    <h3>
+                        Insurance & Authorization Support
+                    </h3>
 
+                    <p>
 
-<div>
+                        Insurance eligibility, verification,
+                        prior authorization, and follow-up workflows.
 
-<h3>
-Muzzamil Hussain
-</h3>
+                    </p>
 
-<p>
-Registered Nurse and Virtual Medical Assistant providing healthcare administrative, patient support, scheduling, and virtual assistance services.
-</p>
+                    <span class="work-new-cta">
+                        View Work Sample →
+                    </span>
 
-</div>
+                </div>
 
+            </div>
 
-<div>
+        </div>
 
-<h3>
-Explore
-</h3>
+    </section>
 
-<div class="footer-links">
 
-<a href="#about">About</a>
+    <!-- ========================================================= -->
+    <!-- WORK SAMPLES -->
+    <!-- ========================================================= -->
 
-<a href="#services">Services</a>
+    <section class="work-samples" id="work-samples">
 
-<a href="#experience">Experience</a>
+        <div class="container">
 
-<a href="#work">Work Samples</a>
+            <span class="section-tag">
+                Work Samples
+            </span>
 
-</div>
+            <h2 class="section-title">
 
-</div>
+                My Healthcare
 
+                <span>
+                    Work Samples
+                </span>
 
-<div>
+            </h2>
 
-<h3>
-Connect
-</h3>
+            <p class="section-sub">
 
-<div class="footer-links">
+                Selected examples of healthcare systems,
+                administrative workflows, and professional work.
 
-<a href="#contact">Request Services</a>
+            </p>
 
-<a href="#contact">Contact</a>
 
-</div>
+            <div class="work-samples-carousel-wrapper">
 
-</div>
+                <div class="work-samples-track"
+                    id="workSamplesTrack">
 
 
-</div>
+                    <!-- SAMPLE 1 -->
 
+                    <div class="work-sample-item">
 
-<div class="copyright">
+                        <div class="work-sample-image">
 
-© 2026 Muzzamil Hussain. All rights reserved.
+                            <div class="image-placeholder">
 
-</div>
+                                <i class="fas fa-calendar-check"></i>
 
-</div>
+                                <h3>
+                                    Patient Scheduling
+                                </h3>
 
-</footer>
+                                <p>
+                                    Image Coming Soon
+                                </p>
 
+                            </div>
 
-<script>
+                        </div>
 
-function toggleMenu() {
+                    </div>
 
-document
-.getElementById("navLinks")
-.classList
-.toggle("active");
 
-}
+                    <!-- SAMPLE 2 -->
 
+                    <div class="work-sample-item">
 
-document
-.querySelectorAll(".nav-links a")
-.forEach(function(link) {
+                        <div class="work-sample-image">
 
-link.addEventListener("click", function() {
+                            <div class="image-placeholder">
 
-document
-.getElementById("navLinks")
-.classList
-.remove("active");
+                                <i class="fas fa-laptop-medical"></i>
 
-});
+                                <h3>
+                                    eClinicalWorks
+                                </h3>
 
-});
+                                <p>
+                                    Image Coming Soon
+                                </p>
 
+                            </div>
 
-function submitForm(event) {
+                        </div>
 
-event.preventDefault();
+                    </div>
 
-alert(
-"Thank you for your message. Please connect this form to your email service before publishing."
-);
 
-}
+                    <!-- SAMPLE 3 -->
 
-</script>
+                    <div class="work-sample-item">
 
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-file-medical"></i>
+
+                                <h3>
+                                    DrChrono
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 4 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-database"></i>
+
+                                <h3>
+                                    Practice Fusion
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 5 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-notes-medical"></i>
+
+                                <h3>
+                                    DrNotes
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 6 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-clinic-medical"></i>
+
+                                <h3>
+                                    AthenaHealth
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 7 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-shield-alt"></i>
+
+                                <h3>
+                                    Insurance Verification
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 8 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-file-signature"></i>
+
+                                <h3>
+                                    Prior Authorization
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAMPLE 9 -->
+
+                    <div class="work-sample-item">
+
+                        <div class="work-sample-image">
+
+                            <div class="image-placeholder">
+
+                                <i class="fas fa-video"></i>
+
+                                <h3>
+                                    Telehealth Support
+                                </h3>
+
+                                <p>
+                                    Image Coming Soon
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- TESTIMONIALS -->
+    <!-- ========================================================= -->
+
+    <section class="testimonials" id="testimonials">
+
+        <div class="container">
+
+            <div class="testimonials-header">
+
+                <span class="section-tag">
+                    Testimonials
+                </span>
+
+                <h2 class="section-title">
+
+                    Client
+
+                    <span>
+                        Feedback
+                    </span>
+
+                </h2>
+
+                <p class="section-sub">
+
+                    Testimonials can be added here as you receive
+                    verified feedback from clients and employers.
+
+                </p>
+
+            </div>
+
+
+            <div class="testimonial-carousel-wrapper">
+
+                <div class="testimonial-carousel-track"
+                    id="testimonialCarouselTrack">
+
+
+                    <!-- TESTIMONIAL PLACEHOLDER -->
+
+                    <div class="testimonial-carousel-item">
+
+                        <div class="testimonial-carousel-content">
+
+                            <div class="testimonial-carousel-quote">
+                                "
+                            </div>
+
+                            <p>
+
+                                Your verified client testimonial
+                                will appear here.
+
+                            </p>
+
+                            <div class="testimonial-carousel-author">
+
+                                <div class="testimonial-carousel-avatar">
+                                    +
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Client Testimonial
+                                    </strong>
+
+                                    <span>
+                                        Healthcare Professional
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="testimonial-carousel-dots"
+                    id="testimonialDots">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- CERTIFICATIONS -->
+    <!-- ========================================================= -->
+
+    <section class="certifications" id="certifications">
+
+        <div class="container">
+
+            <span class="section-tag">
+                Certifications
+            </span>
+
+            <h2 class="section-title">
+
+                Professional
+
+                <span>
+                    Certifications
+                </span>
+
+            </h2>
+
+
+            <div class="certifications-grid">
+
+
+                <!-- CERTIFICATE 1 -->
+
+                <div class="cert-card">
+
+                    <div class="cert-icon">
+
+                        <i class="fas fa-certificate"></i>
+
+                    </div>
+
+                    <h3>
+                        Nursing Degree & Professional Credentials
+                    </h3>
+
+                    <p>
+                        Certificate image and credential details
+                        will be added here.
+                    </p>
+
+                    <div class="certificate-placeholder">
+                        Certificate Image Coming Soon
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 2 -->
+
+                <div class="cert-card">
+
+                    <div class="cert-icon">
+
+                        <i class="fas fa-shield-alt"></i>
+
+                    </div>
+
+                    <h3>
+                        HIPAA / Healthcare Privacy Certification
+                    </h3>
+
+                    <p>
+                        Certificate image and credential details
+                        will be added here.
+                    </p>
+
+                    <div class="certificate-placeholder">
+                        Certificate Image Coming Soon
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 3 -->
+
+                <div class="cert-card">
+
+                    <div class="cert-icon">
+
+                        <i class="fas fa-heartbeat"></i>
+
+                    </div>
+
+                    <h3>
+                        BLS / Healthcare Training
+                    </h3>
+
+                    <p>
+                        Certificate image and credential details
+                        will be added here.
+                    </p>
+
+                    <div class="certificate-placeholder">
+                        Certificate Image Coming Soon
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 4 -->
+
+                <div class="cert-card">
+
+                    <div class="cert-icon">
+
+                        <i class="fas fa-laptop-medical"></i>
+
+                    </div>
+
+                    <h3>
+                        Virtual Medical Assistant Training
+                    </h3>
+
+                    <p>
+                        Certificate image and credential details
+                        will be added here.
+                    </p>
+
+                    <div class="certificate-placeholder">
+                        Certificate Image Coming Soon
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- WORKFLOW -->
+    <!-- ========================================================= -->
+
+    <section class="workflow" id="workflow">
+
+        <div class="container">
+
+            <span class="section-tag">
+                My Process
+            </span>
+
+            <h2 class="section-title">
+
+                My
+
+                <span>
+                    Workflow
+                </span>
+
+            </h2>
+
+            <p class="section-sub">
+
+                A structured approach to providing reliable
+                healthcare administrative and virtual support.
+
+            </p>
+
+
+            <div class="workflow-grid">
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+
+                        Understand your practice,
+                        workflow, systems, and support requirements.
+
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Organize
+                    </h3>
+
+                    <p>
+
+                        Organize tasks, priorities,
+                        patient communication, and administrative workflows.
+
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Execute
+                    </h3>
+
+                    <p>
+
+                        Complete assigned tasks accurately
+                        and according to established practice workflows.
+
+                    </p>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Communicate
+                    </h3>
+
+                    <p>
+
+                        Provide clear updates and maintain
+                        professional communication throughout the process.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- WHY WORK WITH ME -->
+    <!-- ========================================================= -->
+
+    <section class="why-work" id="why-work">
+
+        <div class="container">
+
+            <span class="section-tag">
+                Why Work With Me
+            </span>
+
+            <h2 class="section-title">
+
+                Why
+
+                <span>
+                    Choose Me
+                </span>
+
+            </h2>
+
+
+            <div class="why-grid">
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-user-nurse"></i>
+
+                    <h3>
+                        Healthcare Background
+                    </h3>
+
+                    <p>
+
+                        Healthcare and nursing knowledge
+                        supporting a better understanding of
+                        patient-centered workflows.
+
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-comments"></i>
+
+                    <h3>
+                        Patient-Centered Communication
+                    </h3>
+
+                    <p>
+
+                        Professional and respectful communication
+                        with patients and healthcare teams.
+
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-laptop-medical"></i>
+
+                    <h3>
+                        EHR / EMR Experience
+                    </h3>
+
+                    <p>
+
+                        Familiarity with multiple healthcare
+                        technology and electronic record systems.
+
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-check-circle"></i>
+
+                    <h3>
+                        Detail-Oriented
+                    </h3>
+
+                    <p>
+
+                        Focused on accuracy, organization,
+                        follow-up, and completing tasks responsibly.
+
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <i class="fas fa-sync-alt"></i>
+
+                    <h3>
+                        Adaptable Support
+                    </h3>
+
+                    <p>
+
+                        Able to adapt to different healthcare
+                        workflows, systems, and administrative needs.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- CONTACT -->
+    <!-- ========================================================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="contact-grid">
+
+
+                <div class="contact-left">
+
+                    <span class="section-tag">
+                        Connect
+                    </span>
+
+                    <h2 class="section-title">
+
+                        Let's
+
+                        <span>
+                            Work Together
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Looking for a reliable Medical Virtual Assistant
+                        to support your healthcare practice?
+
+                        I can help with scheduling, patient communication,
+                        EHR/EMR workflows, insurance verification,
+                        prior authorization support, and administrative tasks.
+
+                    </p>
+
+
+                    <p class="contact-highlight">
+
+                        Send me a message to discuss your
+                        virtual assistant support requirements.
+
+                    </p>
+
+
+                    <!-- SOCIAL LINKS -->
+
+                    <div class="contact-social">
+
+
+                        <!-- REPLACE # WITH YOUR REAL LINKS -->
+
+                        <a href="#"
+                            target="_blank"
+                            aria-label="LinkedIn">
+
+                            <i class="fab fa-linkedin-in"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                            target="_blank"
+                            aria-label="WhatsApp">
+
+                            <i class="fab fa-whatsapp"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                            target="_blank"
+                            aria-label="Email">
+
+                            <i class="fas fa-envelope"></i>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-right">
+
+
+                    <!-- CONTACT FORM -->
+
+                    <form id="contactForm"
+                        action="#"
+                        method="POST">
+
+
+                        <div class="form-group">
+
+                            <input type="text"
+                                name="name"
+                                placeholder="Your Name"
+                                required />
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="email"
+                                name="email"
+                                placeholder="Email Address"
+                                required />
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <input type="text"
+                                name="practice"
+                                placeholder="Practice / Organization (Optional)" />
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <textarea name="message"
+                                placeholder="Tell me about your practice and the support you need..."
+                                required>
+                            </textarea>
+
+                        </div>
+
+
+                        <button type="submit"
+                            class="btn btn-primary btn-block">
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- RESUME -->
+
+                    <div class="resume-button">
+
+                        <a href="./assets/Muzzamil_Hussain_Resume.pdf"
+                            download
+                            class="btn btn-download btn-block">
+
+                            <i class="fas fa-download"></i>
+
+                            Download Resume / CV
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                © 2026 Muzzamil Hussain · Medical Virtual Assistant
+
+            </p>
+
+            <p class="footer-tagline">
+
+                Helping Healthcare Teams Stay Organized
+                So They Can Focus on Patient Care.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ========================================================= -->
+    <!-- BACK TO TOP -->
+    <!-- ========================================================= -->
+
+    <button class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top">
+
+        <i class="fas fa-chevron-up"></i>
+
+    </button>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
