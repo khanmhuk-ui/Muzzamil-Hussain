@@ -1,387 +1,590 @@
 index.html 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muzzamil | Virtual Medical Assistant & Prior Authorization Specialist</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+```
+<title>
+    Muzzamil Khan Hussain Khan | Virtual Medical Assistant | Prior Authorization Specialist | Registered Nurse
+</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: #f8fafc;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
 
-        header {
-            background: #0f172a;
-            color: white;
-            padding: 20px 8%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #1f2937;
+        background: #f8fafc;
+    }
+
+    header {
+        background: #0f172a;
+        color: white;
+        padding: 20px 8%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    nav ul li a:hover {
+        color: #38bdf8;
+    }
+
+    .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        padding: 60px 8%;
+        background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    }
+
+    .hero-content {
+        max-width: 850px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: #0f172a;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+        color: #0284c7;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #475569;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        margin-right: 10px;
+        background: #0284c7;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #0369a1;
+    }
+
+    .btn-secondary {
+        background: #0f172a;
+    }
+
+    section {
+        padding: 80px 8%;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 45px;
+        color: #0f172a;
+    }
+
+    .about {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        font-size: 18px;
+        color: #475569;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+        margin-bottom: 15px;
+        color: #0284c7;
+    }
+
+    .card ul {
+        padding-left: 20px;
+        color: #475569;
+    }
+
+    .skills {
+        background: #e0f2fe;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .skill {
+        background: white;
+        padding: 10px 18px;
+        border-radius: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .experience {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .experience-item {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-left: 5px solid #0284c7;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    }
+
+    .contact {
+        text-align: center;
+        background: #0f172a;
+        color: white;
+    }
+
+    .contact h2 {
+        color: white;
+    }
+
+    .contact p {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #020617;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+            flex-direction: column;
+            gap: 15px;
         }
 
         nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding: 60px 8%;
-            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
-        }
-
-        .hero-content {
-            max-width: 750px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            color: #0f172a;
+            font-size: 36px;
         }
 
         .hero h2 {
-            font-size: 24px;
-            color: #0284c7;
-            margin-bottom: 20px;
+            font-size: 20px;
         }
+    }
+</style>
+```
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #475569;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin-right: 10px;
-            background: #0284c7;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: #0369a1;
-        }
-
-        .btn-secondary {
-            background: #0f172a;
-        }
-
-        section {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 45px;
-            color: #0f172a;
-        }
-
-        .about {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-            color: #475569;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: #0284c7;
-        }
-
-        .card ul {
-            padding-left: 20px;
-            color: #475569;
-        }
-
-        .skills {
-            background: #e0f2fe;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .skill {
-            background: white;
-            padding: 10px 18px;
-            border-radius: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .experience {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #0284c7;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-        }
-
-        .contact {
-            text-align: center;
-            background: #0f172a;
-            color: white;
-        }
-
-        .contact h2 {
-            color: white;
-        }
-
-        .contact p {
-            margin-bottom: 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
 <header>
     <nav>
-        <div class="logo">Muzzamil</div>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+```
+    <div class="logo">
+        Muzzamil Khan Hussain Khan
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+```
+
 </header>
 
+<!-- HERO SECTION -->
+
 <section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Hi, I'm Muzzamil</h1>
 
-        <h2>Virtual Medical Assistant & Prior Authorization Specialist</h2>
+```
+<div class="hero-content">
 
-        <p>
-            I help healthcare practices streamline patient scheduling,
-            administrative workflows, EMR support, insurance coordination,
-            and prior authorization processes.
-        </p>
+    <h1>
+        Hi, I'm Muzzamil Khan Hussain Khan
+    </h1>
 
-        <a href="#services" class="btn">View My Services</a>
-        <a href="#contact" class="btn btn-secondary">Contact Me</a>
-    </div>
-</section>
-
-<section id="about">
-    <h2 class="section-title">About Me</h2>
-
-    <div class="about">
-        <p>
-            I am a healthcare professional with experience in virtual medical
-            assistance, patient scheduling, insurance coordination, prior
-            authorization, and clinical administrative support. I combine
-            healthcare knowledge with strong communication and organizational
-            skills to support healthcare providers and improve the patient
-            experience.
-        </p>
-    </div>
-</section>
-
-<section id="services">
-    <h2 class="section-title">My Services</h2>
-
-    <div class="services-grid">
-
-        <div class="card">
-            <h3>Virtual Medical Assistant</h3>
-            <ul>
-                <li>Patient Scheduling</li>
-                <li>Appointment Coordination</li>
-                <li>Patient Communication</li>
-                <li>EMR/EHR Support</li>
-                <li>Telehealth Administrative Support</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Prior Authorization</h3>
-            <ul>
-                <li>Insurance Verification</li>
-                <li>Prior Authorization Submission</li>
-                <li>Authorization Follow-up</li>
-                <li>Insurance Portal Coordination</li>
-                <li>Denial Management Support</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Patient Support</h3>
-            <ul>
-                <li>Inbound & Outbound Calls</li>
-                <li>Patient Follow-up</li>
-                <li>Provider Communication</li>
-                <li>Appointment Reminders</li>
-                <li>Administrative Coordination</li>
-            </ul>
-        </div>
-
-    </div>
-</section>
-
-<section class="skills" id="skills">
-    <h2 class="section-title">Skills & Tools</h2>
-
-    <div class="skills-list">
-        <span class="skill">EMR / EHR</span>
-        <span class="skill">Patient Scheduling</span>
-        <span class="skill">Prior Authorization</span>
-        <span class="skill">Insurance Verification</span>
-        <span class="skill">Practice Fusion</span>
-        <span class="skill">DrChrono</span>
-        <span class="skill">CureMD</span>
-        <span class="skill">eClinicalWorks</span>
-        <span class="skill">Cerner</span>
-        <span class="skill">AthenaHealth</span>
-        <span class="skill">Availity</span>
-        <span class="skill">RingCentral</span>
-        <span class="skill">Microsoft Excel</span>
-        <span class="skill">Google Sheets</span>
-    </div>
-</section>
-
-<section id="experience">
-    <h2 class="section-title">Professional Experience</h2>
-
-    <div class="experience">
-
-        <div class="experience-item">
-            <h3>Virtual Medical Assistant</h3>
-            <p>
-                Supported healthcare practices with patient scheduling,
-                appointment coordination, EMR/EHR workflows, patient
-                communication, and administrative support.
-            </p>
-        </div>
-
-        <div class="experience-item">
-            <h3>Prior Authorization Specialist</h3>
-            <p>
-                Assisted with insurance verification, authorization requests,
-                insurance portal coordination, follow-up, and administrative
-                support for healthcare services.
-            </p>
-        </div>
-
-        <div class="experience-item">
-            <h3>Patient Support Specialist</h3>
-            <p>
-                Managed patient communications, appointment-related inquiries,
-                insurance-related support, and coordination with healthcare teams.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section id="contact" class="contact">
-    <h2 class="section-title">Let's Work Together</h2>
+    <h2>
+        Virtual Medical Assistant | Prior Authorization Specialist | Registered Nurse
+    </h2>
 
     <p>
-        Interested in working with me? Feel free to get in touch.
+        I am a healthcare professional and Registered Nurse with experience
+        in Virtual Medical Assistance, Prior Authorization, patient
+        scheduling, insurance coordination, EMR/EHR support, and
+        healthcare administrative workflows. I help healthcare practices
+        streamline operations, support patients, and improve the overall
+        healthcare experience.
     </p>
 
-    <a href="mailto:your-email@example.com" class="btn">
-        Email Me
+    <a href="#services" class="btn">
+        View My Services
     </a>
+
+    <a href="#contact" class="btn btn-secondary">
+        Contact Me
+    </a>
+
+</div>
+```
+
 </section>
 
+<!-- ABOUT SECTION -->
+
+<section id="about">
+
+```
+<h2 class="section-title">
+    About Me
+</h2>
+
+<div class="about">
+
+    <p>
+        I am a Registered Nurse and healthcare professional with experience
+        in Virtual Medical Assistance, patient scheduling, insurance
+        coordination, Prior Authorization, and clinical administrative
+        support. I combine healthcare knowledge with strong communication,
+        organizational, and patient-support skills to assist healthcare
+        providers and improve the patient experience.
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- SERVICES SECTION -->
+
+<section id="services">
+
+```
+<h2 class="section-title">
+    My Services
+</h2>
+
+<div class="services-grid">
+
+
+    <!-- VIRTUAL MEDICAL ASSISTANT -->
+
+    <div class="card">
+
+        <h3>
+            Virtual Medical Assistant
+        </h3>
+
+        <ul>
+            <li>Patient Scheduling</li>
+            <li>Appointment Scheduling & Coordination</li>
+            <li>Patient Communication</li>
+            <li>Inbound & Outbound Calls</li>
+            <li>EMR/EHR Support</li>
+            <li>Telehealth Administrative Support</li>
+            <li>Patient Follow-up</li>
+            <li>Referral Coordination</li>
+            <li>Medication Refill Coordination</li>
+            <li>Patient Query Handling</li>
+        </ul>
+
+    </div>
+
+
+    <!-- PRIOR AUTHORIZATION -->
+
+    <div class="card">
+
+        <h3>
+            Prior Authorization Specialist
+        </h3>
+
+        <ul>
+            <li>Insurance Verification & Eligibility Checks</li>
+            <li>Prior Authorization Submission</li>
+            <li>Authorization Follow-up</li>
+            <li>Insurance Portal Coordination</li>
+            <li>Denial Management Support</li>
+            <li>Documentation Coordination</li>
+            <li>Insurance Communication</li>
+        </ul>
+
+    </div>
+
+
+    <!-- REGISTERED NURSE -->
+
+    <div class="card">
+
+        <h3>
+            Registered Nurse
+        </h3>
+
+        <ul>
+            <li>Patient-Centered Care</li>
+            <li>Clinical Communication</li>
+            <li>Patient Education</li>
+            <li>Healthcare Coordination</li>
+            <li>Clinical Documentation</li>
+            <li>Patient Assessment Support</li>
+            <li>Healthcare Team Collaboration</li>
+        </ul>
+
+    </div>
+
+
+    <!-- PATIENT SUPPORT -->
+
+    <div class="card">
+
+        <h3>
+            Patient Support
+        </h3>
+
+        <ul>
+            <li>Inbound & Outbound Calls</li>
+            <li>Patient Follow-up</li>
+            <li>Provider Communication</li>
+            <li>Appointment Reminders</li>
+            <li>Patient Query Handling</li>
+            <li>Patient Satisfaction Support</li>
+            <li>Administrative Coordination</li>
+        </ul>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- SKILLS & TOOLS SECTION -->
+
+<section class="skills" id="skills">
+
+```
+<h2 class="section-title">
+    Skills & Tools
+</h2>
+
+<div class="skills-list">
+
+    <span class="skill">Registered Nurse</span>
+
+    <span class="skill">Virtual Medical Assistant</span>
+
+    <span class="skill">Prior Authorization</span>
+
+    <span class="skill">Patient Scheduling</span>
+
+    <span class="skill">Insurance Verification</span>
+
+    <span class="skill">Insurance Eligibility</span>
+
+    <span class="skill">Patient Support</span>
+
+    <span class="skill">EMR / EHR</span>
+
+    <span class="skill">Telehealth Support</span>
+
+    <span class="skill">Practice Fusion</span>
+
+    <span class="skill">DrChrono</span>
+
+    <span class="skill">CureMD</span>
+
+    <span class="skill">eClinicalWorks</span>
+
+    <span class="skill">Cerner</span>
+
+    <span class="skill">AthenaHealth</span>
+
+    <span class="skill">Availity</span>
+
+    <span class="skill">RingCentral</span>
+
+    <span class="skill">Microsoft Excel</span>
+
+    <span class="skill">Google Sheets</span>
+
+</div>
+```
+
+</section>
+
+<!-- EXPERIENCE SECTION -->
+
+<section id="experience">
+
+```
+<h2 class="section-title">
+    Professional Experience
+</h2>
+
+<div class="experience">
+
+
+    <div class="experience-item">
+
+        <h3>
+            Virtual Medical Assistant
+        </h3>
+
+        <p>
+            Supported healthcare practices with patient scheduling,
+            appointment coordination, EMR/EHR workflows, patient
+            communication, telehealth administrative support, patient
+            follow-up, referrals, medication refill coordination, and
+            healthcare administrative tasks.
+        </p>
+
+    </div>
+
+
+    <div class="experience-item">
+
+        <h3>
+            Prior Authorization Specialist
+        </h3>
+
+        <p>
+            Assisted with insurance verification, eligibility checks,
+            prior authorization requests, insurance portal coordination,
+            authorization follow-up, documentation coordination, and
+            administrative support for healthcare services.
+        </p>
+
+    </div>
+
+
+    <div class="experience-item">
+
+        <h3>
+            Registered Nurse
+        </h3>
+
+        <p>
+            Healthcare professional with nursing knowledge and experience
+            supporting patient-centered care, clinical communication,
+            patient education, healthcare coordination, documentation,
+            and collaboration with healthcare teams.
+        </p>
+
+    </div>
+
+
+    <div class="experience-item">
+
+        <h3>
+            Patient Support Specialist
+        </h3>
+
+        <p>
+            Managed patient communications, appointment-related inquiries,
+            insurance-related support, patient follow-up, and coordination
+            with healthcare teams to support a positive patient experience.
+        </p>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section id="contact" class="contact">
+
+```
+<h2 class="section-title">
+    Let's Work Together
+</h2>
+
+<p>
+    Interested in working with me? Feel free to get in touch.
+</p>
+
+<a href="mailto:your-email@example.com" class="btn">
+    Email Me
+</a>
+```
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
-    <p>© 2026 Muzzamil. All Rights Reserved.</p>
+
+```
+<p>
+    © 2026 Muzzamil Khan Hussain Khan. All Rights Reserved.
+</p>
+```
+
 </footer>
 
 </body>
 </html>
+
